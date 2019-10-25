@@ -1,19 +1,8 @@
 <?php
 
-if ( 'posts' == get_option( 'show_on_front' ) ) {
-    include( get_home_template() );
-} else {
-    if ( ! is_page_template() ) {
-        get_header();
+/* Front Page */
 
-        get_template_part( 'template-parts/front-page/cover' );
-        get_template_part( 'template-parts/front-page/services' );
-
-        ?>
-
-    <?php } ?>
-
-<?php } ?>
+get_header(); ?>
 
 <?php if( have_rows('home_content') ) { ?>
 
@@ -264,6 +253,59 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
                     </div>
 
                 </div>
+
+            </section>
+
+        <?php } elseif( get_row_layout() == 'hero' ) { ?>
+
+            <section class="home-hero">
+
+                <?php if( have_rows('slider') ) { ?>
+
+                    <div class="hero-slider">
+
+                        <?php while( have_rows('slider') ) { the_row();
+                            $title = get_sub_field('title');
+                            $link = get_sub_field('button');
+                            $bg = get_sub_field('background_image');
+                            ?>
+
+                            <div class="home-hero-slider b-lazy" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+
+                                <div class="container">
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <div class="home-hero-inner">
+
+                                                <div class="d-flex flex-column justify-content-center align-center float-md-right">
+
+                                                    <div class="home-hero-box mt-2 mb-2 text-center text-md-right">
+
+                                                        <?php if( $title ) { ?><h1 class="home-hero-title text-uppercase text-white font-gotham-medium"><?php echo $title; ?></h1><?php } ?>
+                                                        <?php if( $link ) { ?><h3 class="mt-3"><a class="btn-blue" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></h3><?php } ?>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        <?php } ?>
+
+                    </div>
+
+                <?php } ?>
 
             </section>
 

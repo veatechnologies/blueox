@@ -18,12 +18,101 @@
             "layouts": {
                 "layout_5db2377145176": {
                     "key": "layout_5db2377145176",
+                    "name": "hero",
+                    "label": "Hero Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db3734983633",
+                            "label": "Slider",
+                            "name": "slider",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Slider",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5db287ce52fdc",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5db28a5523996",
+                                    "label": "Button",
+                                    "name": "button",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": ""
+                                },
+                                {
+                                    "key": "field_5db28a1523995",
+                                    "label": "Background Image",
+                                    "name": "background_image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5db373098362d": {
+                    "key": "layout_5db373098362d",
                     "name": "videos",
                     "label": "Videos",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5db287ce52fdc",
+                            "key": "field_5db373098362e",
                             "label": "Title",
                             "name": "title",
                             "type": "text",
@@ -42,7 +131,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5db287d952fdd",
+                            "key": "field_5db373098362f",
                             "label": "Content",
                             "name": "content",
                             "type": "wysiwyg",
@@ -61,7 +150,7 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_5db28a1523995",
+                            "key": "field_5db3730983630",
                             "label": "Preview Image",
                             "name": "image",
                             "type": "image",
@@ -85,7 +174,7 @@
                             "mime_types": ""
                         },
                         {
-                            "key": "field_5db28a5523996",
+                            "key": "field_5db3730983631",
                             "label": "Button",
                             "name": "button",
                             "type": "link",
@@ -100,7 +189,7 @@
                             "return_format": "array"
                         },
                         {
-                            "key": "field_5db346da6f680",
+                            "key": "field_5db3730983632",
                             "label": "YouTube URL",
                             "name": "yt_video",
                             "type": "url",
@@ -475,5 +564,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1572030205
+    "modified": 1572041989
 }

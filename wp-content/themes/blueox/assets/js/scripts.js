@@ -20,18 +20,15 @@
         fixedContentPos: false
     });
 
-    // Tiny-sliders
-    if( $('.hero-slider').length ) {
-        var slider = tns({
-            container: '.hero-slider',
-            items: 1,
-            autoplay: true,
-            speed: 500,
-            lazyload: true,
-            loop: true,
-            lazyloadSelector: '.hero-img'
-        });
-    }
+    // Slick
+    $('.hero-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: true
+    });
+    $('.hero-slider').on('afterChange', function(event, slick, direction){
+        bLazy.revalidate();
+    });
 
     // Search Bar
     $('.nav-search').html('<form role="search" method="get" class="searchform wp-bootstrap-4-searchform" action="/"><input type="text" class="s form-control nav-search-input" name="s" placeholder="Search &#xF002;" value=""></form>');
