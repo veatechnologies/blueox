@@ -1,0 +1,222 @@
+/**
+ *
+ * Custom CSS
+ *
+ */
+
+ /* ____________________________________________________ */
+
+/* General */
+
+
+/* Text & Fonts */
+.text-blue {
+    color: #1b3d80;
+}
+.text-light-blue {
+    color: #3a60c3;
+}
+.font-gotham-book {
+    font-family: 'Gotham-Book', sans-serif;
+    font-weight: normal;
+}
+.font-gotham-light {
+    font-family: 'Gotham-Light', sans-serif;
+    font-weight: 300;
+}
+.font-gotham-medium {
+    font-family: 'Gotham-Medium', sans-serif;
+    font-weight: 700;
+}
+.font-gotham-thin {
+    font-family: 'Gotham-Thin', sans-serif;
+    font-weight: 100;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.75rem
+}
+h5 {
+    font-size: 1.5rem;
+}
+h6 {
+    font-size: 1.25rem'
+}
+.lead {
+    font-size: 125%;
+    font-weight: 300;
+}
+
+/* Misc */
+.btn-blue {
+    color: #fff;
+    font-family: 'Gotham-Light', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    border: 1px solid #1b3d80;
+    width: auto;
+    background-color: #1b3d80;
+    transition: all 300ms ease-in-out;
+}
+.btn-blue::after {
+    color: inherit;
+    content: "\f054 \f054";
+    font-family: 'FontAwesome';
+    padding-left: 5px;
+}
+.btn-blue:hover {
+    color: #1b3d80;
+    text-decoration: none;
+    background-color: #fff;
+}
+.btn-white {
+    color: #1b3d80;
+    font-family: 'Gotham-Light', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    border: 1px solid #fff;
+    width: auto;
+    background-color: #fff;
+    transition: all 300ms ease-in-out;
+}
+.btn-white::after {
+    color: inherit;
+    content: "\f054 \f054";
+    font-family: 'FontAwesome';
+    padding-left: 5px;
+}
+.btn-white:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1b3d80;
+}
+.btn-gray {
+    color: #fff;
+    font-family: 'Gotham-Light', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    border: 1px solid #404040;
+    width: auto;
+    background-color: #404040;
+    transition: all 300ms ease-in-out;
+}
+.btn-gray::after {
+    color: inherit;
+    content: "\f054 \f054";
+    font-family: 'FontAwesome';
+    padding-left: 5px;
+}
+.btn-gray:hover {
+    color: #404040;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+/* Header */
+
+
+/* Nav */
+
+
+/* Body */
+
+
+/* Pages */
+
+
+    /* Home */
+    .home-videos {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background: #244483;
+        background: -moz-linear-gradient(-65deg,  #244483 0%, #244483 65%, #1b3d80 65%, #1b3d80 100%);
+        background: -webkit-linear-gradient(-65deg,  #244483 0%,#244483 65%,#1b3d80 65%,#1b3d80 100%);
+        background: linear-gradient(115deg,  #244483 0%,#244483 65%,#1b3d80 65%,#1b3d80 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#244483', endColorstr='#1b3d80',GradientType=1 );
+    }
+        .home-videos-box {
+            width: 100%;
+        }
+        .home-videos-play {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .home-videos-play-button {
+            font-size: 1.5rem;
+            transition: all 300ms ease-in-out;
+        }
+        .home-videos-play-button:hover {
+            color: rgba(255,255,255,.8) !important;
+        }
+    .home-reviews {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+        .home-reviews-box {
+            position: relative;
+            padding: 25px;
+            background-color: rgba(255,255,255,.8);
+        }
+        .review-name i {
+            color: #c2ab8d;
+        }
+        .review-date {
+            color: #999;
+            top: 25px;
+            right: 25px;
+            position: absolute;
+        }
+        .review-location {
+            color: #999;
+        }
+    .home-categories {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background-color: #fff;
+    }
+    .home-cta {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+
+/* Blog */
+
+
+/* Sidebar */
+
+
+/* Forms */
+
+
+/* Footer */
+.footer-affilitions {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #fff;
+}
+
+/* Media */
+@media (min-width: 768px) {
+    .home-videos-box {
+        width: 49%;
+    }
+}
