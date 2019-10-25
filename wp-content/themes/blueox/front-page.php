@@ -25,7 +25,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
             $bg = get_sub_field('background_image');
             ?>
 
-            <div class="home-cta<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+            <section class="home-cta<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
 
                 <div class="container">
 
@@ -63,13 +63,13 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 
                 </div>
 
-            </div>
+            </section>
 
         <?php } elseif( get_row_layout() == 'categories' ) {
             $title = get_sub_field('title');
             ?>
 
-            <div class="home-categories">
+            <section class="home-categories">
 
                 <div class="container">
 
@@ -116,13 +116,13 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 
                 </div>
 
-            </div>
+            </section>
 
         <?php } elseif( get_row_layout() == 'reviews' ) {
             $bg = get_sub_field('background_image');
             ?>
 
-            <div class="home-reviews<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+            <section class="home-reviews<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
 
                 <div class="container">
 
@@ -208,7 +208,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 
                 </div>
 
-            </div>
+            </section>
 
         <?php } elseif( get_row_layout() == 'videos' ) {
             $title = get_sub_field('title');
@@ -218,7 +218,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
             $link = get_sub_field('button');
             ?>
 
-            <div class="home-videos">
+            <section class="home-videos">
 
                 <div class="container">
 
@@ -265,7 +265,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 
                 </div>
 
-            </div>
+            </section>
 
         <?php } //endif; ?>
 

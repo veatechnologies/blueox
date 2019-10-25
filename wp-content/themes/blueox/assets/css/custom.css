@@ -50,9 +50,12 @@ h5 {
 h6 {
     font-size: 1.25rem'
 }
+section {
+    overflow: hidden;
+}
 .lead {
     font-size: 125%;
-    font-weight: 300;
+    font-weight: inherit;
 }
 
 /* Misc */
@@ -163,6 +166,7 @@ h6 {
     .home-reviews {
         padding-top: 5%;
         padding-bottom: 5%;
+        background-size: cover;
         background-position: center;
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -192,6 +196,7 @@ h6 {
     .home-cta {
         padding-top: 5%;
         padding-bottom: 5%;
+        background-size: cover;
         background-position: center;
         background-attachment: fixed;
         background-repeat: no-repeat;
