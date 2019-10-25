@@ -13,57 +13,6 @@
 
 	</div><!-- #content -->
 
-	<?php if( is_front_page() && !is_home() ) { ?>
-
-		<?php if( get_field('affiliation_title', 'options') || get_field('affiliation_images') ) {
-			$title = get_field('affiliation_title', 'options');
-			?>
-
-			<div class="footer-affilitions">
-
-				<div class="container">
-
-					<div class="row">
-
-						<div class="col-sm-12">
-
-							<div class="footer-affiliations--inner">
-
-								<?php if( $title ) { ?><h2 class="text-uppercase font-gotham-medium"><?php echo $title; ?></h2><?php } ?>
-
-								<?php if( have_rows('affiliation_images', 'options') ) { ?>
-
-									<div class="d-flex flex-column flex-sm-row justify-content-between align-middle">
-
-										<?php while( have_rows('affiliation_images', 'options') ) { the_row();
-											$img = get_sub_field('affiliation_image');
-											?>
-
-											<div class="text-center">
-												<img class="b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" width="200">
-											</div>
-
-										<?php } ?>
-
-									</div>
-
-								<?php } ?>
-
-							</div>
-
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		<?php } ?>
-
-	<?php } ?>
-
 	<footer id="colophon" class="site-footer text-center bg-white mt-4 pt-5 text-muted">
 
 		<section class="footer-widgets pt-3">
