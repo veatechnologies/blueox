@@ -2,7 +2,10 @@
 
 /* Front Page */
 
-get_header(); ?>
+get_header();
+
+// Page Identifier
+$id = 'home'; ?>
 
 <?php if( have_rows('home_content') ) { ?>
 
@@ -14,7 +17,7 @@ get_header(); ?>
             $bg = get_sub_field('background_image');
             ?>
 
-            <section class="home-cta<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+            <section class="<?php echo $id; ?>-cta <?php if( $bg ) { ?>b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
 
                 <div class="container">
 
@@ -22,7 +25,7 @@ get_header(); ?>
 
                         <div class="col-md-8 offset-md-2">
 
-                            <div class="home-cta-inner pt-5 pb-5">
+                            <div class="<?php echo $id; ?>-cta-inner pt-5 pb-5">
 
                                 <div class="d-flex flex-column align-middle">
 
@@ -58,7 +61,7 @@ get_header(); ?>
             $title = get_sub_field('title');
             ?>
 
-            <section class="home-categories">
+            <section class="<?php echo $id; ?>-categories">
 
                 <div class="container">
 
@@ -66,7 +69,7 @@ get_header(); ?>
 
                         <div class="col-md-12">
 
-                            <div class="home-categories-inner">
+                            <div class="<?php echo $id; ?>-categories-inner">
 
                                 <?php if( $title ) { ?>
 
@@ -83,7 +86,7 @@ get_header(); ?>
                                             $link = get_sub_field('button');
                                             ?>
 
-                                            <div class="home-categories-box text-center m-3">
+                                            <div class="<?php echo $id; ?>-categories-box text-center m-3">
 
                                                 <?php if( $img ) { ?><p><img class="b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>"></p><?php } ?>
 
@@ -111,7 +114,7 @@ get_header(); ?>
             $bg = get_sub_field('background_image');
             ?>
 
-            <section class="home-reviews<?php if( $bg ) { ?> b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+            <section class="<?php echo $id; ?>-reviews <?php if( $bg ) { ?>b-lazy<?php } ?>" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
 
                 <div class="container">
 
@@ -119,7 +122,7 @@ get_header(); ?>
 
                         <div class="col-md-12">
 
-                            <div class="home-reviews-inner match-height">
+                            <div class="<?php echo $id; ?>-reviews-inner match-height">
 
                                 <div class="d-flex flex-column flex-lg-row justify-content-md-around align-middle">
 
@@ -134,7 +137,7 @@ get_header(); ?>
                                             $msg = get_sub_field('review_content');
                                             ?>
 
-                                            <div class="home-reviews-box mt-3 mb-3 mr-md-3 ml-md-3">
+                                            <div class="<?php echo $id; ?>-reviews-box mt-3 mb-3 mr-md-3 ml-md-3">
 
                                                 <?php if( $name ) { ?>
 
@@ -207,7 +210,7 @@ get_header(); ?>
             $link = get_sub_field('button');
             ?>
 
-            <section class="home-videos">
+            <section class="<?php echo $id; ?>-videos">
 
                 <div class="container">
 
@@ -215,24 +218,24 @@ get_header(); ?>
 
                         <div class="col-md-12">
 
-                            <div class="home-videos-inner">
+                            <div class="<?php echo $id; ?>-videos-inner">
 
                                 <div class="d-flex flex-column flex-md-row justify-content-md-around align-middle">
 
-                                    <div class="home-videos-box">
+                                    <div class="<?php echo $id; ?>-videos-box">
 
                                         <div class="position-relative mb-5">
-                                            <img class="home-videos-img w-100 b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
-                                            <div class="home-videos-play position-absolute text-white">
-                                                <a class="home-videos-play-button popup-youtube text-white" href="<?php echo $vid; ?>" ><i class="fas fa-play-circle fa-4x"></i></a>
+                                            <img class="<?php echo $id; ?>-videos-img w-100 b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+                                            <div class="<?php echo $id; ?>-videos-play position-absolute text-white">
+                                                <a class="<?php echo $id; ?>-videos-play-button popup-youtube text-white" href="<?php echo $vid; ?>" ><i class="fas fa-play-circle fa-4x"></i></a>
                                             </div>
                                         </div>
 
                                     </div>
 
-                                    <div class="home-videos-box px-md-5">
+                                    <div class="<?php echo $id; ?>-videos-box px-md-5">
                                         <?php if( $title ) { ?>
-                                            <h2 class="text-white mb-3"><?php echo $title; ?></h2>
+                                            <h2 class="font-gotham-medium text-white mb-3"><?php echo $title; ?></h2>
                                         <?php } ?>
                                         <?php if( $msg ) { ?>
                                             <div class="text-white mb-5">
@@ -256,38 +259,144 @@ get_header(); ?>
 
             </section>
 
-        <?php } elseif( get_row_layout() == 'hero' ) { ?>
+        <?php } elseif( get_row_layout() == 'specialty' ) {
+            $title = get_sub_field('title');
+            $sub = get_sub_field('subtitle');
+            $msg = get_sub_field('content');
+            $img = get_sub_field('image');
+            $link = get_sub_field('main_button');
+            $btns = get_field('button_series');
+            ?>
 
-            <section class="home-hero">
+            <section class="<?php echo $id; ?>-specialty">
 
-                <?php if( have_rows('slider') ) { ?>
+                <div class="container">
 
-                    <div class="hero-slider">
+                    <?php if( $title ) { ?>
 
-                        <?php while( have_rows('slider') ) { the_row();
-                            $title = get_sub_field('title');
-                            $link = get_sub_field('button');
-                            $bg = get_sub_field('background_image');
-                            ?>
+                        <div class="row">
 
-                            <div class="home-hero-slider b-lazy" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+                            <div class="col-sm-8 col-md-7 col-lg-6 <?php echo $id; ?>-specialty-heading position-relative p-5 mt-5">
 
-                                <div class="container">
+                                <?php if( $sub ) { ?><p class="text-center text-sm-left text-uppercase text-white position-relative mb-0"><?php echo $sub; ?></p><?php } ?>
+                                <?php if( $title ) { ?><h2 class="text-center text-sm-left text-white position-relative mt-0"><?php echo $title; ?></h2><?php } ?>
 
-                                    <div class="row">
+                            </div>
 
-                                        <div class="col-md-12">
+                        </div>
 
-                                            <div class="home-hero-inner">
+                    <?php } ?>
 
-                                                <div class="d-flex flex-column justify-content-center align-center float-md-right">
+                    <?php if( $img ) { ?>
 
-                                                    <div class="home-hero-box mt-2 mb-2 text-center text-md-right">
+                        <div class="row">
 
-                                                        <?php if( $title ) { ?><h1 class="home-hero-title text-uppercase text-white font-gotham-medium"><?php echo $title; ?></h1><?php } ?>
-                                                        <?php if( $link ) { ?><h3 class="mt-3"><a class="btn-blue" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></h3><?php } ?>
+                            <div class="col-md-12 text-center">
 
-                                                    </div>
+                                <img class="w-75 b-lazy" src="" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+
+                            </div>
+
+                        </div>
+
+                    <?php } ?>
+
+                    <?php if( $msg ) { ?>
+
+                        <div class="row">
+
+                            <div class="col-md-6 offset-md-6">
+
+                                <div class="<?php echo $id; ?>-specialty-content">
+
+                                    <?php echo $msg; ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    <?php } ?>
+
+                    <?php if( have_rows('button_series') ) { ?>
+
+                        <div class="row mt-5">
+
+                            <div class="col-md-8 text-center text-md-left">
+
+                                <?php while( have_rows('button_series') ) { the_row();
+                                    $btns_link = get_sub_field('button');
+                                    ?>
+
+                                    <p class="d-inline-block mt-4 mb-4 w-100 w-sm-auto"><a class="<?php echo $id; ?>-specialty-btns btn-gray" href="<?php echo $btns_link['url']; ?>"><?php echo $btns_link['title']; ?></a></p>
+
+                                <?php } ?>
+
+                            </div>
+
+                            <?php if( $link ) { ?>
+
+                                <div class="col-md-4 text-center text-md-right mt-4 mb-4">
+
+                                    <a class="btn-blue" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a>
+
+                                </div>
+
+                            <?php } ?>
+
+                        </div>
+
+                    <?php } elseif( $link ) { ?>
+
+                        <div class="row mt-5">
+
+                            <div class="col-md-4 offset-md-8 text-center text-md-right">
+
+                                <a class="btn-blue" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a>
+
+                            </div>
+
+                        </div>
+
+                    <?php } ?>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    <?php } elseif( get_row_layout() == 'hero' ) { ?>
+
+        <section class="<?php echo $id; ?>-hero">
+
+            <?php if( have_rows('slider') ) { ?>
+
+                <div class="hero-slider">
+
+                    <?php while( have_rows('slider') ) { the_row();
+                        $title = get_sub_field('title');
+                        $link = get_sub_field('button');
+                        $bg = get_sub_field('background_image');
+                        ?>
+
+                        <div class="<?php echo $id; ?>-hero-slider b-lazy" <?php if( $bg ) { ?>data-src="<?php echo $bg; ?>"<?php } ?>>
+
+                            <div class="container">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <div class="<?php echo $id; ?>-hero-inner">
+
+                                            <div class="d-flex flex-column justify-content-center align-center float-md-right">
+
+                                                <div class="<?php echo $id; ?>-hero-box mt-2 mb-2 text-center text-md-right">
+
+                                                    <?php if( $title ) { ?><h1 class="<?php echo $id; ?>-hero-title text-uppercase text-white font-gotham-medium"><?php echo $title; ?></h1><?php } ?>
+                                                    <?php if( $link ) { ?><h3 class="mt-3"><a class="btn-blue" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></h3><?php } ?>
 
                                                 </div>
 
@@ -301,17 +410,19 @@ get_header(); ?>
 
                             </div>
 
-                        <?php } ?>
+                        </div>
 
-                    </div>
+                    <?php } ?>
 
-                <?php } ?>
+                </div>
 
-            </section>
+            <?php } ?>
 
-        <?php } //endif; ?>
+        </section>
 
-    <?php } //endwhile; ?>
+    <?php } //endif; ?>
+
+<?php } //endwhile; ?>
 
 <?php } //endif; ?>
 
