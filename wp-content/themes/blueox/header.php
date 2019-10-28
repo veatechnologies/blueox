@@ -42,7 +42,7 @@
 	<header id="masthead" class="site-header <?php if ( get_theme_mod( 'sticky_header', 0 ) ) : echo 'sticky-top'; endif; ?> pt-3 pb-3">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-4 d-flex justify-content-start align-middle">
+				<div class="col-sm-4 pl-4 d-flex justify-content-start align-content-center">
 
 					<?php the_custom_logo(); ?>
 

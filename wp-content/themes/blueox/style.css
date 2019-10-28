@@ -320,7 +320,7 @@ select { height: calc(2.25rem + 2px); display: block; width: 100%; padding: .375
 
 #wp-bp-posts-slider .carousel-control-prev, #wp-bp-posts-slider .carousel-control-next { width: 10%; }
 
-.custom-logo { transition: all 300ms ease-in-out; }
+.custom-logo { max-width: 200px; width: 100%; height: 70px; transition: all 300ms ease-in-out; }
 
 .custom-logo:hover { opacity: .8 !important; }
 
