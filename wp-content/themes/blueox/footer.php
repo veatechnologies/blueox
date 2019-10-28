@@ -147,14 +147,7 @@
 							</aside>
 						</div>
 					<?php endif; ?>
-
-					<?php if ( is_active_sidebar( 'footer-5' ) ) : ?>
-						<div class="col">
-							<aside class="widget-area footer-5-area mb-2">
-								<?php dynamic_sidebar( 'footer-5' ); ?>
-							</aside>
-						</div>
-					<?php endif; ?>
+					
 				</div>
 				<!-- /.row -->
 			</div>

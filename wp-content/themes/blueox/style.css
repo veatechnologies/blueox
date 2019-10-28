@@ -204,7 +204,7 @@ blockquote p:last-child { margin-bottom: 0; }
 
 .sidebar-1-area .widget, .footer-widgets .widget { margin-bottom: 0; padding: 2rem; }
 
-.sidebar-1-area .widget ul, .footer-widgets .widget ul { padding-left: 20px; color: #6c757d; margin-bottom: 0; }
+.sidebar-1-area .widget ul, .footer-widgets .widget ul { padding-left: 0; color: #6c757d; margin-bottom: 0; }
 
 .sidebar-1-area .widget ul li, .footer-widgets .widget ul li { padding-top: 3px; padding-bottom: 3px; list-style: square; }
 
@@ -220,7 +220,7 @@ blockquote p:last-child { margin-bottom: 0; }
 
 .footer-widgets .widget ul li { list-style: none; }
 
-.footer-widgets .nav-footer-title a { color: #aeaeae !important; text-transform: uppercase; font-weight: 700; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #aeaeae; display: block; }
+.footer-widgets .nav-footer-title { color: #aeaeae !important; text-transform: uppercase; font-size: 1em; font-weight: 500; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #aeaeae; display: block; }
 
 .footer-widgets li:not(.nav-footer-title) a { display: block; margin-bottom: 5px; }
 

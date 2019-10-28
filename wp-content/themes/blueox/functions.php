@@ -88,7 +88,7 @@ function wp_bootstrap_4_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
 		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
+		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
 
@@ -98,7 +98,7 @@ function wp_bootstrap_4_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
+		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
 
@@ -108,7 +108,7 @@ function wp_bootstrap_4_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
+		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
 
@@ -118,7 +118,7 @@ function wp_bootstrap_4_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
+		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
 
@@ -128,17 +128,7 @@ function wp_bootstrap_4_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
 		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
-		'after_title'   => '</h5>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Column 5', 'wp-bootstrap-4' ),
-		'id'            => 'footer-5',
-		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
-		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="widget-title h6">',
+		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
 }
