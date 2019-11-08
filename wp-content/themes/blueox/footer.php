@@ -29,11 +29,11 @@
 
 							<div class="footer-affiliations--inner">
 
-								<?php if( $title ) { ?><h2 class="text-uppercase font-gotham-medium"><?php echo $title; ?></h2><?php } ?>
+								<?php if( $title ) { ?><h2 class="text-blue font-gotham-black"><?php echo $title; ?></h2><?php } ?>
 
 								<?php if( have_rows('affiliation_images', 'options') ) { ?>
 
-									<div class="d-flex flex-column flex-sm-row justify-content-between align-middle">
+									<div class="d-flex flex-column flex-sm-row justify-content-around align-middle">
 
 										<?php while( have_rows('affiliation_images', 'options') ) { the_row();
 											$img = get_sub_field('affiliation_image');
@@ -78,29 +78,19 @@
 
 							<?php if( get_field('toll_free_phone', 'option') ) { ?>
 								<?php $toll = preg_replace( "/[^0-9]/", "", get_field('toll_free_phone', 'option') ); ?>
-								<h3 class="d-inline-block"><span>Toll Free:</span> <a href="tel:1<?php echo $toll; ?>"><?php the_field('toll_free_phone', 'option'); ?></a></h3>
+								<h3 class="d-inline-block text-nowrap"><span>Toll Free:</span> <a href="tel:1<?php echo $toll; ?>"><?php the_field('toll_free_phone', 'option'); ?></a></h3>
 							<?php } ?>
 
-							<?php if( get_field('phone-1', 'option') ) { ?>
-								<?php $phone = preg_replace( "/[^0-9]/", "", get_field('phone-1', 'option') ); ?>
-								<h3 class="d-inline-block"><span>Phone:</span> <a href="tel:1<?php echo $phone; ?>"><?php the_field('phone-1', 'option'); ?></a></h3>
-							<?php } ?>
-
-							<?php if( get_field('fax-1', 'option') ) { ?>
-								<?php $fax = preg_replace( "/[^0-9]/", "", get_field('toll_free_phone', 'option') ); ?>
-								<h3 class="d-inline-block"><span>Fax:</span> <a href="tel:1<?php echo $fax; ?>"><?php the_field('fax-1', 'option'); ?></a></h3>
+							<?php if( get_field('hours', 'option') ) { ?>
+								<h3 class="d-inline-block text-nowrap"><?php the_field('hours', 'option'); ?></h3>
 							<?php } ?>
 
 						</div>
 
 						<div class="pl-5 pr-5">
 
-							<?php if( get_field('hours', 'option') ) { ?>
-								<h3 class="d-inline-block"><?php the_field('hours', 'option'); ?></h3>
-							<?php } ?>
-
 							<?php if( get_field('email-1', 'option') ) { ?>
-								<h3 class="d-inline-block"><a href="mailto:<?php the_field('email-1', 'option'); ?>"><?php the_field('email-1', 'option'); ?></a></h3>
+								<h3 class="d-inline-block text-nowrap"><a href="mailto:<?php the_field('email-1', 'option'); ?>"><?php the_field('email-1', 'option'); ?></a></h3>
 							<?php } ?>
 
 						</div>
@@ -117,7 +107,7 @@
 			<div class="container">
 				<div class="row">
 					<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-						<div class="col">
+						<div class="w-100 w-md-25">
 							<aside class="widget-area footer-1-area mb-2">
 								<?php dynamic_sidebar( 'footer-1' ); ?>
 							</aside>
@@ -125,7 +115,7 @@
 					<?php endif; ?>
 
 					<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-						<div class="col">
+						<div class="w-100 w-md-25">
 							<aside class="widget-area footer-2-area mb-2">
 								<?php dynamic_sidebar( 'footer-2' ); ?>
 							</aside>
@@ -133,7 +123,7 @@
 					<?php endif; ?>
 
 					<?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-						<div class="col">
+						<div class="w-100 w-md-25">
 							<aside class="widget-area footer-3-area mb-2">
 								<?php dynamic_sidebar( 'footer-3' ); ?>
 							</aside>
@@ -141,13 +131,13 @@
 					<?php endif; ?>
 
 					<?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
-						<div class="col">
+						<div class="w-100 w-md-25">
 							<aside class="widget-area footer-4-area mb-2">
 								<?php dynamic_sidebar( 'footer-4' ); ?>
 							</aside>
 						</div>
 					<?php endif; ?>
-					
+
 				</div>
 				<!-- /.row -->
 			</div>
