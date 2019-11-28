@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'card mt-3r' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'mt-3r' ); ?>>
 	<div class="card-body">
 
 		<?php if ( is_sticky() ) : ?>
@@ -18,9 +18,9 @@
 		<header class="entry-header">
 			<?php
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title card-title h2">', '</h1>' );
+				the_title( '<h1 class="entry-title card-title">', '</h1>' );
 			else :
-				the_title( '<h2 class="entry-title card-title h3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-dark">', '</a></h2>' );
+				the_title( '<h2 class="card-title font-gotham-black text-blue">', '</h2>' );
 			endif;
 
 			if ( 'post' === get_post_type() ) : ?>
@@ -59,18 +59,12 @@
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 				<div class="">
-					<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm"><?php esc_html_e( 'Continue Reading', 'wp-bootstrap-4' ); ?> <small class="oi oi-chevron-right ml-1"></small></a>
+					<a href="<?php echo esc_url( get_permalink() ); ?>" class="mt-2 btn-blue d-inline-block"><?php esc_html_e( 'Continue Reading', 'wp-bootstrap-4' ); ?> <small class="oi oi-chevron-right ml-1"></small></a>
 				</div>
 			</div><!-- .entry-summary -->
 		<?php endif; ?>
 
 	</div>
 	<!-- /.card-body -->
-
-	<?php if ( 'post' === get_post_type() ) : ?>
-		<footer class="entry-footer card-footer text-muted">
-			<?php wp_bootstrap_4_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
