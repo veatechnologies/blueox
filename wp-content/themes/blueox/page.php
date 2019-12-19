@@ -80,4 +80,22 @@ get_header(); ?>
 
 <?php } ?>
 
+<?php if( is_page('14454') ) { ?>
+    <script>
+    (function($) {
+        //Get Job Title from URL and Sanitize
+        var getURL = window.location + '';
+        var data = getURL.split('=');
+        var job = data[1];
+        var saniJob = decodeURIComponent(job).replace(/\+/g, " ");
+
+        // Add Job to input field
+        $('#wpforms-14415-field_2').val(saniJob);
+
+        // Append <h1> with Job Name
+        $('.entry-title').append(' - ' + saniJob);
+    })(jQuery);
+    </script>
+<?php } //endif is_page('14454') aka Application page ?>
+
 <?php get_footer(); ?>

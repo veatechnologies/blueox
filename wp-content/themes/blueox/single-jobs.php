@@ -23,7 +23,7 @@
 							$job_equip = get_field('equipment_tools_used');
 							$work = get_field('work_center');
 							$job_specs = get_field('job_specifications');
-							$link = get_field('job_link');
+							$link = get_bloginfo('url');
 							$bennys = get_field('benefits');
 
 							$job = get_the_title();
@@ -35,7 +35,7 @@
 
 							<section class="job-posting">
 
-								<?php if( $link ) { ?><p><a class="job-link" href="<?php echo $link . '?job=' . $the_job; ?>">Apply For This Job</a></p><?php } //endif $link ?>
+								<p class="mt-5 mb-5"><a class="btn-blue" href="<?php echo $link . '/about-us/careers/application/?job=' . $the_job; ?>">Apply For This Job</a></p>
 
 								<?php if( $job_sum || $salary ) { ?>
 									<div class="job-section job-summary">
@@ -79,7 +79,7 @@
 									</div>
 								<?php } //endif $bennys ?>
 
-								<?php if( $link ) { ?><p><a class="job-link" href="<?php echo $link . '?job=' . $the_job; ?>">Apply For This Job</a></p><?php } //endif $link ?>
+								<p class="mt-5"><a class="btn-blue" href="<?php echo $link . '/about-us/careers/application/?job=' . $the_job; ?>">Apply For This Job</a></p>
 
 							</section>
 

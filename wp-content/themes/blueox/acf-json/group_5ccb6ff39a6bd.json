@@ -172,21 +172,6 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_5ccb7095eadfe",
-            "label": "Job Link",
-            "name": "job_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url"
         }
     ],
     "location": [
@@ -208,5 +193,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1576732845
+    "modified": 1576767623
 }
