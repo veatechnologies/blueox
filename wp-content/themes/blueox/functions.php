@@ -93,6 +93,16 @@ function wp_bootstrap_4_widgets_init() {
 	) );
 
 	register_sidebar( array(
+		'name'          => esc_html__( 'Jobs Sidebar', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Column 1', 'wp-bootstrap-4' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
@@ -223,4 +233,66 @@ function my_acf_json_save_point( $path ) {
     $path = get_stylesheet_directory() . '/acf-json';
     // return
     return $path;
+}
+
+// Jobs CUSTOM POST TYPE
+add_action('init', 'register_jobs');
+
+function register_jobs(){
+    $args = array(
+        'label' => __('Jobs'),
+       	'singular_label' => __('Listing'),
+       	'public' => true,
+       	'show_ui' => true,
+		'menu_icon' => 'dashicons-id-alt',
+       	'capability_type' => 'post',
+       	'hierarchical' => true,
+		'rewrite' => array("slug" => "/careers",'with_front' => true), // Permalinks format
+		'add_new' => __( 'Add New Listing' ),
+		'add_new_item' => __( 'Add New Info' ),
+		'edit' => __( 'Edit' ),
+		'edit_item' => __( 'Edit Info' ),
+		'new_item' => __( 'New Info' ),
+		'view' => __( 'View Info' ),
+		'view_item' => __( 'View Info' ),
+		'search_items' => __( 'Search Listings' ),
+		'not_found' => __( 'No info found' ),
+		'not_found_in_trash' => __( 'No info found in Trash' ),
+		'parent' => __( 'Parent Info' ),
+//		'menu_position' =>__( 50 ),
+       );
+
+   	register_post_type( 'jobs' , $args );
+}
+
+// Automagically add Jobs to Jobs menu
+add_filter( 'wp_get_nav_menu_items', 'cpt_custom_menu', 10, 3 );
+
+function cpt_custom_menu( $items, $menu, $args ) {
+  $child_items = array();
+  $menu_order = count($items);
+  $parent_item_id = 0;
+
+  foreach ( $items as $item ) {
+    if( in_array('jobs-menu', $item->classes) ) { //add this class to your menu item
+        $parent_item_id = $item->ID;
+    }
+  }
+
+  if( $parent_item_id >= 1 ) {
+
+      foreach ( get_posts( 'post_type=jobs&numberposts=-1' ) as $post ) {
+        $post->menu_item_parent = $parent_item_id;
+        $post->post_type = 'nav_menu_item';
+        $post->object = 'custom';
+        $post->type = 'custom';
+        $post->menu_order = ++$menu_order;
+        $post->title = $post->post_title;
+        $post->url = get_permalink( $post->ID );
+        array_push( $child_items, $post );
+      }
+
+  }
+
+  return array_merge( $items, $child_items );
 }

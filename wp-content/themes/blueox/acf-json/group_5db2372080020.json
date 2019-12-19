@@ -1151,6 +1151,20 @@
                 "operator": "!=",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "jobs"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "page-careers.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1161,5 +1175,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576698381
+    "modified": 1576735503
 }

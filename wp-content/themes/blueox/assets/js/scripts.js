@@ -33,5 +33,14 @@
     // Search Bar
     $('.nav-search').html('<form role="search" method="get" class="searchform wp-bootstrap-4-searchform" action="/"><input type="text" class="s form-control nav-search-input" name="s" placeholder="Search &#xF002;" value=""></form>');
 
+    // Show/Hide message in jobs menu
+    var openJob = $('.jobs-menu').find('.sub-menu'),
+        jobMenu = $('.jobs-menu > a');
+    if( openJob.length ) {
+        $(jobMenu).hide();
+    } else {
+        $(jobMenu).show();
+    }
+
 
 })(jQuery);
