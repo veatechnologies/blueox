@@ -90,7 +90,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Gothic-Medium', sans-serif;font-weight: 6
 embed, iframe, object { max-width: 100%; }
 
 /* Make sure logo link wraps around logo image. */
-.custom-logo-link { display: inline-block; }
 
 .wp-caption { margin-bottom: 1.5em; max-width: 100%; }
 
@@ -157,7 +156,7 @@ input[type="text"]:-webkit-input-placeholder, input[type="text"]:-moz-placeholde
 
 .nav-search-input::placeholder { color: #1b3d80; font-size: 15px; text-align: right; }
 
-.nav-cta { font-family: 'Gotham-Thin', sans-serif; padding: 1rem .5rem; background-color: #1b3d80; }
+.nav-cta { font-family: 'Gotham-Thin', sans-serif; padding: .5rem; background-color: #1b3d80; }
 
 .nav-cta a { border-bottom: 1px solid #fff; }
 

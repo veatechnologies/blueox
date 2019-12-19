@@ -219,6 +219,9 @@ b, strong {
 .main-navigation {
     height: 70px;
 }
+.mega-menu-item.widget_media_image {
+    padding-bottom: 0;
+}
 
 /* Body */
 
@@ -239,9 +242,8 @@ b, strong {
         padding-top: 5%;
         padding-bottom: 5%;
         background-repeat: no-repeat;
-        background-attachment: fixed;
         background-size: cover;
-        background-position: center;
+        background-position: center bottom;
     }
         .specialty-content {
             background-color: rgba(0,0,0,.4);
@@ -271,7 +273,6 @@ b, strong {
         padding-bottom: 5%;
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
         background-repeat: no-repeat;
     }
         .reviews-box {
@@ -312,8 +313,7 @@ b, strong {
         padding-top: 5%;
         padding-bottom: 5%;
         background-size: cover;
-        background-position: center top;
-        background-attachment: fixed;
+        background-position: center;
         background-repeat: no-repeat;
     }
         .cta-inner {
@@ -431,12 +431,6 @@ b, strong {
     }
 }
 @media (min-width: 768px) {
-    .nav-search {
-        position: absolute !important;
-        top: 50% !important;
-        right: 0 !important;
-        transform: translateY(-50%) !important;
-    }
     .w-md-auto {
         width: auto !important;
     }

@@ -45,17 +45,36 @@
 
 			<div class="row">
 
-				<div class="col-12 d-flex flex-row justify-content-start align-middle">
 
-					<div>
+				<div class="col-md-2 pl-4">
 
-						<?php the_custom_logo(); ?>
+					<?php the_custom_logo(); ?>
 
-					</div>
+				</div>
 
-					<div class="w-100 ml-3">
+				<div class="col-10 d-flex flex-row justify-content-start align-middle">
 
-						<nav id="site-navigation" class="main-navigation navbar justify-content-start align-middle">
+					<div class="w-100 ml-5">
+
+						<?php if ( has_nav_menu( 'menu-top' ) ) { ?>
+							<div class="container">
+								<?php
+								wp_nav_menu( array(
+									'theme_location'  => 'menu-top',
+									'menu_id'         => 'top-menu',
+									'container'       => 'div',
+									'container_class' => 'top-navigation text-right',
+									'container_id'    => '',
+									'menu_class'      => 'navbar navbar-expand-lg list-unstyled',
+									'fallback_cb'     => '__return_false',
+									'depth'           => 1,
+									'walker'          => new WP_bootstrap_4_walker_nav_menu()
+								) );
+								?>
+							</div>
+						<?php } ?>
+
+						<nav id="site-navigation" class="main-navigation navbar justify-content-end align-middle">
 							<?php if( get_theme_mod( 'header_within_container', 0 ) ) : ?><div class="container p-0"><?php endif; ?>
 								<?php
 									wp_nav_menu( array(

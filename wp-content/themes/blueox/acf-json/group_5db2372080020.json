@@ -207,7 +207,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "100",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -216,6 +216,34 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5dfa804f67f75",
+                            "label": "Title Color",
+                            "name": "title_color",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-blue": "Blue",
+                                "text-gray": "Gray",
+                                "text-white": "White"
+                            },
+                            "default_value": [
+                                "text-white"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
                             "key": "field_5db3e08327b8c",
@@ -753,7 +781,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "url"
+                                    "return_format": "array"
                                 },
                                 {
                                     "key": "field_5dc326c2bade8",
@@ -1133,5 +1161,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573172255
+    "modified": 1576698381
 }

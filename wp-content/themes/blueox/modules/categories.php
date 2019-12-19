@@ -38,9 +38,9 @@ $title = get_sub_field('title');
                                     <?php if( $img ) { ?>
 
                                         <div class="text-center mb-3">
-                                            <?php if( $link ) { ?><a class="categories-link position-relative" href="<?php echo $link; ?>"><?php } ?>
+                                            <?php if( $link ) { ?><a class="categories-link position-relative" href="<?php echo $link['url']; ?>"><?php } ?>
                                                 <img class="categories-box-img w-100 w-md-auto b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" width="500">
-                                                <div class="categories-overlay position-absolute"><i class="text-white fas fa-link fa-4x"></i></div>
+                                                <div class="categories-overlay position-absolute"><i class="text-white fas fa-link fa-4x"></i><br><span class="font-gotham-medium text-uppercase text-white fa-2x"><?php echo $link['title']; ?></span></div>
                                             <?php if( $link ) { ?></a><?php } ?>
                                         </div>
 

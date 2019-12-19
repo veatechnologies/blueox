@@ -4,6 +4,7 @@
 */
 
 $title = get_sub_field('title');
+$title_color = get_sub_field('title_color');
 $text_color = get_sub_field('text_color');
 $text_pos = get_sub_field('text_position');
 $msg = get_sub_field('content');
@@ -22,9 +23,9 @@ $bg = get_sub_field('background_image');
 
                     <div class="w-100 specialty-content position-relative p-5 mt-5">
 
-                        <?php if( $title ) { ?><h2 class="font-gotham-black position-relative mt-0"><?php echo $title; ?></h2><?php } ?>
+                        <?php if( $title ) { ?><h2 class="font-gotham-black position-relative mt-0 <?php echo $title_color; ?>"><?php echo $title; ?></h2><?php } ?>
 
-                        <div>
+                        <div class="<?php echo $text_color['value']; ?>">
 
                             <?php echo $msg; ?>
 
