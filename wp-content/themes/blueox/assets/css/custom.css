@@ -224,7 +224,23 @@ b, strong {
 }
 
 /* Body */
-
+ul.eventCalendar {
+    padding: 0;
+    list-style: none;
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+ul.eventCalendar li {
+    overflow: hidden;
+    margin: 15px 0 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+ul.eventCalendar li div {
+    float: left;
+    width: 20%;
+    display: block;
+}
 
 /* Pages */
 
