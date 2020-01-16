@@ -248,6 +248,7 @@ top: 50%; left: 50%; transform: translate(-50%, -50%);
 .recommededHeading .slick-dots button{height: 13px;width: 13px;border-radius: 50%; background-color: #b0b0b0; font-size: 0;border:0;}
 .recommededHeading .slick-dots li{padding: 0 6px;}
 .recommededHeading .slick-dots{display: -webkit-flex;
+	background: unset;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex; margin-top: 20px;
