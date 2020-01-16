@@ -296,3 +296,136 @@ function cpt_custom_menu( $items, $menu, $args ) {
 
   return array_merge( $items, $child_items );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FUNCTIONS BY KELLTON START */
+
+wp_enqueue_style('fontawesome.min.css',get_template_directory_uri()."/css/fontawesome.min.css");
+wp_enqueue_style( 'ktstyle_font', get_template_directory_uri() . '/assets/css/kt_fontawesome.min.css',false,rand(1,5),'all');
+wp_enqueue_style( 'ktstyle_slider', get_template_directory_uri() . '/assets/css/kt_slick.css',false,rand(1,5),'all');
+wp_enqueue_style( 'ktstyle', get_template_directory_uri() . '/assets/css/kt_style.css',false,rand(1,5),'all');
+
+// Remove breadcrumbs from shop & categories
+add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
+function remove_breadcrumbs() {
+		remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_tabs', 98 );
+function woo_remove_tabs( $tabs ){
+    if(is_product()){
+      unset( $tabs['description'] ); // Remove the description tab
+      unset( $tabs['reviews'] ); // Remove the reviews tab
+      unset( $tabs['additional_information'] ); // Remove the additional information tab
+      }
+  return $tabs;
+ }
+
+/**
+ * Change number of related products output
+ */ 
+function woo_related_products_limit() {
+  global $product;
+	
+	$args['posts_per_page'] = 8;
+	return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args', 20 );
+  function jk_related_products_args( $args ) {
+	$args['posts_per_page'] = 8; // 4 related products
+	$args['columns'] = 3; // arranged in 2 columns
+	return $args;
+}
+
+//create a post type in woocommerce post pages
+function product_section(){
+	global $post;
+	wp_nonce_field( basename( __FILE__ ), 'prfx_nonce' );
+	$product_id = get_post_meta($post->ID,'product_id', true);
+
+	?><div class="wrap">
+		<table class="form-table">
+			<tbody class="input_fields_wrap_about_video">
+				<tr>
+					<td><input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
+					
+				</tr>
+				
+				
+			</tbody>
+		</table>
+		
+	</div><?php
+}
+
+function blueox_metaboxes() {
+    global $post;
+	
+	if($post->post_type == "product"){
+	add_meta_box('Product-ids','Products ID','product_section','product');	
+	}
+}
+add_action( 'add_meta_boxes', 'blueox_metaboxes' );
+
+
+//for save the data of post type
+
+
+function blueox_meta_save($post_id) {
+	global $post;
+	$is_autosave = wp_is_post_autosave( $post_id );
+	$is_revision = wp_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'prfx_nonce' ] ) && wp_verify_nonce( $_POST[ 'prfx_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+    // Exits script depending on save status
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+        return;
+    }
+	
+	
+	
+	if($post->post_type == "product"){
+	$product_id= $_POST["product_id"];
+	update_post_meta($post_id,'product_id', $product_id);
+	}
+	
+}
+		
+add_action('save_post', 'blueox_meta_save' );
+
+//product category content
+add_action( 'woocommerce_after_shop_loop_item', 'woo_show_excerpt_shop_page', 5 );
+function woo_show_excerpt_shop_page() {
+	global $product;
+	if(is_shop()) {
+		echo '<p>' . $product->post->post_excerpt . '</p>';
+	}
+}
+
+//number of products you wanna show per page
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 9;
+  return $cols;
+}
+/* FUNCTIONS BY KELLTON ENDS */
+
+
