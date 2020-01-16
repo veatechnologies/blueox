@@ -43,4 +43,30 @@
     }
 
 
+
+/* CODE ADED BY KELLTON STARTS */
+    $('.multiple-items').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        responsive: [
+        {
+            breakpoint: 991,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+            }
+        }
+        ]
+    });
+/* CODE ADED BY KELLTON ENDS */
+
+	
 })(jQuery);
