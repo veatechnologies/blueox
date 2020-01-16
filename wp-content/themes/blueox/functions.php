@@ -281,6 +281,16 @@ function cpt_custom_menu( $items, $menu, $args ) {
 
   if( $parent_item_id >= 1 ) {
 
+
+
+		$post->target = '';
+		$post->attr_title = '';
+		$post->description = '';
+		$post->classes = '';
+		$post->xfn = '';
+		$post->status = 'publish';
+		$post->original_title = '';
+
       foreach ( get_posts( 'post_type=jobs&numberposts=-1' ) as $post ) {
         $post->menu_item_parent = $parent_item_id;
         $post->post_type = 'nav_menu_item';
@@ -289,6 +299,13 @@ function cpt_custom_menu( $items, $menu, $args ) {
         $post->menu_order = ++$menu_order;
         $post->title = $post->post_title;
         $post->url = get_permalink( $post->ID );
+		$post->target = '';
+		$post->attr_title = '';
+		$post->description = '';
+		$post->classes = '';
+		$post->xfn = '';
+		$post->status = 'publish';
+		$post->original_title = '';
         array_push( $child_items, $post );
       }
 
