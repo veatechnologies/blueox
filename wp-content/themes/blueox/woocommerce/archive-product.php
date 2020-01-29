@@ -51,13 +51,13 @@ do_action( 'woocommerce_before_main_content' );
 		<div class="category-header-col2">
 			<h3>Need a LOCAL Dealer?</h3>
 			<p>There are 100's to choose from...</p>
-			<a href="#" class="btn-blue">Find a Dealer</a>
+			<a href="<?php bloginfo('url'); ?>/dealer-locator/" class="btn-blue">Find a Dealer</a>
 		</div>
 	</div>
 </header>
 <div class="product-category-wrap">
 	<div class="product-category-filter">
-		<?php 
+		<?php
 			/**
 			 * Hook: woocommerce_sidebar.
 			 *

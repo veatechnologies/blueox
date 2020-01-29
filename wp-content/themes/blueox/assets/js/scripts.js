@@ -42,6 +42,16 @@
         $(jobMenu).show();
     }
 
+    // Temp for category pages
+    if( $('body').hasClass('archive') ) {
+        var listItem = $('.product-list-item');
+        $(listItem).each(function() {
+            var listURL = $('.product-list-content').find('woocommerce-loop-product__link').attr('href'),
+                learnBtn = $('.product-list-content').find('learn-btn');
+            $(learnBtn).attr('href', listURL);
+        });
+    }
+
 
 
 /* CODE ADED BY KELLTON STARTS */
@@ -68,5 +78,5 @@
     });
 /* CODE ADED BY KELLTON ENDS */
 
-	
+
 })(jQuery);
