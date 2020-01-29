@@ -1221,10 +1221,8 @@ a.button.ajax_add_to_cart.added {
 }
 .product-category-filter .widget-area {
 	margin: 0;
-	border: none;
 }
 .product-category-filter .widget-area .widget {
-	padding: 0;
 	border: none !important;
 }
 .product-category-filter .widget-area .widget h5 {
