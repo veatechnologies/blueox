@@ -47,7 +47,7 @@
         var listItem = $('.product-list-item');
         $(listItem).each(function() {
             var listURL = $('.product-list-content').find('.woocommerce-loop-product__link').attr('href'),
-                learnBtn = $('.product-list-content').find('.learn-btn');
+                learnBtn = $('.product-list-content').find('.learn-btn a');
             $(learnBtn).attr('href', listURL);
         });
     }
