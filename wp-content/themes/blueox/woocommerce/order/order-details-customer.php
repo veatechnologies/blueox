@@ -41,6 +41,20 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
 		<?php endif; ?>
 	</address>
+	<table class="checkout_total">
+	<tbody>
+	<?php
+			foreach ( $order->get_order_item_totals() as $key => $total ) {
+				?>
+					<tr>
+						<th scope="row" class="total-expenses"><?php echo esc_html( $total['label'] ); ?></th>
+						<td><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+					</tr>
+					<?php
+			}
+			?>
+	</tbody>
+	</table>
 
 	<?php if ( $show_shipping ) : ?>
 

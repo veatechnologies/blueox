@@ -378,6 +378,69 @@ body.custom-background .wp-bp-main-content .col-md-8 { background: #f8f9fa; padd
 
 .wp-caption .wp-caption-text { font-size: 0.95rem; }
 
+/*Checkout section*/
+.card-body .entry-title {
+    font-size: 30px;
+}
+.checkout_total {
+    width: 30%;
+    float: right;
+    margin-top: 30px;
+}
+.total-expenses {
+    font-weight: bold;
+    font-size: 20px;
+}
+.checkout_total th, .checkout_total td  {
+    border: none;
+    padding: 0.30rem;
+}
+li.woocommerce-order-overview__order.order :nth-child(2) {
+    border-bottom:1px solid  #a3abbb;
+  }
+
+ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+    margin-bottom: 2rem;
+    color: #002d62;
+    margin-top: 18px;
+}
+
+.woocommerce-table__product-name.product-name, .woocommerce-table__product-name.product-name a {
+    display: inline-block;
+    color: #002d62;
+    margin-top: 18px;
+}
+.img_product.product-thumbnail img {
+    float: left;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-right:20px;
+    width: 120px;
+}
+
+
+.woocommerce-order-details {
+    border: 1px solid #dee2e6;
+    border-left: none;
+    border-right: none;
+    padding: 18px;
+    padding-bottom: 0px;
+    padding-left: 0;
+}
+
+.product-thumbnail {
+    border: none;
+}
+
+@media (max-width: 768px){
+    .card-body .entry-title {
+        font-size: 14px;
+        font-weight: normal;
+    }
+}
+
+/*End Section*/
+
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/

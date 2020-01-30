@@ -42,15 +42,6 @@
         $(jobMenu).show();
     }
 
-    // Temp for category pages
-    if( $('body').hasClass('archive') ) {
-        $('.product-list-item').each(function() {
-            var listURL = $(this).find('.woocommerce-loop-product__link').attr('href'),
-                learnBtn = $(this).find('.learn-btn a');
-            $(learnBtn).attr('href', listURL);
-        });
-    }
-
 
 
 /* CODE ADED BY KELLTON STARTS */
