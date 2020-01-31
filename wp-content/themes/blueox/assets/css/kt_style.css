@@ -1643,7 +1643,9 @@ a.button.ajax_add_to_cart.added {
 	width: 200px;
 }
 .feature-products p {
-    font-size: 1rem;
+	font-size: 0.9rem;
+	line-height: 20px;
+	color: #002d62;
 }
 .product-detail-right h1 {
     font-size: 1.15rem !important;
@@ -1688,4 +1690,19 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
     text-align: center;
     font-weight:700;
     font-size: 1rem;
+}
+.bottom_feature_images {
+    margin-top: 12px;
+}
+.bottom_feature_images  {
+    width: 85%;
+    line-height: 24px;
+    color: #939393;
+    font-size: .9rem;
+    font-weight: 400;
+	margin: 0px auto;
+	margin-bottom:20px
+}
+.recommededHeading h2 {
+    text-align: center;
 }
