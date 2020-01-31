@@ -63,7 +63,7 @@ ul.products li.product .price { color: #6c757d; }
 
 .single-product div.product .woocommerce-product-gallery .flex-viewport { margin-bottom: 1em; }
 
-.single-product div.product .woocommerce-product-gallery .flex-control-thumbs { content: ""; display: table; table-layout: fixed; margin: 0; padding: 0; }
+.single-product div.product .woocommerce-product-gallery .flex-control-thumbs { content: ""; display: table; table-layout: fixed; margin: 0px auto; padding: 0; }
 
 .single-product div.product .woocommerce-product-gallery .flex-control-thumbs li { list-style: none; cursor: pointer; float: left; }
 

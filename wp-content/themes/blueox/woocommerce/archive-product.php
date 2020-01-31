@@ -28,6 +28,8 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 
+global $post;
+
 ?>
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -42,22 +44,36 @@ do_action( 'woocommerce_before_main_content' );
 	 * @hooked woocommerce_product_archive_description - 10
 	 */
 	//do_action( 'woocommerce_archive_description' );
+
 	?>
-	<div class="category-header">
-		<div class="category-header-col1">
-			<h3>The BLUE OX Difference</h3>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ut odio omnis recusandae quasi magni excepturi temporibus exercitationem quia. Tempora cumque expedita corrupti rem officia! Reprehenderit blanditiis debitis laudantium eum?</p>
-		</div>
-		<div class="category-header-col2">
-			<h3>Need a LOCAL Dealer?</h3>
-			<p>There are 100's to choose from...</p>
-			<a href="<?php bloginfo('url'); ?>/dealer-locator/" class="btn-blue">Find a Dealer</a>
-		</div>
-	</div>
+	
+	<?php 
+	$id = get_option( 'woocommerce_shop_page_id' );
+	$product_content= get_field( 'product_content_data', $id);
+	echo $product_content; ?>
+	
+	           <div class="local-contact">
+			   <div class="row">
+			   <div class="col-md-4">
+			   </div>
+			   <div class="col-md-8">
+			   
+                            <div class="row d-flex align-items-center">
+                                <div class="col-md-5">
+                                    <h3 class="font-weight-bold">Need a local dealer?</h3>
+                                    <p class="mb-0">There are 100s to choose from:</p>
+                                </div>
+                                <div class="col-md-7">
+                                    <a class="btn-clear--blue" href="#">Find A Dealer</a>
+                                </div>
+                            </div>
+							</div>
+                        </div>
+	</div>				
 </header>
 <div class="product-category-wrap">
 	<div class="product-category-filter">
-		<?php
+		<?php 
 			/**
 			 * Hook: woocommerce_sidebar.
 			 *
