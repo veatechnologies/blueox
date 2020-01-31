@@ -362,7 +362,7 @@ display: flex;
 	border-radius: 100%;
 	background: #e8e8e8;
 }
-.woocommerce-product-gallery .flex-control-thumbs {
+/* .woocommerce-product-gallery .flex-control-thumbs {
 	padding: 0;
 	display: flex;
 	justify-content: center;
@@ -372,7 +372,7 @@ display: flex;
 	height: 100px;
 	border: 2px solid rgba(0, 0, 0, 0.2);
 	margin: 10px 5px;
-}
+} */
 
 .product-detail-right .title-price-wrap{
 	display: flex;
@@ -841,7 +841,8 @@ input#billing_address_2, input#shipping_address_2 {
     display: none;
 }
 .woocommerce-order-received .woocommerce-customer-details {
-    border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #dee2e6;
+	border-top: 1px solid #dee2e6;
     padding-top: 30px;
 }
 .woocommerce-customer-details h2.woocommerce-column__title {
@@ -870,6 +871,7 @@ input#billing_address_2, input#shipping_address_2 {
 .woocommerce-table--order-details tfoot tr td span, .shop_table tfoot tr td span {
 	color: #002d62 !important;
 }
+
 
 /* account page */
 .page-template-account-template {
@@ -1606,4 +1608,84 @@ a.button.ajax_add_to_cart.added {
 		justify-content: flex-start;
     margin-top: 20px;
 	}
+}
+
+/*Award block*/
+.product_awards {
+	
+    /*margin-top: 20px;
+    padding: 20px;
+    padding-left: 0;*/
+}
+.onebox-body{
+	display: inline-block;
+}
+
+.onebox-body img {
+    width: 170px;
+    margin-right: 1rem;
+    float:left
+}
+.onebox-body a, .onebox-body a:hover {
+    color: #002d62;
+}
+
+.addtoCart_section {
+    clear: left;
+    margin-top: 22px;
+    display: initial;
+    float: left;
+}
+.feature-products .img-fluid {
+    border: 3px solid #002d62;
+    border-radius: 100px;
+	height: 200px;
+	width: 200px;
+}
+.feature-products p {
+    font-size: 1rem;
+}
+.product-detail-right h1 {
+    font-size: 1.15rem !important;
+}
+.product-detail-right h3 {
+    font-size: 1.2rem;
+}
+
+/*product gallery*/
+.flex-control-nav
+{
+  width:300px;
+  display:block;
+  margin:0 auto;
+}
+.flex-control-nav li{
+border: 1px solid #ccc;
+margin-right: 5px;
+}
+
+button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
+  width: 20px;
+    height: 20px;
+}
+.slick-next:before, .slick-prev:before {
+    color: #1b3d80 !important;
+}
+.single-product div.product .woocommerce-product-gallery .flex-control-thumbs li img{
+	margin: 0px auto;
+}
+.single-product div.product .woocommerce-product-gallery .flex-control-thumbs .slick-slide{
+	margin:0 10px;
+}
+
+.dealer-link {
+    background: #AEAEAE;
+    border-radius: 5px;
+    margin-left: 26px;
+    padding: 10px 20px;
+    color: #1B3D80 !important;
+    width: 150px;
+    text-align: center;
+    font-weight:700;
+    font-size: 1rem;
 }
