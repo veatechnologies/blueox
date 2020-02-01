@@ -91,7 +91,7 @@ global $post;
                                     <p class="mb-0">There are 100s to choose from:</p>
                                 </div>
                                 <div class="col-md-7">
-                                    <a class="btn-clear--blue" href="#">Find A Dealer</a>
+                                    <a class="btn-clear--blue" href="<?php echo get_site_url() ?>/dealer-locator/">Find A Dealer</a>
                                 </div>
                             </div>
 							</div>

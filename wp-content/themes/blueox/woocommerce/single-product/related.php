@@ -61,9 +61,9 @@ if(is_numeric($product_values)){ ?>
 	
 	<div class="additional-product-item">
 	<?php 
-
-	echo '<div class="additional-product-img"><a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a></div>';
-	echo '<div class="additional-product-info"><h5><a href="'.get_permalink().'" class="product_title">'.get_the_title().'</a></h5><h5>'.$price_unit."".$price.'</h5></div>';
+	echo '<div class="additional-product-info"><h5><a href="'.get_permalink().'" class="product_title">'.get_the_title().'</a></h5></div>';
+	echo '<div class="additional-product-img"><a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a><h5>'.$price_unit."".$price.'</h5></div>';
+	
 	
 
 	?>
