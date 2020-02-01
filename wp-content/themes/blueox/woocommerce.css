@@ -184,11 +184,11 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 
 .woocommerce-pagination .page-numbers li { display: inline-block; margin-right: 5px; }
 
-.woocommerce-pagination .page-numbers li .page-numbers { display: inline-block; padding: 0.25rem 0.5rem; border: 1px solid rgba(0, 0, 0, 0.125); }
+.woocommerce-pagination .page-numbers li .page-numbers { display: inline-block; padding: 0.25rem 0.5rem; border:none; }
 
-.woocommerce-pagination .page-numbers li .page-numbers:hover { text-decoration: none; }
+.woocommerce-pagination .page-numbers li .page-numbers:hover { text-decoration: none; border-bottom: 1px solid #6b6b6b; }
 
-.woocommerce-pagination .page-numbers li .page-numbers.current { color: #6c757d; }
+.woocommerce-pagination .page-numbers li .page-numbers.current { color: #6c757d; border-bottom: 1px solid #6b6b6b; }
 
 .shop_table.shop_table_responsive.woocommerce-cart-form__contents .coupon { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify !important; -ms-flex-pack: justify !important; justify-content: space-between !important; -webkit-box-align: center !important; -ms-flex-align: center !important; align-items: center !important; }
 
@@ -208,7 +208,7 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 
 .widget-area .star-rating:before { margin-left: 30px; }
 
-.single-product .summary.entry-summary .product_title.entry-title { font-size: 1.75rem; }
+/* .single-product .summary.entry-summary .product_title.entry-title { font-size: 1.75rem; } 02/02/2020 */
 
 .single-product .summary.entry-summary .cart { display: -webkit-box; display: -ms-flexbox; display: flex; }
 

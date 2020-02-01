@@ -224,7 +224,8 @@ img{max-width: 100%;}
 top: 50%; left: 50%; transform: translate(-50%, -50%);
 }
 .paragraph p{font-size: 18px; line-height: 30px;}
-.paragraph {padding: 32px 0;border-top: 1px solid rgba(0, 0, 0, 0.2);margin-top: 34px;}
+/* .paragraph {padding: 32px 0;border-top: 1px solid rgba(0, 0, 0, 0.2);margin-top: 34px;} */
+.paragraph {padding: 32px 0;}
 .addsPart img{margin: 0;}
 .addsPart h5{font-size: 1rem; margin-bottom: 24px;}
 .addsPart{margin-right: 30px;}
@@ -237,9 +238,11 @@ top: 50%; left: 50%; transform: translate(-50%, -50%);
 .recommededHeading span{color: #6d6d6d;font-size: 14.09px;}
 .recommededHeading h2{font-size: 2.625rem;color: #1b3d80; margin-bottom: 40px;}
 .recommended{padding-bottom: 120px;}
-.recommededProduct{box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-	margin: 10px auto;max-width: 270px;
-	padding: 25px;
+.recommededProduct{box-shadow: none;
+    margin: 10px auto;
+    max-width: 270px;
+    padding: 25px;
+    border: 1px solid #1b3d80;
 }
 .recommededProduct h5{font-size: 18px; color: #002d62;}
 .recommededProduct span{font-size: 24px;color: #7f7f7f;}
@@ -381,11 +384,11 @@ display: flex;
 	align-items: center;
 	margin-bottom: 20px;
 }
-.product-detail-right .title-price-wrap h1 {
-	font-size: 20px;
+/* .product-detail-right .title-price-wrap h1 {
+	font-size:1rem !important;
 	margin: 0;
-	color: #002d62;
-}
+
+} */
 .product-detail-right .title-price-wrap .price {
 	font-weight: bold;
 	color: #002d62;
@@ -503,7 +506,24 @@ body.single.single-product {
 	margin-bottom: 60px;
 	padding-bottom: 60px;
 }
+
 .additional-product-wrap > h3 {
+    padding: 10px 0;
+    margin-bottom: 40px;
+    font-size: 1.3rem;
+    font-family: 'Gotham-Book';
+    color: #1b3d80;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.additional-product-block {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+}
+/*02/02/2020*/
+/* .additional-product-wrap > h3 {
 	padding: 10px 15px;
 	margin-bottom: 40px;
 	font-size: 18px;
@@ -513,43 +533,62 @@ body.single.single-product {
 	text-transform: uppercase;
 	display: inline-block;
 	background: #6d6d6d;
-}
-.additional-product-block {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -15px;
-}
-.additional-product-item {
+} */
+/* .additional-product-item {
 	flex: 0 0 33.3333%;
 	max-width: 33.3333%;
 	padding: 0 15px;
 	display: flex;
 	flex-wrap: wrap;
-}
-.additional-product-img {
+} */
+/* .additional-product-img {
 	flex: 0 0 30%;
 	max-width: 30%;
-}
-.additional-product-img a {
+} */
+/* .additional-product-img a {
 	display: block;
 	border: 2px solid #ccc;
 	padding: 10px;
-}
-.additional-product-info {
+} */
+/* .additional-product-info {
 	flex: 0 0 70%;
 	max-width: 70%;
 	padding-left: 20px;
-}
-.additional-product-info h5 {
+} */
+/* .additional-product-info h5 {
 	font-size: 18px;
 	font-family: 'Gotham-Book';
 	font-weight: normal;
 	color: #000;
 	text-transform: uppercase;
 	margin-bottom: 20px;
-}
-.additional-product-info h5 a {
+} */
+
+
+/* .additional-product-info h5 a {
 	color: #000;
+} */
+.additional-product-item {
+    width: 30%;
+    border: 1px solid #1b3d80;
+    margin-right: 2rem;
+    margin: 0px auto;
+	padding: 1rem;
+	padding-bottom:0;
+}
+.additional-product-img {
+    width: 100%;
+    margin: 0px auto;
+    padding-bottom: 1rem;
+}
+.additional-product-img a {
+    display: block;
+}
+.additional-product-info h5, .additional-product-info h5 a {
+    color: #1b3d80;
+    font-size: 0.9rem;
+    line-height: 20px;
+    font-weight: 700;
 }
 .additional-product-info a.button, .additional-product-info a.added_to_cart {
 	padding: 8px 12px;
@@ -1232,15 +1271,23 @@ a.button.ajax_add_to_cart.added {
 .woocommerce-Price-amount.amount {
 	color: #002d62 !important;
 }
-.product-category-wrap {
+/* .product-category-wrap {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -15px;
-}
-.product-category-filter {
+} */
+/* .product-category-filter {
 	flex: 0 0 30%;
 	max-width: 30%;
 	padding: 0 15px;
+} */
+.product-category-wrap {
+    display: inline-flex;
+    margin-top: 100px;
+}
+.product-category-filter {
+    max-width: 30%;
+    margin-right: 3rem;
 }
 .product-category-filter .widget-area {
 	margin: 0;
@@ -1275,8 +1322,8 @@ a.button.ajax_add_to_cart.added {
 	color: #1b3d80;
 	font-family: 'Gotham-Book';
 	font-weight: normal;
-	font-size: 14px;
-	padding: 0 0 0 20px;
+	font-size: 0.8rem;
+	padding: 0 0 0 2rem;
 }
 .woof_list li label:before {
 	content: '';
@@ -1305,10 +1352,13 @@ a.button.ajax_add_to_cart.added {
 .woof_list li input:checked ~ label:after {
 	display: block;
 }
-.product-category-list {
+/* .product-category-list {
 	flex: 0 0 70%;
 	max-width: 70%;
 	padding: 0 15px;
+} */
+.product-category-list {
+    max-width: 70%;
 }
 .button.add_to_cart_button {
 	border-radius: 0 !important;
@@ -1365,6 +1415,7 @@ a.button.ajax_add_to_cart.added {
 	display: block;
 	background: #696969;
 	border-color: transparent;
+	font-weight: normal;
 }
 .learn-btn a:hover {
 	border-color: #1b3d80;
@@ -1627,7 +1678,9 @@ a.button.ajax_add_to_cart.added {
     float:left
 }
 .onebox-body a, .onebox-body a:hover {
-    color: #002d62;
+	color: #002d62;
+	font-family:'Gotham-Black', sans-serif;
+    font-weight: 700;
 }
 
 .addtoCart_section {
@@ -1647,9 +1700,9 @@ a.button.ajax_add_to_cart.added {
 	line-height: 20px;
 	color: #002d62;
 }
-.product-detail-right h1 {
+/* .product-detail-right h1 {
     font-size: 1.15rem !important;
-}
+} */
 .product-detail-right h3 {
     font-size: 1.2rem;
 }
@@ -1704,5 +1757,71 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
 	margin-bottom:20px
 }
 .recommededHeading h2 {
-    text-align: center;
+    text-align: left;
+}
+
+/*Date 01/02/2020*/
+.col-md-12.wp-bp-content-width {
+    max-width: 1140px;
+    margin: 0px auto;
+}
+.single-product .wp-bp-content-width .mt-3r {
+    margin-top: .8rem;
+}
+.product-type-simple .paragraph h2 {
+    font-size: 1.5rem;
+}
+
+.product-type-simple .paragraph h3 {
+    font-size: 1.1rem;
+}
+.feature-products h3 {
+    font-size: 1.5rem !important;
+    margin-bottom: 2rem;
+}
+
+.card-title.entry-title, .entry-title {
+    font-size: 1.15rem;
+}
+
+/*category screen*/
+.product-category-filter #secondary .nav-footer-title{display: none;}
+.woof_redraw_zone h4 {
+    border-bottom: 1px solid #1b3d80;
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
+}
+.product-category-filter h4 {
+    font-size: 1.4rem;
+}
+.product-list-content h3 {
+    font-size: 1rem;
+    color: #717171;
+    font-weight: normal;
+}
+.btn-blue:after {
+	color: inherit;
+    content: "\f054 \f054";
+    font-family: 'FontAwesome';
+	padding-left: 5px;
+	font-size: 10px;
+}
+/* .woocommerce-products-header .local-contact {
+	margin-top: -50px;
+} */
+
+.woocommerce-products-header h3 {
+    font-size: 1.3rem;
+}
+
+.woocommerce-pagination .page-numbers li a.prev.page-numbers {
+    border: none !important;
+}
+
+.woocommerce-pagination .page-numbers li .page-numbers{border:0px; border-bottom:1px solid #7f7f7f}
+.page-numbers a{color:#6b6b6b !important}
+
+.cat-banner img {
+    margin: 0px auto;
+    display: block;
 }

@@ -63,9 +63,7 @@ if(is_numeric($product_values)){ ?>
 	<?php 
 
 	echo '<div class="additional-product-img"><a href="'.get_permalink().'">' . woocommerce_get_product_thumbnail().'</a></div>';
-	echo '<div class="additional-product-info"><h5><a href="'.get_permalink().'" class="product_title">'.get_the_title().'</a></h5><h5>'.$price_unit."".$price.'</h5><h4>'.$review_count.'</h4></div>';
-	//echo '<div class="price"></div>';
-	//echo '<a href="?add-to-cart='.get_the_ID().'" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="'.get_the_ID().'" data-product_sku="'.get_the_title().'" rel="nofollow">Add to cart</a></div>';
+	echo '<div class="additional-product-info"><h5><a href="'.get_permalink().'" class="product_title">'.get_the_title().'</a></h5><h5>'.$price_unit."".$price.'</h5></div>';
 	
 
 	?>
@@ -87,7 +85,7 @@ if ( $related_products ) : ?>
 
 	<section class="related-products recommended">
 		<div class="recommededHeading">
-			<span><?php echo wc_get_product_category_list( $product->get_id() ); ?></span>
+			<!--<span><?php echo wc_get_product_category_list( $product->get_id() ); ?></span>-->
 			<h2><?php esc_html_e( 'Related products', 'woocommerce' ); ?></h2>
 
 			<?php woocommerce_product_loop_start(); ?>

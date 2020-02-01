@@ -18,6 +18,25 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+global $post;
+
+if ( is_product_category() ) {
+		
+		$queried_object = get_queried_object(); 
+		$taxonomy = $queried_object->taxonomy;
+		$term_id = $queried_object->term_id;  
+		$foto = get_field( 'feature_image', $queried_object );
+		$foto = get_field( 'feature_image', $taxonomy . '_' . $term_id );
+		if( get_field('feature_image', $taxonomy . '_' . $term_id) ) {
+			echo '<div class="cat-banner"><img src="' . $foto['url'] . '"/></div>';
+		}
+	}
+	
+
+?>
+
+<!--<img style="height:400px; width:100%;" src="<?php echo $image_src; ?>"/>-->
+<?php
 
 /**
  * Hook: woocommerce_before_main_content.
@@ -29,6 +48,8 @@ get_header( 'shop' );
 do_action( 'woocommerce_before_main_content' );
 
 global $post;
+
+
 
 ?>
 <header class="woocommerce-products-header">
@@ -45,12 +66,18 @@ global $post;
 	 */
 	//do_action( 'woocommerce_archive_description' );
 
-	?>
+	//get category id for products 
 	
-	<?php 
-	$id = get_option( 'woocommerce_shop_page_id' );
-	$product_content= get_field( 'product_content_data', $id);
-	echo $product_content; ?>
+	$terms_post = get_the_terms( $post->cat_ID , 'product_cat' );
+		foreach ($terms_post as $term_cat) { 
+		$term_cat_id = $term_cat->term_id; 
+	 }
+		 $term_id= "product_cat_".$term_cat_id;
+		 echo the_field('category_content',  $term_id);
+		 
+		  
+ ?>
+
 	
 	           <div class="local-contact">
 			   <div class="row">
