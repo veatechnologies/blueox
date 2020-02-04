@@ -106,7 +106,8 @@ global $post;
 			 *
 			 * @hooked woocommerce_get_sidebar - 10
 			 */
-			do_action( 'woocommerce_sidebar' );
+			//do_action( 'woocommerce_sidebar' );
+			dynamic_sidebar('cart-items');
 		?>
 	</div>
 	<div class="product-category-list">

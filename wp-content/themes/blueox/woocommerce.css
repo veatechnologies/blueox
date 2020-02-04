@@ -154,7 +154,7 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 
 .woocommerce-password-strength.good { color: #3D9CD2; }
 
-.form-row.woocommerce-validated input.input-text { -webkit-box-shadow: inset 2px 0 0 #0f834d; box-shadow: inset 2px 0 0 #0f834d; }
+.form-row.woocommerce-validated input.input-text { }
 
 .form-row.woocommerce-invalid input.input-text { -webkit-box-shadow: inset 2px 0 0 #e2401c; box-shadow: inset 2px 0 0 #e2401c; }
 

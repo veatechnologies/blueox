@@ -141,6 +141,16 @@ function wp_bootstrap_4_widgets_init() {
 		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Cart items', 'wp-bootstrap-4' ),
+		'id'            => 'cart-items',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
 }
 add_action( 'widgets_init', 'wp_bootstrap_4_widgets_init' );
 
@@ -318,25 +328,14 @@ function cpt_custom_menu( $items, $menu, $args ) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FUNCTIONS BY KELLTON START */
 
 wp_enqueue_style('fontawesome.min.css',get_template_directory_uri()."/css/fontawesome.min.css");
 wp_enqueue_style( 'ktstyle_font', get_template_directory_uri() . '/assets/css/kt_fontawesome.min.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle_slider', get_template_directory_uri() . '/assets/css/kt_slick.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle', get_template_directory_uri() . '/assets/css/kt_style.css',false,rand(1,5),'all');
+wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js',false,rand(1,5),'all');
+
 
 // Remove breadcrumbs from shop & categories
 add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
@@ -444,5 +443,10 @@ function new_loop_shop_per_page( $cols ) {
   return $cols;
 }
 /* FUNCTIONS BY KELLTON ENDS */
+
+// Show items on hover Menu
+
+
+
 
 
