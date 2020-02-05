@@ -31,8 +31,27 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		$after  = '';
 	}
 	/* translators: %s: Order ID. */
-	echo wp_kses_post( $before . sprintf( __( '[Order #%s]', 'woocommerce' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
 	?>
+	
+	<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
+		<thead>
+			<tr>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Order #', 'woocommerce' ); ?></th>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></th>
+			</tr> 
+		</thead>
+		
+		<tbody>
+		<td>
+		<?php echo $order->get_order_number();
+	//echo wp_kses_post( $before . sprintf( __( '[Order #%s]', 'woocommerce' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
+	?></td>
+	<td></td>
+	<td></td>
+		</tbody>
+	
+	
 </h2>
 
 <div style="margin-bottom: 40px;">
