@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 	<thead>
 		<tr>
 			<th class="product-name"><?php esc_html_e( 'Description', 'woocommerce' ); ?></th>
-			<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
+			<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
 			<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
 			<th class="product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
 		</tr>
@@ -126,7 +126,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<tr class="order-total">
 			<td></td>
-			<th class="total_heading"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+			<th><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
 			<td></td>
 			<td><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>

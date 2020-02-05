@@ -48,6 +48,8 @@ if ( $product->is_in_stock() ) : ?>
 		<a class="dealer-link" href="<?php echo  get_site_url()?>/dealer-locator/">Find a Dealer</a>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
+	
+	
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
