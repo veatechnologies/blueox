@@ -1,0 +1,16 @@
+/*1.0.8 - 2020.01.30*/
+- fixed: Add variation to cart with popup
+- added: Hide popup after add variation to cart
+/*1.0.7 - 2019.12.30*/
+- fixed: Disabling variation popup
+- fixed: Changing variation “add to cart”
+- fixed: Able to add items to cart When Ajax add to cart is enabled
+- fixed: Add variation to cart When Ajax add to cart is enabled
+- fixed: Fly to cart doesn’t work when adding the first item to cart
+- fixed: Not calculating shipping in the final price when “total” is selected
+- added: Show meta data of cart item
+- added: Reduce size of sidebar cart icon
+/*1.0.6 - 2019.11.16*/
+- Updated: Sanitize input data
+/*1.0.0  - 2019.*/
+- Release version 1.0.0

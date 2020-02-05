@@ -1,0 +1,49 @@
+
+#accordion-panel-woo_cart_all_in_one_design_general h3:before {
+    content: "\f174";
+    font-family: Dashicons;
+}
+
+
+#customize-control-woo_cart_all_in_one_sidebar_cart_icon-icon_img img {
+    width: 100px;
+    height: 100px;
+}
+
+.customize-control.customize-control-vi_wcaio_radio_cart_icon div.vi_wcaio_radio_button_img.ui-buttonset {
+    margin: 5px 0 0 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    float: left;
+}
+
+.customize-control.customize-control-vi_wcaio_radio_cart_icon div.vi_wcaio_radio_button_img .ui-button-text {
+    padding: 0;
+}
+
+.customize-control.customize-control-vi_wcaio_radio_cart_icon div.vi_wcaio_radio_button_img .ui-button-text i {
+    max-width: 100%;
+    height: auto;
+    opacity: .7;
+    background: none !important;
+}
+
+.customize-control.customize-control-vi_wcaio_radio_cart_icon div.vi_wcaio_radio_button_img i:hover,
+.customize-control.customize-control-vi_wcaio_radio_cart_icon div.vi_wcaio_radio_button_img i:focus {
+    opacity: 1;
+}
+
+.customize-control.customize-control-vi_wcaio_radio_cart_icon .ui-state-active i {
+    color: #000;
+    opacity: 1 !important;
+}
+
+.iris-picker.iris-border {
+    z-index: 9;
+}
+
+/*
+cart icon five
+ */
+
