@@ -36,7 +36,28 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
  * @hooked WC_Structured_Data::output_structured_data() Outputs structured data.
  * @since 2.5.0
  */
-do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
+//do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
+
+?>
+<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
+		<thead>
+			<tr>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Order #', 'woocommerce' ); ?></th>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+				<th class="td" scope="col" style="text-align:"><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></th>
+			</tr> 
+		</thead>
+		
+		<tbody>
+		<td>
+		<?php echo $order->get_order_number();
+	//echo wp_kses_post( $before . sprintf( __( '[Order #%s]', 'woocommerce' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
+	?></td>
+	<td></td>
+	<td></td>
+		</tbody>
+		</table>
+<?php
 
 /*
  * @hooked WC_Emails::order_meta() Shows order meta data.
