@@ -53,8 +53,8 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 		<?php echo $order->get_order_number();
 	//echo wp_kses_post( $before . sprintf( __( '[Order #%s]', 'woocommerce' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
 	?></td>
-	<td></td>
-	<td></td>
+	<td><?php echo $order->get_formatted_order_total(); ?></td>
+	<td>Delivered</td>
 		</tbody>
 		</table>
 <?php
