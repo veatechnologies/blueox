@@ -65,26 +65,27 @@ foreach ( $items as $item_id => $item ) :
 		);
 
 		// allow other plugins to add additional product information here.
-		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );
+		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
+	<?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 
-		?>
+		
 		</td>
-		<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
 			<?php
 			$qty          = $item->get_quantity();
 			$refunded_qty = $order->get_qty_refunded_for_item( $item_id );
 
-			if ( $refunded_qty ) {
+			/*if ( $refunded_qty ) {
 				$qty_display = '<del>' . esc_html( $qty ) . '</del> <ins>' . esc_html( $qty - ( $refunded_qty * -1 ) ) . '</ins>';
 			} else {
 				$qty_display = esc_html( $qty );
 			}
 			echo wp_kses_post( apply_filters( 'woocommerce_email_order_item_quantity', $qty_display, $item ) );
-			?>
-		</td>
-		<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
-			<?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
-		</td>
+			*/ ?>
+		</td>-->
+		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+			
+		</td>-->
 	</tr>
 	<?php
 

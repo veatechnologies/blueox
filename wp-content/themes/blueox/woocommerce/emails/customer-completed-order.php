@@ -73,7 +73,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 				$order,
 				array(
 					'show_sku'      => $sent_to_admin,
-					'show_image'    => false,
+					'show_image'    => true,
 					'image_size'    => array( 32, 32 ),
 					'plain_text'    => $plain_text,
 					'sent_to_admin' => $sent_to_admin,
