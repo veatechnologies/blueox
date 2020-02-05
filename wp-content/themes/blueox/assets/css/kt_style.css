@@ -1388,11 +1388,19 @@ ul#shipping_method {
 .product-category-wrap {
     display: inline-flex;
     margin-top: 100px;
+    width: 100%;
 }
 .product-category-filter {
-    max-width: 30%;
+    width: 30%;
     margin-right: 3rem;
 }
+.product-category-filter .widget.widget-woof{
+	width:80%;
+}
+.product-category-filter h5.nav-footer-title {
+    display: none;
+}
+
 .product-category-filter .widget-area {
 	margin: 0;
 	border: none;
@@ -1470,7 +1478,7 @@ ul#shipping_method {
 .product-list-item {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 -15px;
+	/*margin: 0 -15px;*/
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 30px;
 	padding-bottom: 30px;
@@ -1490,17 +1498,17 @@ ul#shipping_method {
 }
 .product-list-item .product-list-content a.woocommerce-LoopProduct-link {
 	display: flex;
-	flex-wrap: wrap;
+	/*flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin-bottom: 20px;
+	margin-bottom: 20px;*/
 }
 .product-list-item .product-list-content a.woocommerce-LoopProduct-link h2 {
 	font-family: 'Gotham-Book';
 	font-size: 22px;
 	color: #153b6b;;
 	margin: 0;
-	flex: 0 0 80%;
+	/*flex: 0 0 80%;*/
 	max-width: 80%;
 }
 .product-list-item .product-list-content a.woocommerce-LoopProduct-link span.woocommerce-Price-amount.amount {
