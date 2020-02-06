@@ -159,7 +159,27 @@ width: 1130px;
     }
 /* PRODUCT DETAILS PAGE ENDS */
 
+/*Sidebar*/
+.sidebar-1-area .widget, .footer-widgets .widget{
+	padding: 1rem !important;
+}
+#secondary .nav-footer-title{
 
+    border-bottom:1px solid #bfbfbf ;
+	padding-bottom:1rem;
+}
+
+.menu-sidebar_menu-container li {
+    list-style: none !important;
+}
+.menu-sidebar_menu-container li a {
+    color: #002d62 !important;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: Gotham-Book;
+}
+
+/*Sidebar*/
 
 .productDetails h1 span{font-size: 36px;}
 .productDetails h1{font-size: 30px;color: #002d62;}
@@ -1448,9 +1468,13 @@ color: #fff !important;
 font-family: 'Gotham-Medium', sans-serif;
     font-weight: 600;
 }
+p.woocommerce-mini-cart__empty-message {
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
 /*Top Cart Dropdown*/
 
-/*Sidebar*/
 .widget-area.card {
     border: none;
 }
@@ -1491,9 +1515,7 @@ ul#shipping_method {
 #shipping_method li {
     position: absolute;
 }
-.menu-right-sidebar-menu-container li {
-    list-style: none !important;
-}
+
 /*Check out page*/
 
 /* product category */
