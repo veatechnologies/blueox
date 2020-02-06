@@ -444,15 +444,13 @@ function new_loop_shop_per_page( $cols ) {
 // Show items on hover Menu
 
 
-add_filter( 'woocommerce_email_order_items_args', 'iconic_email_order_items_args', 10, 1 );
-
-function iconic_email_order_items_args( $args ) {
-
+function ssd_add_photos_to_wc_emails( $args ) {
+    
+    $args['show_sku'] = false;
     $args['show_image'] = true;
-
     return $args;
-
 }
+add_filter( 'woocommerce_email_order_items_args', 'ssd_add_photos_to_wc_emails' );
 
 
 add_filter( 'woocommerce_email_styles', 'mm_add_custom_woocommerce_email_styles', 10, 2 );
