@@ -452,6 +452,8 @@ td h1 {
 }
 ';
 }
+
+
 add_filter( 'woocommerce_email_order_items_args', 'iconic_email_order_items_args', 10, 1 );
 
 function iconic_email_order_items_args( $args ) {
