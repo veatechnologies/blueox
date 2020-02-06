@@ -67,6 +67,7 @@ foreach ( $items as $item_id => $item ) :
 
 		// allow other plugins to add additional product information here.
 		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
+		
 	<?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 
 		
@@ -88,7 +89,9 @@ foreach ( $items as $item_id => $item ) :
 			
 		</td>-->
 	<?php	
-		function sww_add_images_woocommerce_emails( $output, $order ) {
+	function sww_add_images_woocommerce_emails( $output, $order ) {
+		
+		echo "ayushi";
 	
 	// set a flag so we don't recursively call this filter
 	static $run = 0;
