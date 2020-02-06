@@ -441,16 +441,40 @@ function new_loop_shop_per_page( $cols ) {
 }
 /* FUNCTIONS BY KELLTON ENDS */
 
-// Show items on hover Menu
+function change_email_item_thumbnail($thumbnail, $item = null) {
 
+    if (!is_null($item) && isset($item['fpd_data'])) {
 
-function ssd_add_photos_to_wc_emails( $args ) {
-    
-    $args['show_sku'] = false;
-    $args['show_image'] = true;
-    return $args;
+        $fpd_data = maybe_unserialize($item['fpd_data']);
+
+        //check if data contains the fancy product thumbnail
+        if (isset($fpd_data['fpd_product_thumbnail']) && $fpd_data['fpd_product_thumbnail']) {
+
+            $dom = new DOMDocument;
+            libxml_use_internal_errors(true);
+            $dom->loadHTML($thumbnail);
+            $xpath = new DOMXPath($dom);
+            libxml_clear_errors();
+            $doc = $dom->getElementsByTagName("img")->item(0);
+            $src = $xpath->query(".//@src");
+
+            foreach ($src as $s) {
+                $s->nodeValue = $fpd_data['fpd_product_thumbnail'];
+            }
+
+            $output = $dom->saveXML($doc);
+
+            return $output;
+
+        }
+
+    }
+
+    return $thumbnail;
+
 }
-add_filter( 'woocommerce_email_order_items_args', 'ssd_add_photos_to_wc_emails' );
+
+add_filter('woocommerce_order_item_thumbnail', 'change_email_item_thumbnail', 10, 2);
 
 
 add_filter( 'woocommerce_email_styles', 'mm_add_custom_woocommerce_email_styles', 10, 2 );
