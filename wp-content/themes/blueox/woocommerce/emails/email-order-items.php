@@ -42,6 +42,7 @@ foreach ( $items as $item_id => $item ) :
 		<?php
 
 		// Show title/image etc.
+		echo $show_image."123445555";
 		if ( $show_image ) {
 			echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
 		}
