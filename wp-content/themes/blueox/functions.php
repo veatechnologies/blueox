@@ -448,20 +448,9 @@ add_filter( 'woocommerce_email_styles', 'mm_add_custom_woocommerce_email_styles'
 function mm_add_custom_woocommerce_email_styles( $css, $email ) {
 	return $css . '
 td h1 {
-    color: #1b3d80;
+    color: #1b3d80 !important;
 }
 ';
-}
-
-
-add_filter( 'woocommerce_email_order_items_args', 'iconic_email_order_items_args', 10, 1 );
-
-function iconic_email_order_items_args( $args ) {
-
-    $args['show_image'] = true;
-
-    return $args;
-
 }
 
 
