@@ -39,20 +39,18 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 //do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 
 ?>
-	<div class="order_complet_content">
-		<p><?php esc_html_e( 'Order #', 'woocommerce' ); ?>: <?php echo $order->get_order_number();?> </p>
-		<p><?php esc_html_e( 'Total', 'woocommerce' ); ?>: <?php echo $order->get_formatted_order_total(); ?></p>
-		<p><?php esc_html_e( 'Shipping', 'woocommerce' ); ?>: Delivered</p>
-		
+		<div class="col mb-4 pb-3">
+		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>  <span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>    <span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span> <span class="font-weight-bold">Delivered</span></p>
 		</div>
-		
-	<div class="product_content_details">
-
+				
+	
 		<?php
 			echo wc_get_email_order_items( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				$order,
 				array(
-					'show_sku'      => $sent_to_admin,
+					'show_sku'      => false,
 					'show_image'    => true,
 					'image_size'    => array( 32, 32 ),
 					'plain_text'    => $plain_text,
@@ -77,18 +75,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					<?php
 				}
 			}
-			/*if ( $order->get_customer_note() ) {
-				?>
-				<tr>
-					<th class="td" scope="row" colspan="2" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
-					<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
-				</tr>
-				<?php
-			}*/
+		
 			?>
 
-
-</div>
 <?php
 
 /*
