@@ -43,7 +43,9 @@ foreach ( $items as $item_id => $item ) :
 
 		// Show title/image etc.
 		if ( $show_image ) {
-			echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
+			////echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
+			echo apply_filters( 'woocommerce_order_item_thumbnail', '<img src="' . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail') ) : wc_placeholder_img_src() ) .'" alt="' . __( 'Product Image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px;" />', $item );
+			
 		}
 
 		// Product name.
