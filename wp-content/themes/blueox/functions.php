@@ -290,9 +290,6 @@ function cpt_custom_menu( $items, $menu, $args ) {
   }
 
   if( $parent_item_id >= 1 ) {
-
-
-
 		$post->target = '';
 		$post->attr_title = '';
 		$post->description = '';
@@ -447,6 +444,13 @@ function new_loop_shop_per_page( $cols ) {
 // Show items on hover Menu
 
 
-
+add_filter( 'woocommerce_email_styles', 'mm_add_custom_woocommerce_email_styles', 10, 2 );
+function mm_add_custom_woocommerce_email_styles( $css, $email ) {
+	return $css . '
+td h1 {
+    color: #1b3d80;
+}
+';
+}
 
 
