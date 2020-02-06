@@ -444,6 +444,17 @@ function new_loop_shop_per_page( $cols ) {
 // Show items on hover Menu
 
 
+add_filter( 'woocommerce_email_order_items_args', 'iconic_email_order_items_args', 10, 1 );
+
+function iconic_email_order_items_args( $args ) {
+
+    $args['show_image'] = true;
+
+    return $args;
+
+}
+
+
 add_filter( 'woocommerce_email_styles', 'mm_add_custom_woocommerce_email_styles', 10, 2 );
 function mm_add_custom_woocommerce_email_styles( $css, $email ) {
 	return $css . '
