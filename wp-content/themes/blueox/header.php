@@ -41,12 +41,12 @@
 
 	<header id="masthead" class="site-header <?php if ( get_theme_mod( 'sticky_header', 0 ) ) : echo 'sticky-top'; endif; ?> pt-3 pb-3">
 
-		<div class="container-fluid">
+		<div class="top-header container-fluid">
 
 			<div class="row">
 
 
-				<div class="col-md-2 pl-4">
+				<div class="col-md-2 pl-2">
 
 					<?php the_custom_logo(); ?>
 
