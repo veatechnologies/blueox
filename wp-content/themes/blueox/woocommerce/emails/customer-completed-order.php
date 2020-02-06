@@ -39,24 +39,16 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 //do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 
 ?>
-
-		
-		<div class="order_complet_content">
+	<div class="order_complet_content">
 		<p><?php esc_html_e( 'Order #', 'woocommerce' ); ?>: <?php echo $order->get_order_number();?> </p>
 		<p><?php esc_html_e( 'Total', 'woocommerce' ); ?>: <?php echo $order->get_formatted_order_total(); ?></p>
 		<p><?php esc_html_e( 'Shipping', 'woocommerce' ); ?>: Delivered</p>
 		
 		</div>
-		<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
-		<thead>
-			<!--<tr>
-				<th class="td" scope="col" style="text-align:<?php //echo esc_attr( $text_align ); ?>;"><?php //esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="td" scope="col" style="text-align:<?php //echo esc_attr( $text_align ); ?>;"><?php //esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="td" scope="col" style="text-align:<?php //echo esc_attr( $text_align ); ?>;"><?php //esc_html_e( 'Price', 'woocommerce' ); ?></th>
-			</tr> -->
-		</thead>
-		<tbody>
-			<?php
+		
+	<div class="product_content_details">
+
+		<?php
 			echo wc_get_email_order_items( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				$order,
 				array(
@@ -68,8 +60,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 				)
 			);
 			?>
-		</tbody>
-		<tfoot>
+			
+			
+			
 			<?php
 			$item_totals = $order->get_order_item_totals();
 
@@ -94,8 +87,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 				<?php
 			}
 			?>
-		</tfoot>
-	</table>
+
+
+</div>
 <?php
 
 /*
