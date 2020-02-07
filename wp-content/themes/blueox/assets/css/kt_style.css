@@ -1510,16 +1510,16 @@ p.woocommerce-mini-cart__empty-message {
 
 
 .woocommerce-checkout th.product-name {
-	width: 50% !important;
+	width: 42% !important;
 	padding-right: 100px;
 }
 .woocommerce-checkout th.product-quantity {
-	width: 25% !important;
+	width: 20% !important;
 	text-align:left;
 	color: #002d62;
 }
-.product-name {
-    padding-right: 100px;
+.woocommerce-checkout-review-order td.product-name {
+    padding-right: 70px;
 }
 .product-quantity{
 	text-align: left;
