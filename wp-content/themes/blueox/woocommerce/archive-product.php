@@ -31,7 +31,18 @@ if ( is_product_category() ) {
 			echo '<div class="cat-banner"><img src="' . $foto['url'] . '"/></div>';
 		}
 	}
+	 
+	if ( has_term( 'tow-bar', 'product_cat', $product->id ) ) {
 	
+	$queried_object = get_queried_object(); 
+		$taxonomy = $queried_object->taxonomy;
+		$term_id = $queried_object->term_id;  
+		$foto = get_field( 'feature_image', $queried_object );
+		$foto = get_field( 'feature_image', $taxonomy . '_' . $term_id );
+		if( get_field('feature_image', $taxonomy . '_' . $term_id) ) {
+			echo '<div class="cat-banner"><img src="' . $foto['url'] . '"/></div>';
+		}
+	 }
 
 ?>
 
