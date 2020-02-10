@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 ?>
 		<div class="col mb-4 pb-3">
-		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?>: &nbsp;</span><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
-		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?>: &nbsp;</span><span><?php echo $order->get_formatted_order_total(); ?></span></p>
-		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?>:  &nbsp;</span><span class="font-weight-bold">Delivered</span></p>
+		<p><span><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?>: &nbsp;<strong></span><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?>: &nbsp;</strong></span><span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span><strong><?php esc_html_e( 'Shipping', 'woocommerce' ); ?>:  &nbsp;</strong></span><span class="font-weight-bold">Delivered</span></p>
 		</div>
 				
 	
@@ -71,14 +71,14 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 						<?php 
 						echo '<div class="product-thumbnail"><img src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>'; ?> 
 
-						<div class="cart-product-info">
+						<!--<div class="cart-product-info">
 								<div class="product-name" data-title="Product">
 									<div class="productQuantity"><?php echo wp_kses_post( $total['label'] ); ?></div>
 									<div class="productTitle">SKU-SKUHERE</div>
 								</div>
 								<div class="productPrice"><?php echo wp_kses_post( $total['value'] ); ?></div>
 							
-						</div>
+						</div>-->
 					</div>
 					<?php
 				}
