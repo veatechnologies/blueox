@@ -73,10 +73,10 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 						<!--<div class="cart-product-info">
 								<div class="product-name" data-title="Product">
-									<div class="productQuantity"><?php echo wp_kses_post( $total['label'] ); ?></div>
+									<div class="productQuantity"><?php //echo wp_kses_post( $total['label'] ); ?></div>
 									<div class="productTitle">SKU-SKUHERE</div>
 								</div>
-								<div class="productPrice"><?php echo wp_kses_post( $total['value'] ); ?></div>
+								<div class="productPrice"><?php //echo wp_kses_post( $total['value'] ); ?></div>
 							
 						</div>-->
 					</div>
