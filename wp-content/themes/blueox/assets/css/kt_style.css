@@ -885,8 +885,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     width: 330px;
 } */
 .woocommerce-billing-fields__field-wrapper p span.woocommerce-input-wrapper input, .woocommerce-account-fields p span.woocommerce-input-wrapper input, .woocommerce-shipping-fields p span.woocommerce-input-wrapper input, .woocommerce-additional-fields__field-wrapper p span.woocommerce-input-wrapper textarea {
-	border: 1px solid #002d62;
-	border-radius: 0;
 	width:480px;
 }
 .form-row .woocommerce-input-wrapper {
@@ -1302,12 +1300,14 @@ a.button.ajax_add_to_cart.added {
 .woocommerce-billing-fields__field-wrapper .form-row {
     flex-wrap: initial;
 }
-.form-row label {
+.checkout.woocommerce-checkout .form-row label {
     margin-top: 5px;
     margin-right: 10px;
-	
-	
 }
+.checkout.woocommerce-checkout .woocommerce-input-wrapper input::placeholder {
+    color: #002d62;
+}
+
 #wc-elavon-converge-credit-card-test-amount {
     width: 60%;
 }
@@ -1332,8 +1332,9 @@ a.button.ajax_add_to_cart.added {
 	color: #002d62 !important;
 }
 .woocommerce-checkout-review-order .form-row label {
-    width: 15%;
-    margin-top: 9px;
+    width: auto;
+	margin-top: 9px;
+	padding-right: 2rem;
 }
 .woocommerce-checkout-review-order #wc-elavon-converge-credit-card-test-amount {
     width: 42.5%;
