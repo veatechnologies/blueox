@@ -30,7 +30,8 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	<?php echo $product->get_image(); ?>
 </div>
 <div class="product_group">
-
+	
+<div  class="_woocommerce-table__product-name product-name">
 		<?php
 		$is_visible        = $product && $product->is_visible();
 		$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
@@ -56,7 +57,10 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		?>
 
 <div class="woocommerce-table__product-total product-total"><?php echo $order->get_formatted_line_subtotal( $item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-	
+		</div>
+
+		
+
 </div>
 	
 		
