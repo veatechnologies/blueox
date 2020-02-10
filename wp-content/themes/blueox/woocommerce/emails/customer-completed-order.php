@@ -62,7 +62,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 			$item_totals = $order->get_order_item_totals();
 
-			if ( $item_totals && $show_image) {
+			if ( $item_totals) {
 				$i = 0;
 				foreach ( $item_totals as $total ) {
 					$i++;
@@ -80,6 +80,8 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 							
 						</div>-->
 					</div>
+
+					
 					<?php
 				}
 			}
