@@ -49,7 +49,22 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 		</div>
 		
 
-<?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); ?>
+<?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 
+
+
+//to get the product name and image
+			echo wc_get_email_order_items( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$order,
+				array(
+					'show_sku'      => false,
+					'show_image'    => true,
+					'image_size'    => array( 32, 32 ),
+					'plain_text'    => $plain_text,
+					'sent_to_admin' => $sent_to_admin,
+				)
+			);
+			?>
+
 
 
 		<div class="subTotal">
