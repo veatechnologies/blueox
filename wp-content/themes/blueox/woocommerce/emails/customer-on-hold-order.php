@@ -23,8 +23,8 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php /* translators: %s: Customer first name */ ?>
-<p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
-<p><?php esc_html_e( 'Thanks for your order. It’s on-hold until we confirm that payment has been received. In the meantime, here’s a reminder of what you ordered:', 'woocommerce' ); ?></p>
+<!--<p><?php //printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>-->
+<!--<p><?php //esc_html_e( 'Thanks for your order. It’s on-hold until we confirm that payment has been received. In the meantime, here’s a reminder of what you ordered:', 'woocommerce' ); ?></p>-->
 
 <?php
 
@@ -34,8 +34,46 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
  * @hooked WC_Structured_Data::output_structured_data() Outputs structured data.
  * @since 2.5.0
  */
-do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
+ 
+ 
+ 
+//do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 
+?>
+		<div class="subTotal">
+			<div class="container">
+			 <div class="col-sm-3 float-right">
+
+			  <table class="table table-borderless">
+	
+    		<tbody>
+				
+			<?php
+			$item_totals = $order->get_order_item_totals();
+
+			if ( $item_totals ) {
+				$i = 0;
+				foreach ( $item_totals as $total ) {
+					$i++;
+					?>
+					
+					<tr><p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p></tr>
+						
+					<tr><p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p></tr>
+				
+					<?php
+				}
+			}
+		
+			?>
+
+				 </tbody>
+ 			 </table>
+ 			 </div>
+		</div>
+		</div>
+
+<?php
 /*
  * @hooked WC_Emails::order_meta() Shows order meta data.
  */
