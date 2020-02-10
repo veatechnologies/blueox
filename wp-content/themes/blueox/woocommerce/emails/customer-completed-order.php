@@ -59,8 +59,16 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			);
 			?>
 			
+			
+			<div class="subTotal">
+			<div class="container">
+			 <div class="col-sm-3 float-right">
+
+			  <table class="table table-borderless">
+	
+    		<tbody>
+				
 			<?php
-			/*
 			$item_totals = $order->get_order_item_totals();
 
 			if ( $item_totals ) {
@@ -69,15 +77,21 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					$i++;
 					?>
 					
-					<p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p>
+					<tr><p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p></tr>
 						
-					<p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p>
+					<tr><p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p></tr>
 				
 					<?php
 				}
-			}*/
+			}
 		
 			?>
+
+				 </tbody>
+ 			 </table>
+ 			 </div>
+		</div>
+		</div>
 
 <?php
 
