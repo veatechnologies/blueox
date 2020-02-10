@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 ?>
 		<div class="col mb-4 pb-3">
-		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>:<span class="text-underline"><?php echo $order->get_order_number();?></span></p>
-		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:<span><?php echo $order->get_formatted_order_total(); ?></span></p>
-		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:<span class="font-weight-bold">Delivered</span></p>
+		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?>: &nbsp;</span><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?>: &nbsp;</span><span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?>:  &nbsp;</span><span class="font-weight-bold">Delivered</span></p>
 		</div>
 				
 	

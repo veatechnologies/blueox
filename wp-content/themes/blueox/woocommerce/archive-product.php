@@ -32,7 +32,7 @@ if ( is_product_category() ) {
 		}
 	}
 	 
-	if ( has_term( 'tow-bar', 'product_cat', $product->id ) ) {
+	/*if ( has_term( 'tow-bar', 'product_cat', $product->id ) ) {
 	
 	$queried_object = get_queried_object(); 
 		$taxonomy = $queried_object->taxonomy;
@@ -42,7 +42,7 @@ if ( is_product_category() ) {
 		if( get_field('feature_image', $taxonomy . '_' . $term_id) ) {
 			echo '<div class="cat-banner"><img src="' . $foto['url'] . '"/></div>';
 		}
-	 }
+	 }*/
 
 ?>
 
