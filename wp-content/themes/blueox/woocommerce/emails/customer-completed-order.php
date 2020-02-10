@@ -62,7 +62,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 			$item_totals = $order->get_order_item_totals();
 
-			if ( $item_totals) {
+			if ( $item_totals && $show_image) {
 				$i = 0;
 				foreach ( $item_totals as $total ) {
 					$i++;
@@ -71,17 +71,15 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 						<?php 
 						echo '<div class="product-thumbnail"><img src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>'; ?> 
 
-						<!--<div class="cart-product-info">
+						<div class="cart-product-info">
 								<div class="product-name" data-title="Product">
-									<div class="productQuantity"><?php //echo wp_kses_post( $total['label'] ); ?></div>
+									<div class="productQuantity"><?php echo wp_kses_post( $total['label'] ); ?></div>
 									<div class="productTitle">SKU-SKUHERE</div>
 								</div>
-								<div class="productPrice"><?php //echo wp_kses_post( $total['value'] ); ?></div>
+								<div class="productPrice"><?php echo wp_kses_post( $total['value'] ); ?></div>
 							
-						</div>-->
+						</div>
 					</div>
-
-
 					<?php
 				}
 			}
