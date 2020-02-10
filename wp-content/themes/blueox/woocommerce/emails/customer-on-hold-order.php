@@ -62,13 +62,13 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					'sent_to_admin' => $sent_to_admin,
 				)
 			);
-			?>
+		
 
 
 
 // to get the billing details 
 
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 	?>
 
 		<div class="subTotal">
 			<div class="container">
