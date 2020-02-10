@@ -989,7 +989,9 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 	color: #002d62 !important;
 }
 
-
+.woocommerce-billing-fields__field-wrapper .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #002d62 !important;
+}
 /* account page */
 .page-template-account-template {
 	background: #fff;
