@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 ?>
 		<div class="col mb-4 pb-3">
-		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>:<span class="text-underline"><?php echo $order->get_order_number();?></span></p>
-		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:<span><?php echo $order->get_formatted_order_total(); ?></span></p>
-		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:<span class="font-weight-bold">Delivered</span></p>
+		<p><span><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>  <span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>    <span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span> <span class="font-weight-bold">Delivered</span></p>
 		</div>
 				
 	
@@ -52,37 +52,33 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 				array(
 					'show_sku'      => false,
 					'show_image'    => true,
-					'image_size'    => array(64, 64 ),
+					'image_size'    => array( 32, 32 ),
 					'plain_text'    => $plain_text,
 					'sent_to_admin' => $sent_to_admin,
 				)
 			);
+			?>
 			
-			
-
+			<?php
 			$item_totals = $order->get_order_item_totals();
 
-			if ( $item_totals && $show_image) {
+			if ( $item_totals ) {
 				$i = 0;
 				foreach ( $item_totals as $total ) {
 					$i++;
 					?>
-					<div class="final-Products">
-						<?php 
-						echo '<div class="product-thumbnail"><img src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>'; ?> 
-
-				<div class="cart-product-info">
-						<div class="product-name" data-title="Product">
-							<div class="productQuantity"><?php echo wp_kses_post( $total['label'] ); ?></div>
-							
-						</div>
-						<div class="productPrice"><?php echo wp_kses_post( $total['value'] ); ?></div>
 					
-				</div>
+					<p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p>
+						
+					<p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p>
+				
 					<?php
 				}
 			}
 		
+			?>
+
+<?php
 
 /*
  * @hooked WC_Emails::order_meta() Shows order meta data.
