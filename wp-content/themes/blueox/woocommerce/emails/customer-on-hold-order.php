@@ -47,10 +47,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 		<p><span><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
 		
 		</div>
-		
 
-<?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 
 
+<?php 		
 
 //to get the product name and image
 			echo wc_get_email_order_items( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -66,6 +65,10 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			?>
 
 
+
+// to get the billing details 
+
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 
 
 		<div class="subTotal">
 			<div class="container">
