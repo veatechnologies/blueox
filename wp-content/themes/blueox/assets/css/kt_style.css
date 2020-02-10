@@ -1490,7 +1490,22 @@ p.woocommerce-mini-cart__empty-message {
     padding-top: 10px;
     margin-bottom: 0;
 }
-/*Top Cart Dropdown*/
+/*End Top Cart Dropdown*/
+
+/*Order Receive Page*/
+.order_item .product_group a {
+    color: #002d62;
+    font-size: 20px;
+}
+.woocommerce-order-received .order_item .product_group a {
+    color: #002d62;
+    font-size:20px;
+}
+
+.woocommerce-order-received .order_item .product_group .woocommerce-table__product-total.product-total {
+    padding-top: 1.5rem;
+}
+/*End Order Receive Page*/
 
 .widget-area.card {
     border: none;
