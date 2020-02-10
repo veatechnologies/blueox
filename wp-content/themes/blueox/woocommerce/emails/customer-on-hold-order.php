@@ -40,6 +40,14 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 //do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 
 ?>
+
+
+		<div class="col mb-4 pb-3">
+		<p><span><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>: &nbsp;</strong><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		
+		</div>
+		
 		<div class="subTotal">
 			<div class="container">
 			 <div class="col-sm-3 float-right">
