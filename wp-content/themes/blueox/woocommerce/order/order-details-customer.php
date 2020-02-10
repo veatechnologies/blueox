@@ -20,12 +20,12 @@ defined( 'ABSPATH' ) || exit;
 $show_shipping = !wc_ship_to_billing_address_only() && $order->needs_shipping_address();
 $show_shipping = true;
 ?>
-<section class="woocommerce-customer-details">
+<section class="woocommerce-customer-details thankyou-woocommerce">
 
 	<?php if ( $show_shipping ) : ?>
 
 	<section class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses col2-set addresses">
-		<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-1">
+		<div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-sm-8">
 
 	<?php endif; ?>
 
@@ -42,26 +42,13 @@ $show_shipping = true;
 			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
 		<?php endif; ?>
 	</address>
-	<table class="checkout_total">
-	<tbody>
-	<?php
-			foreach ( $order->get_order_item_totals() as $key => $total ) {
-				?>
-					<tr>
-						<th scope="row" class="total-expenses"><?php echo esc_html( $total['label'] ); ?></th>
-						<td><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
-					</tr>
-					<?php
-			}
-			?>
-	</tbody>
-	</table>
+	
 
 	<?php if ( $show_shipping ) : ?>
 
 		</div><!-- /.col-1 -->
 
-		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
+		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-4">
 			<h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
 			<address>
 				<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
@@ -75,3 +62,17 @@ $show_shipping = true;
 	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
 
 </section>
+<table class="checkout_total">
+	<tbody>
+	<?php
+			foreach ( $order->get_order_item_totals() as $key => $total ) {
+				?>
+					<tr>
+						<th scope="row" class="total-expenses"><?php echo esc_html( $total['label'] ); ?></th>
+						<td><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+					</tr>
+					<?php
+			}
+			?>
+	</tbody>
+	</table>
