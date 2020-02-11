@@ -63,7 +63,7 @@ foreach ( $items as $item_id => $item ) :
                                                                 <td style="width: 70%; border-bottom:1px solid #bfbfbf; padding-bottom: 20px; padding-top:20px; " valign="top">
                                                                     <div style="max-width: 67.66%; float: left;">
                                                                         <div style="color:#002d62; font-weight: bold; padding-bottom: 10px;"><?php echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) ); ?> </div>
-                                                                        if ( $show_sku && $sku ) { ?>
+                                                                      <?php  if ( $show_sku && $sku ) { ?>
 															<div style="color:#002d62;  padding-bottom: 30px;"> <?php echo wp_kses_post( ' (#' . $sku . ')' ); ?> </div>
 													<?php	} ?>
                                                                         <div style="font-weight: bold; color:#002d62;"><span>$</span><span>505.00</span></div>
