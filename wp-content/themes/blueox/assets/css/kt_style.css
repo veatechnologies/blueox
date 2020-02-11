@@ -317,7 +317,7 @@ top: 50%; left: 50%; transform: translate(-50%, -50%);
 .recommededProduct{box-shadow: none;
     margin: 10px auto;
     max-width: 270px;
-    padding: 25px;
+    padding: 1rem;
 	border: 1px solid #1b3d80;
 	height: 100%;
     min-height: 400px;
@@ -1610,7 +1610,10 @@ ul#shipping_method {
 	display: inline-block;
 	font-family: 'Gotham-Medium';
 }
-.woocommerce-Price-amount.amount{font-family: 'Gotham-Medium';}
+.woocommerce-Price-amount.amount{
+	font-size: 1.5rem;
+	font-weight: normal;
+}
 /* .product-category-wrap {
 	display: flex;
 	flex-wrap: wrap;
@@ -2197,6 +2200,7 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
 .single-product div.product .woocommerce-product-gallery .flex-control-thumbs .slick-slide{
 	margin:0 10px;
 }
+.woocommerce-product-gallery__wrapper a{height:auto !important; padding:3rem 0;}
 
 .dealer-link {
     background: #AEAEAE;
