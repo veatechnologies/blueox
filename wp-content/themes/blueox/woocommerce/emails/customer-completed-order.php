@@ -60,11 +60,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			?>
 			
 			
-			<div class="subTotal">
-			<div class="container">
-			 <div class="col-sm-3 float-right">
+		
 
-			  <table class="table table-borderless">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" >
 	
     		<tbody>
 				
@@ -77,7 +75,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					$i++;
 					?>
 					
-					<tr><p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p></tr>
+					 <tr><td align="right" style="padding-bottom:10px">
+                                <div style="max-width:300px;text-align: left;">
+                                         <span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p></tr>
 						
 					<tr><p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p></tr>
 				
@@ -89,11 +89,15 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 				 </tbody>
  			 </table>
- 			 </div>
-		</div>
-		</div>
+ 			 
+
+
 
 <?php
+
+//only html
+
+
 
 /*
  * @hooked WC_Emails::order_meta() Shows order meta data.
