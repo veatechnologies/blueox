@@ -66,7 +66,8 @@ foreach ( $items as $item_id => $item ) :
                                                                       <?php  if ( $show_sku && $sku ) { ?>
 															<div style="color:#002d62;  padding-bottom: 30px;"> <?php echo wp_kses_post( ' (#' . $sku . ')' ); ?> </div>
 													<?php	} ?>
-                                                                        <div style="font-weight: bold; color:#002d62;"><span>$</span><span>505.00</span></div>
+                                                                <div style="font-weight: bold; color:#002d62;"><span>$</span><span><?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
+																</span></div>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -116,7 +117,7 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 
 		// allow other plugins to add additional product information here.
 		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
-	<?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
+	<?php //echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 
 		
 		</td>
