@@ -68,10 +68,6 @@ foreach ( $items as $item_id => $item ) :
 														
                                                     </td>
 </tr>
-<tr>
-<td style=" padding: 0 32px; ">
-<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px; padding-bottom: 20px; border-bottom: 1px solid #bfbfbf;">
-</table></td></tr>
 
 
 	<!--<tr class="<?php //echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
