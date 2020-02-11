@@ -90,11 +90,11 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 
 
 ////echo apply_filters( 'woocommerce_order_item_thumbnail', '<div style="margin-bottom: 5px"><img src="' . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>', $item ); 
-echo '<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;"><img  height="32" width="32" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>'; 
+//echo '<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;"><img  height="32" width="32" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>'; 
 
 
 			
-		}*/
+		// }
 
 		// Product name.
 		//echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) );
