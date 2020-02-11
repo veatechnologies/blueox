@@ -38,7 +38,8 @@ foreach ( $items as $item_id => $item ) :
 
 	?>
 
-   <td style=" padding: 0 32px; ">
+  <tr>
+                  <td style=" padding: 0 32px; ">
       <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
                                                             
 		<tr>
@@ -66,7 +67,7 @@ foreach ( $items as $item_id => $item ) :
                                                     </td>
 
 
-
+</tr>
 	<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 		<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align: middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;">
 		<?php
