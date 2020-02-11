@@ -59,9 +59,6 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			);
 			?>
 			
-			
-		
-
 			<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" >
 	
     		<tbody>

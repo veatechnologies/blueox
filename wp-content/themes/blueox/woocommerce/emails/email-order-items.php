@@ -38,23 +38,18 @@ foreach ( $items as $item_id => $item ) :
 
 	?>
 
-  <tr>
-                                  <td style=" padding: 0 32px; ">
-                                           <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px;  border-bottom:1px solid #bfbfbf; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
+   <td style=" padding: 0 32px; ">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
                                                             
-												<tr>
-          <td style="width: 30%; padding-bottom: 20px;padding-top:20px;  ">
-		<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;">
-                                                                        
-																	<?php if ( $show_image ) {
-																				////echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
-																	echo '<img  height="32" width="32" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" />'; 
-
-																			} ?>
-
-
-                                                                    </div>
-                                                                </td>
+		<tr>
+        <td style="width: 30%; padding-bottom: 20px;padding-top:20px;">
+		<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;  padding: 20px;">
+                                           <?php if ( $show_image ) {
+				////echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
+		echo '<img  height="32" width="32" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" />'; 
+		} ?>
+		</div>
+         </td>
  <td style="width: 70%; padding-bottom: 20px; padding-top:20px; " valign="top">
                                                  <div style="max-width: 67.66%; float: left;">
      <div style="color:#002d62; font-weight: bold; padding-bottom: 10px;">
