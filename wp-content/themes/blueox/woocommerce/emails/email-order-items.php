@@ -43,7 +43,7 @@ foreach ( $items as $item_id => $item ) :
                                            <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px;  border-bottom:1px solid #bfbfbf; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
                                                             
 												<tr>
-          <td style="width: 30%;border-bottom:1px solid #bfbfbf; padding-bottom: 20px;padding-top:20px;  ">
+          <td style="width: 30%; padding-bottom: 20px;padding-top:20px;  ">
 		<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;">
                                                                         
 																	<?php if ( $show_image ) {
@@ -55,7 +55,7 @@ foreach ( $items as $item_id => $item ) :
 
                                                                     </div>
                                                                 </td>
- <td style="width: 70%; border-bottom:1px solid #bfbfbf; padding-bottom: 20px; padding-top:20px; " valign="top">
+ <td style="width: 70%; padding-bottom: 20px; padding-top:20px; " valign="top">
                                                  <div style="max-width: 67.66%; float: left;">
      <div style="color:#002d62; font-weight: bold; padding-bottom: 10px;">
 	 <?php echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) ); ?> </div>
