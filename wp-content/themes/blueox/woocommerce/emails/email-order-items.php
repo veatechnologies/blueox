@@ -39,34 +39,30 @@ foreach ( $items as $item_id => $item ) :
 	?>
 
   <tr>
-                                                    <td style=" padding: 0 32px; ">
-                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px;  border-bottom:1px solid #bfbfbf; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
+                                  <td style=" padding: 0 32px; ">
+                                           <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom:5px;  border-bottom:1px solid #bfbfbf; padding-bottom: 20px; border-top: 1px solid #bfbfbf;">
                                                             
-
-                                                            <tr>
-                                                                <td style="width: 30%;border-bottom:1px solid #bfbfbf; padding-bottom: 20px;padding-top:20px;  ">
-
-                                                                    <div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;">
+												<tr>
+          <td style="width: 30%;border-bottom:1px solid #bfbfbf; padding-bottom: 20px;padding-top:20px;  ">
+		<div style="border: 1px solid #bfbfbf; width: 90px; height: 90px;    padding: 20px;">
                                                                         
 																	<?php if ( $show_image ) {
 																				////echo wp_kses_post( apply_filters( 'woocommerce_order_item_thumbnail', $image, $item ) );
 																	echo '<img  height="32" width="32" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" src="'. get_site_url() . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="width: 100%; max-width: 100%; height: auto; display:inline-block;" />'; 
 
-
-																				
 																			} ?>
 
 
                                                                     </div>
                                                                 </td>
-
-                                                                <td style="width: 70%; border-bottom:1px solid #bfbfbf; padding-bottom: 20px; padding-top:20px; " valign="top">
-                                                                    <div style="max-width: 67.66%; float: left;">
-                                                                        <div style="color:#002d62; font-weight: bold; padding-bottom: 10px;"><?php echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) ); ?> </div>
+ <td style="width: 70%; border-bottom:1px solid #bfbfbf; padding-bottom: 20px; padding-top:20px; " valign="top">
+                                                 <div style="max-width: 67.66%; float: left;">
+     <div style="color:#002d62; font-weight: bold; padding-bottom: 10px;">
+	 <?php echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false ) ); ?> </div>
                                                                       <?php  if ( $show_sku && $sku ) { ?>
-															<div style="color:#002d62;  padding-bottom: 30px;"> <?php echo wp_kses_post( ' (#' . $sku . ')' ); ?> </div>
+<div style="color:#002d62;  padding-bottom: 30px;"> <?php echo wp_kses_post( ' (#' . $sku . ')' ); ?> </div>
 													<?php	} ?>
-                                                                <div style="font-weight: bold; color:#002d62;"><span><?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
+                    <div style="font-weight: bold; color:#002d62;"><span><?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 																</span></div>
                                                                     </div>
                                                                 </td>
@@ -74,11 +70,8 @@ foreach ( $items as $item_id => $item ) :
                                                         </table>
                                                     </td>
 
-
-
-
-	<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-		<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align: middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;">
+	<!--<tr class="<?php //echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+		<td class="td" style="text-align:<?php //echo esc_attr( $text_align ); ?>; vertical-align: middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;">
 		<?php
 
 		// Show title/image etc.
@@ -106,25 +99,25 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 		}*/
 
 		// allow other plugins to add additional product information here.
-		do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
+	//	do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
 
-		wc_display_item_meta(
+		/*wc_display_item_meta(
 			$item,
 			array(
 				'label_before' => '<strong class="wc-item-meta-label" style="float: ' . esc_attr( $text_align ) . '; margin-' . esc_attr( $margin_side ) . ': .25em; clear: both">',
 			)
-		);
+		);*/
 
 		// allow other plugins to add additional product information here.
-		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
+		//do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
 	<?php //echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 
 		
 		</td>
-		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+		<!--<td class="td" style="text-align:<?php //echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
 			<?php
-			$qty          = $item->get_quantity();
-			$refunded_qty = $order->get_qty_refunded_for_item( $item_id );
+			//$qty          = $item->get_quantity();
+			//$refunded_qty = $order->get_qty_refunded_for_item( $item_id );
 
 			/*if ( $refunded_qty ) {
 				$qty_display = '<del>' . esc_html( $qty ) . '</del> <ins>' . esc_html( $qty - ( $refunded_qty * -1 ) ) . '</ins>';
@@ -134,10 +127,10 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 			echo wp_kses_post( apply_filters( 'woocommerce_email_order_item_quantity', $qty_display, $item ) );
 			*/ ?>
 		</td>-->
-		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+		<!--<td class="td" style="text-align:<?php //echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
 			
-		</td>-->
-	</tr>
+		</td>
+	</tr>-->
 	<?php
 
 	if ( $show_purchase_note && $purchase_note ) {
