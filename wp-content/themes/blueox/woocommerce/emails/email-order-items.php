@@ -68,7 +68,7 @@ foreach ( $items as $item_id => $item ) :
 
 
 </tr>
-	<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+	<!--<tr class="<?php //echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 		<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align: middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;">
 		<?php
 
@@ -97,25 +97,25 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 		}*/
 
 		// allow other plugins to add additional product information here.
-		do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
+		/*do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
 
 		wc_display_item_meta(
 			$item,
 			array(
 				'label_before' => '<strong class="wc-item-meta-label" style="float: ' . esc_attr( $text_align ) . '; margin-' . esc_attr( $margin_side ) . ': .25em; clear: both">',
 			)
-		);
+		);*/
 
 		// allow other plugins to add additional product information here.
-		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
+		//do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );?>
 	<?php //echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?>
 
 		
 		</td>
-		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+		<!--<td class="td" style="text-align:<?php //echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
 			<?php
-			$qty          = $item->get_quantity();
-			$refunded_qty = $order->get_qty_refunded_for_item( $item_id );
+			/*$qty          = $item->get_quantity();
+			$refunded_qty = $order->get_qty_refunded_for_item( $item_id );*/
 
 			/*if ( $refunded_qty ) {
 				$qty_display = '<del>' . esc_html( $qty ) . '</del> <ins>' . esc_html( $qty - ( $refunded_qty * -1 ) ) . '</ins>';
@@ -125,10 +125,10 @@ esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px
 			echo wp_kses_post( apply_filters( 'woocommerce_email_order_item_quantity', $qty_display, $item ) );
 			*/ ?>
 		</td>-->
-		<!--<td class="td" style="text-align:<?php echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
+		<!--<td class="td" style="text-align:<?php //echo esc_attr( $text_align ); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
 			
-		</td>-->
-	</tr>
+		</td>
+	</tr>-->
 	<?php
 
 	if ( $show_purchase_note && $purchase_note ) {
