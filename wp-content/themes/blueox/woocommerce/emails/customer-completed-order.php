@@ -81,13 +81,13 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					?>
 					<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;">SUBTOTAL: </span>
-						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
 					</div></td></tr>				
 					<!--<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
 						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"></span>
-						<span style="color:#002d62; float: right;"><?php //echo wp_kses_post( $total['value'] ); ?> </span>
+						<span style="color:#002d62; float: right;"> </span>
 					</div></td></tr>-->
 					
 				
