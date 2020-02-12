@@ -67,14 +67,16 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 
 // to get the billing details 
+?>
+<table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="width:100%;vertical-align:top;margin-bottom:40px;padding:0; padding-top: 20px;">
+                                                           
+     <?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 	?>
+     	
+</table>			
 
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 	?>
 
-		<div class="subTotal">
-			<div class="container">
-			 <div class="col-sm-3 float-right">
 
-			  <table class="table table-borderless">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" >
 	
     		<tbody>
 				
@@ -83,25 +85,43 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 
 			if ( $item_totals ) {
 				$i = 0;
+				
+				?>
+				
+				<tr>
+				<td>
+				<table style="width:100%;text-align: left;">
+				<tbody>
+				<?php
 				foreach ( $item_totals as $total ) {
 					$i++;
 					?>
+					<tr><td align="right" style="padding-bottom:10px">
+					<div style="max-width:300px;text-align: left;">
+						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
+					</div></td></tr>				
 					
-					<tr><p class="product-name"> <?php echo wp_kses_post( $total['label'] ); ?> </p></tr>
-						
-					<tr><p class="product price"><?php echo wp_kses_post( $total['value'] ); ?></p></tr>
+					
 				
 					<?php
 				}
+				?>
+				<tbody>
+				</table>
+				</td>
+				</tr>
+				
+				
+				
+				
+				<?php
 			}
 		
 			?>
 
 				 </tbody>
  			 </table>
- 			 </div>
-		</div>
-		</div>
 
 <?php
 /*
