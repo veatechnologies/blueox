@@ -73,7 +73,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 				
 				<tr>
 				<td>
-				<table style="max-width:300px;text-align: left;">
+				<table style="width:100%;text-align: left;">
 				<tbody>
 				<?php
 				foreach ( $item_totals as $total ) {
@@ -84,11 +84,11 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;">SUBTOTAL: </span>
 						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
 					</div></td></tr>				
-					<tr><td align="right" style="padding-bottom:10px">
+					<!--<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
 						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"></span>
-						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?> </span>
-					</div></td></tr>
+						<span style="color:#002d62; float: right;"><?php //echo wp_kses_post( $total['value'] ); ?> </span>
+					</div></td></tr>-->
 					
 				
 					<?php
