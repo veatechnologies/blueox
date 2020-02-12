@@ -84,11 +84,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
 						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
 					</div></td></tr>				
-					<!--<tr><td align="right" style="padding-bottom:10px">
-					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"></span>
-						<span style="color:#002d62; float: right;"> </span>
-					</div></td></tr>-->
+					
 					
 				
 					<?php
@@ -128,7 +124,7 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  * @hooked WC_Emails::customer_details() Shows customer details
  * @hooked WC_Emails::email_address() Shows email address
  */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
+//do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
 /**
  * Show user-defined additional content - this is set in each email's settings.
