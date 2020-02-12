@@ -41,6 +41,13 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
 		}
+
+
+element.style {
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit !important;
+}
 /*Header Section*/
 .site-header .container-fluid {
 width: 1130px;
@@ -1743,12 +1750,11 @@ ul#shipping_method {
 	margin-bottom: 20px;*/
 }
 .product-list-item .product-list-content a.woocommerce-LoopProduct-link h2 {
-	font-family: 'Gotham-Book';
-	font-size: 22px;
+	font-size: 20px;
 	color: #153b6b;;
 	margin: 0;
 	/*flex: 0 0 80%;*/
-	width: 80%;
+	width: 70%;
 }
 .product-list-item .product-list-content a.woocommerce-LoopProduct-link span.woocommerce-Price-amount.amount {
 	font-family: 'Gotham-Medium';
@@ -1757,6 +1763,7 @@ ul#shipping_method {
 .product-list-item .product-list-content p {
 	line-height: 1.8;
 }
+
 .learn-btn {
 	display: inline-block;
 	margin-left: 20px;
@@ -1774,6 +1781,11 @@ ul#shipping_method {
 .product-category-list nav.woocommerce-pagination {
   text-align: center;
 }
+.product-list-content .price {
+    width: 30%;
+    text-align: right;
+}
+
 
 /*Tyank You*/
 
