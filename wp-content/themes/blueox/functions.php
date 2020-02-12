@@ -447,6 +447,7 @@ function mm_add_custom_woocommerce_email_styles( $css, $email ) {
 	return $css . '
 td h1 {
     color: #1b3d80 !important;
+	text-align: center !important;
 }
 ';
 }
