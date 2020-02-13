@@ -450,9 +450,16 @@ td h1 {
 	text-align: center !important;
 	font-size: 26px;
 }
-
 address.order_onhold h2 {
 	color: #002d62;
+}
+
+table#m_2146193024447703123addresses h2 {
+    margin-bottom: 0px !important;
+}
+
+table#m_2146193024447703123addresses address {
+    border: 0px !important;
 }
 ';
 }
