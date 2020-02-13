@@ -189,7 +189,8 @@ global $post;
 								do_action( 'woocommerce_after_shop_loop_item' );
 								?>
 								<div class="learn-btn">
-									<a href="#" class="btn-blue">Learn More</a>
+								<?php $url = get_permalink( $item['product_id'] ) ; ?>
+									<a href="<?php echo $url;?>" class="btn-blue">Learn More</a>
 								</div>
 						</div>
 					</div>
