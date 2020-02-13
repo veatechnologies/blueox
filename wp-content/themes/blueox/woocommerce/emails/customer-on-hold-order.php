@@ -20,9 +20,8 @@ defined( 'ABSPATH' ) || exit;
 /*
  * @hooked WC_Emails::email_header() Output the email header
  */
-?>
-<table class="table-header" id="table-header"><?php 
-do_action( 'woocommerce_email_header', $email_heading, $email ); ?></table>
+ 
+do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php /* translators: %s: Customer first name */ ?>
 <!--<p><?php //printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>-->
