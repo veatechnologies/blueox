@@ -323,14 +323,14 @@ top: 50%; left: 50%; transform: translate(-50%, -50%);
 .recommededHeading span{color: #6d6d6d;font-size: 14.09px;}
 .recommededHeading h2{font-size: 2.625rem;color: #1b3d80; margin-bottom: 40px;}
 .recommended{padding-bottom: 120px;}
-.recommededProduct{box-shadow: none;
-    margin: 10px auto;
-    max-width: 270px;
+.recommededProduct{
+	box-shadow: none;
     padding: 1rem;
 	border: 1px solid #1b3d80;
 	height: 100%;
-    min-height: 400px;
+	max-width:346px !important;
 }
+.slick-slide{margin-right:30px;}
 .recommededProduct h5{font-size: 18px; color: #002d62;}
 .recommededProduct span{font-size: 24px;color: #7f7f7f;}
 .recommededProduct span.woocommerce-Price-currencySymbol {color: #002d62;}
@@ -658,9 +658,9 @@ body.single.single-product {
 	color: #000;
 } */
 .additional-product-item {
-    width: 30%;
+    /* width: 30%; */
     border: 1px solid #1b3d80;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     margin: 0px auto;
 	padding: 1rem;
 	padding-bottom:0;
@@ -668,21 +668,32 @@ body.single.single-product {
 .additional-product-img {
     width: 100%;
     margin: 0px auto;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
 }
 .additional-product-img a {
     display: block;
 }
 .additional-product-info h5, .additional-product-info h5 a {
-    color: #1b3d80;
-    font-size: 0.9rem;
+	color: #1b3d80;
     line-height: 20px;
-    font-weight: 700;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    font-size: 1rem;
+    margin: 0;
+    background: white;
+    font-family: inherit;
+    height: 39px;
+	width: 200px;
+	margin-bottom:15px;
 }
 .additional-product-info a.button, .additional-product-info a.added_to_cart {
 	padding: 8px 12px;
 	font-size: 12px;
 }
+
+/* .additional-product-img img {margin-top: 15px;} */
 
 /* cart page */
 body.page-template-cart-template {
@@ -1281,7 +1292,17 @@ a.button.ajax_add_to_cart.added {
 .single-product aside#secondary {
 	display: none;
 }
+.additional-product-item h5 {
+    font-weight: 400;
+	font-size: 1rem;
+	/* padding-top: 15px; */
+}
 
+.additional-product-img h5 {
+    font-weight: 400;
+	font-size: 1rem;
+	padding-top: 15px;
+}
 /*Check out page Raja*/
 .woocommerce-checkout-review-order {
     width: 70%;
