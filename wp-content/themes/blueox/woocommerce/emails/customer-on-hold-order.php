@@ -69,15 +69,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 // to get the billing details 
 ?>
 
-<!--table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="width:100%;vertical-align:top;margin-bottom:40px;padding:0; padding-top: 20px;">
-      <tbody>
-                                                                <tr>                                                     
-     <?php //do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); 	?>
-     	
-</table> -->
-
-
- <table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="padding-top: 0px !IMPORTANT;width:100%;vertical-align:top;margin-bottom:40px;padding:0; padding-top: 20px;">
+ <table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="padding-top: 0px !IMPORTANT;width:100%;vertical-align:top;padding:0; padding-top: 20px;">
  <tbody>
  <tr>
  <td valign="top" width="50%" style="text-align:left;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;border:0;padding:0; padding-top:0px;">
@@ -113,7 +105,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					?>
 					<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="display: inline-block; padding-right: 32px; color:#002d62;text-transform: uppercase;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
 						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
 					</div></td></tr>				
 					

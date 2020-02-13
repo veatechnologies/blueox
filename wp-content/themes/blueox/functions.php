@@ -461,6 +461,10 @@ table address h2 {
 table address address {
     border: 0px !important;
 }
+
+address table {
+    margin-bottom: 0px !important;
+}
 ';
 }
 
