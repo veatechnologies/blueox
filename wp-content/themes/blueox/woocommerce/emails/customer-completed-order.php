@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 ?>
 		<div class="col mb-4 pb-3">
-		<p><span><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>: &nbsp;</strong><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
-		<p><span><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
-		<p><span><strong><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:&nbsp;</strong><span class="font-weight-bold">Delivered</span></p>
+		<p><span style="text-transform: uppercase;"><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>: &nbsp;</strong><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span  style="text-transform: uppercase;"><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span style="text-transform: uppercase;"><strong><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:&nbsp;</strong><span class="font-weight-bold">Delivered</span></p>
 		</div>
 				
 	
@@ -81,14 +81,10 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					?>
 					<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="display: inline-block; padding-right: 32px; color:#002d62;text-transform: uppercase;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
 						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
 					</div></td></tr>				
-					<!--<tr><td align="right" style="padding-bottom:10px">
-					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"></span>
-						<span style="color:#002d62; float: right;"> </span>
-					</div></td></tr>-->
+					
 					
 				
 					<?php
@@ -109,6 +105,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 				 </tbody>
  			 </table>
+
  			 
 
 
@@ -128,7 +125,7 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  * @hooked WC_Emails::customer_details() Shows customer details
  * @hooked WC_Emails::email_address() Shows email address
  */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
+//do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
 /**
  * Show user-defined additional content - this is set in each email's settings.
