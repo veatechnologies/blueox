@@ -81,7 +81,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
  <tbody>
  <tr>
  <td valign="top" width="50%" style="text-align:left;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;border:0;padding:0; padding-top:0px;">
-  <address class="order_onhold" style="color:#002d62; line-height: 25px;">
+ <address class="order_onhold" style="color:#002d62; line-height: 25px;">
 <?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); ?> </address>
  </td>
  </tr>
