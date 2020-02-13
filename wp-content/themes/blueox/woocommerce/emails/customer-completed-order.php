@@ -40,9 +40,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 ?>
 		<div class="col mb-4 pb-3">
-		<p><span><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>: &nbsp;</strong><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
-		<p><span><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
-		<p><span><strong><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:&nbsp;</strong><span class="font-weight-bold">Delivered</span></p>
+		<p><span style="text-transform: uppercase;"><strong><?php esc_html_e( 'Order #', 'woocommerce' ); ?></span>: &nbsp;</strong><span class="text-underline"><?php echo $order->get_order_number();?></span></p>
+		<p><span  style="text-transform: uppercase;"><strong><?php esc_html_e( 'Total', 'woocommerce' ); ?></span>:&nbsp;</strong><span><?php echo $order->get_formatted_order_total(); ?></span></p>
+		<p><span style="text-transform: uppercase;"><strong><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></span>:&nbsp;</strong><span class="font-weight-bold">Delivered</span></p>
 		</div>
 				
 	
@@ -81,7 +81,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 					?>
 					<tr><td align="right" style="padding-bottom:10px">
 					<div style="max-width:300px;text-align: left;">
-						<span style="display: inline-block; padding-right: 32px; color:#002d62;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
+						<span style="display: inline-block; padding-right: 32px; color:#002d62;text-transform: uppercase;font-weight: bold; text-align: left;"><?php echo wp_kses_post( $total['label'] ); ?> </span>
 						<span style="color:#002d62; float: right;"><?php echo wp_kses_post( $total['value'] ); ?></span>
 					</div></td></tr>				
 					
@@ -105,6 +105,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 				 </tbody>
  			 </table>
+
  			 
 
 
