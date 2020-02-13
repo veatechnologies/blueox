@@ -38,11 +38,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 								}
 							?>
 						</div>
-						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+						<table  border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="center" valign="top">
 									<!-- Header -->
-									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
+									<table style="background-image: url(https://blueoxdev.veatechnologies.com/wp-content/uploads/2020/02/shipping-address-bg.png);vertical-align: middle;background-size: cover;"  border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
 										<tr>
 											<td id="header_wrapper">
 												<h1><?php echo $email_heading; ?></h1>
