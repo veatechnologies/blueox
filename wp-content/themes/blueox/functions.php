@@ -450,6 +450,10 @@ td h1 {
 	text-align: center !important;
 	font-size: 26px;
 }
+
+address.order_onhold h2 {
+	color: #002d62;
+}
 ';
 }
 

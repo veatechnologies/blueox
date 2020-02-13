@@ -77,17 +77,17 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 </table> -->
 
 
- <table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="width:100%;vertical-align:top;margin-bottom:40px;padding:0; padding-top: 20px;">
+ <table id="m_-7619290845504351853m_-5752730803274925178addresses" cellspacing="0" cellpadding="0" border="0" style="padding-top: 0px !IMPORTANT;width:100%;vertical-align:top;margin-bottom:40px;padding:0; padding-top: 20px;">
  <tbody>
  <tr>
- <td valign="top" width="50%" style="text-align:left;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;border:0;padding:0; border-top:1px solid #e5e5e5; padding-top:20px;">
-        <h3 style="color:#002d62; margin:0 0 18px;">Billing address</h3>
-		<address style="color:#002d62; line-height: 25px;">
+ <td valign="top" width="50%" style="text-align:left;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;border:0;padding:0; padding-top:0px;">
+ <address class="order_onhold" style="color:#002d62; line-height: 25px;">
 <?php do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email ); ?> </address>
  </td>
  </tr>
  </tbody>
-</table>			
+</table>
+			
 
 
 
