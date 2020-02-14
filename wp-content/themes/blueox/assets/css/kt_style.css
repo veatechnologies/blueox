@@ -1800,7 +1800,7 @@ ul#shipping_method {
 	margin-bottom: 30px;
 	padding-bottom: 30px;
 }
-.product-list-img  a {
+.product-list-img + a {
 	display: none;
 }
 .product-list-item .product-list-content {
