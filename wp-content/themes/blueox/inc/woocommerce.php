@@ -330,7 +330,7 @@ add_action( 'woocommerce_before_single_product_summary', 'wp_bootstrap_4_before_
 if ( ! function_exists( 'wp_bootstrap_4_before_product_summary' ) ) {
 	function wp_bootstrap_4_before_product_summary() {
 		?>
-		<div class="col-md-7">
+		<div class="col-md-6">
 		<?php
 	}
 }
@@ -348,7 +348,7 @@ if ( ! function_exists( 'wp_bootstrap_4_after_product_summary' ) ) {
 add_filter( 'woocommerce_single_product_image_gallery_classes', 'wp_bootstrap_4_add_product_gallery_class' );
 if ( ! function_exists( 'wp_bootstrap_4_add_product_gallery_class' ) ) {
 	function wp_bootstrap_4_add_product_gallery_class( $classes ) {
-		$classes[] = 'col-md-5';
+		$classes[] = 'col-md-6';
 		return $classes;
 	}
 }
