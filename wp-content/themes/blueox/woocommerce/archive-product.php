@@ -86,22 +86,21 @@ global $post;
 		 $term_id= "product_cat_".$term_cat_id;
 		 echo the_field('category_content',  $term_id);
 		 
-		  
  ?>
 
 	
-	           <div class="local-contact">
+	           <div class="local-contact container">
 			   <div class="row">
-			   <div class="col-md-4">
+			   <div class=" col-sm-4 col-xs-6 col-lg-4">
 			   </div>
-			   <div class="col-md-8">
+			   <div class="col-sm-8 col-xs-12 col-lg-8">
 			   
-                            <div class="row d-flex align-items-center">
-                                <div class="col-md-5">
+                            <div class="_row d-flex align-items-center">
+                                <div class="col-sm-8">
                                     <h3 class="font-weight-bold">Need a local dealer?</h3>
                                     <p class="mb-0">There are 100s to choose from:</p>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-sm-4 findADealer">
                                     <a class="btn-clear--blue" href="<?php echo get_site_url() ?>/dealer-locator/">Find A Dealer</a>
                                 </div>
                             </div>
@@ -110,7 +109,7 @@ global $post;
 	</div>				
 </header>
 <div class="product-category-wrap">
-	<div class="product-category-filter">
+	<div class="col-xs-6 col-lg-4 product-category-filter">
 		<?php 
 			/**
 			 * Hook: woocommerce_sidebar.
@@ -121,7 +120,7 @@ global $post;
 			dynamic_sidebar('cart-items');
 		?>
 	</div>
-	<div class="product-category-list">
+	<div class="col-xs-12 col-md-8 product-category-list">
 		<?php
 		if ( woocommerce_product_loop() ) {
 

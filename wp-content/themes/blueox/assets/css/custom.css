@@ -167,7 +167,8 @@ b, strong {
     color: #1b3d80;
     font-family: 'Gotham-Medium', sans-serif;
     font-weight: 600;
-    padding: 15px 25px;
+    /* padding: 15px 25px; Rajashekar*/
+    padding: 10px 10px;
     border: 2px solid #1b3d80;
     width: auto;
     background-color: transparent;
