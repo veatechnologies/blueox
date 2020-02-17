@@ -622,9 +622,10 @@ form.cart button:hover, .add_to_cart_button:hover, .product_type_simple:hover {
 .slick-slide > div {
 	text-align: center;
 }
-ul.products .recommededProduct li.product {
-	text-align: left;
-	width: 100%;
+.related-products .recommededProduct li.product {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 .recommededProduct li a {
 	display: block;
@@ -2414,9 +2415,9 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
     font-size: 22px;
 }
 
-.product-type-simple .paragraph h3 {
+/* .product-type-simple .paragraph h3 {
     font-size: 16px;
-}
+} */
 .feature-products h3 {
     font-size: 1.5rem !important;
     margin-bottom: 32px;
