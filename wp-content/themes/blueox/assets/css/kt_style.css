@@ -77,9 +77,9 @@ margin:0px auto
     margin: 0px;
     padding: 0px;
 }
-.site-content .wp-bp-content-width {
+/* .site-content .wp-bp-content-width {
     padding: 0px;
-}
+} */
 
 /* .site-content .container {
     padding-right: 0;
@@ -469,14 +469,14 @@ display: flex;
 }
 .product-proce-section .dealer-link {
     background: #AEAEAE;
-    padding: 10px 20px;
+    padding: 0.63rem 0.7rem;
     color: #fff !important;
     /* width: 150px; */
     text-align: center;
     font-weight:400;
 	font-size: 16px;
 	position: absolute;
-	right: 15px !important;
+	right: 1.3rem !important;
 }
 
 /*Single page product page*/
