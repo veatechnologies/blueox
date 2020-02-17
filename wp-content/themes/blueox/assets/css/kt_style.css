@@ -58,7 +58,12 @@ width: 1130px;
 margin:0px auto
 }
 
-
+.custom-logo{
+	margin-left:1rem;
+}
+#mega-menu-wrap-menu-1 #mega-menu-menu-1{
+	margin-right: 0.5rem;
+}
 /*Header Section*/
 
 /*Content Section*/
@@ -334,7 +339,7 @@ top: 50%; left: 50%; transform: translate(-50%, -50%);
 	display: flex;
 }
 .recommededHeading span{color: #6d6d6d;font-size: 14.09px;}
-.recommededHeading h2{font-size: 32px;color: #1b3d80; margin-bottom: 40px;}
+
 .recommended{padding-bottom: 120px;}
 .recommededProduct{
 	box-shadow: none;
@@ -620,8 +625,20 @@ form.cart button:hover, .add_to_cart_button:hover, .product_type_simple:hover {
 	text-transform: uppercase;
 	pointer-events: none;
 }
-.recommededHeading h2 {
-	text-transform: uppercase;
+.recommededHeading h2, .twoThird h3, .third h2 {
+	text-transform: capitalize;
+	text-align: left;
+	font-size: 20px;
+	color: #1b3d80; 
+	margin-bottom:20px;
+}
+
+.product-type-simple .twoThird h3, .third h2 {
+	margin-bottom:10px;
+}
+
+.twoThird iframe {
+    margin-bottom: 1rem;
 }
 .slick-slide > div {
 	text-align: center;
@@ -1385,8 +1402,10 @@ a.button.ajax_add_to_cart.added {
 	display: none;
 }
 
-.baseplateFeatures li strong {
-    font-family: inherit;
+ .twoThird strong, .baseplateFeatures li strong {
+	font-family: inherit;
+	color: #000;
+    font-weight: 600;
 }
 .additional-product-item h5 {
     font-weight: 400;
@@ -2406,10 +2425,7 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
 	margin: 0px auto;
 	margin-bottom:20px
 }
-.recommededHeading h2 {
-    text-align: left;
-    font-size: 20px;
-}
+
 
 /*Date 01/02/2020*/
 /* .col-md-12.wp-bp-content-width {
@@ -2419,9 +2435,9 @@ button.slick-prev.slick-arrow, button.slick-next.slick-arrow  {
 .single-product .wp-bp-content-width .mt-3r {
     margin-top: .8rem;
 }
-.product-type-simple .paragraph h2 {
+/* .product-type-simple .paragraph h2 {
     font-size: 22px;
-}
+} */
 
 /* .product-type-simple .paragraph h3 {
     font-size: 16px;
