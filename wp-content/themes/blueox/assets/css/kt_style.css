@@ -452,8 +452,8 @@ display: flex;
 
 /*Single page product page*/
 .product-proce-section {
-	/* margin-top: 20px; */
-	position: absolute;
+	margin-top: 20px;
+	position: relative;
     bottom: 0;
     width: 100%;
 }
