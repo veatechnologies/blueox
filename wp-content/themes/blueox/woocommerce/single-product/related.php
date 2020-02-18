@@ -19,15 +19,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $product;
+if(!empty(the_content())){
 ?>
 
 <div class="paragraph">
 	<?php
-		the_content();
-	?>
+	the_content();
+		
+	?> 
 	</div>
 
-<?php 	
+<?php }
 
 $product_id= get_post_meta(get_the_ID(),'product_id',true);
 $product_ids = str_replace(',', '', $product_id);
