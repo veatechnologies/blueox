@@ -2250,8 +2250,14 @@ product-subtotal {}
 }
 .cart-item-block .cart_item .cart-product-info .product-name a {
 	display: block;
-	font-size: 20px;
+	font-size: 18px;
 	color: #002d62;
+}
+.cart-item-block .cart_item .product-subtotal .woocommerce-Price-amount.amount {
+	/* font-family: 'Gotham-Black'; */
+    font-size: 18px;
+    margin-top: 0 !important;
+    padding: 0px !important;
 }
 .cart-update-remove {
 	display: flex;
@@ -2303,12 +2309,7 @@ product-subtotal {}
 	display: flex;
 	justify-content: flex-end;
 }
-.cart-item-block .cart_item .product-subtotal .woocommerce-Price-amount.amount {
-	font-family: 'Gotham-Black';
-    font-size: 17px;
-    margin-top: 0 !important;
-    padding: 0px !important;
-}
+
 .cart-shipping-estimate .cart_totals {
 	display: flex;
 	flex-wrap: wrap;
