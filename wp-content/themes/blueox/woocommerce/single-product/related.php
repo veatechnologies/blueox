@@ -19,6 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $product;
+
+$product_checkbox_yes= get_post_meta(get_the_ID(),'product_checkbox_yes',true);
+$product_checkbox_no= get_post_meta(get_the_ID(),'product_checkbox_no',true);
+
 if(!empty(the_content())){
 ?>
 
@@ -78,11 +82,11 @@ if(is_numeric($product_values)){ ?>
 	</div>
 </div>
 
-<?php } 
-
-?>
+<?php } ?>
 	
 <?php
+
+if ($product_checkbox_yes == '1'){
 if ( $related_products ) : ?>
 
 	<section class="related-products recommended">
@@ -111,5 +115,7 @@ if ( $related_products ) : ?>
 	</section>
 
 <?php endif;
+}
+
 
 wp_reset_postdata();
