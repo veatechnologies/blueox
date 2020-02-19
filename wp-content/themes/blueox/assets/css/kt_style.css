@@ -452,8 +452,8 @@ display: flex;
 
 /*Single page product page*/
 .product-proce-section {
-	margin-top: 20px;
-	position: relative;
+	/* margin-top: 20px; */
+	position: absolute;
     bottom: 0;
     width: 100%;
 }
@@ -493,6 +493,13 @@ display: flex;
 
 .single-product .paragraph {
     padding-top: 60px;
+}
+
+.towing-equipment .h4 {
+    margin-top: 1rem;
+    border-bottom: 1px solid #989898;
+    height: 50px;
+    line-height: 50px;
 }
 /*Single page product page*/
 

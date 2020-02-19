@@ -117,5 +117,7 @@ if ( $related_products ) : ?>
 <?php endif;
 }
 
+dynamic_sidebar('industry_towing_equipment_section');
+
 
 wp_reset_postdata();
