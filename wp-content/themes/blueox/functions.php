@@ -387,12 +387,34 @@ function product_section(){
 	</div><?php
 }
 
+function product_related_items(){
+	global $post;
+	wp_nonce_field( basename( __FILE__ ), 'prfx_nonce' );
+	$product_checkbox_yes = get_post_meta($post->ID,'product_checkbox_yes', true);
+	$product_checkbox_no = get_post_meta($post->ID,'product_checkbox_no', true);
+	?><div class="wrap">
+		<table class="form-table">
+			<tbody class="input_fields_wrap_about_video">
+				<tr>
+					<td><input type='checkbox' name="product_checkbox_yes" id="product_checkbox_yes" value="1" <?php if($product_checkbox_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
+					<input type='checkbox' name="product_checkbox_no" id="product_checkbox_no" value="0" <?php if($product_checkbox_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
+				</tr>
+				
+				
+			</tbody>
+		</table>
+		
+	</div><?php
+}
+
 function blueox_metaboxes() {
     global $post;
 	
 	if($post->post_type == "product"){
 	add_meta_box('Product-ids','Products ID','product_section','product');	
+	add_meta_box('Product-products','Related Products','product_related_items','product');	
 	}
+
 }
 add_action( 'add_meta_boxes', 'blueox_metaboxes' );
 
@@ -414,7 +436,11 @@ function blueox_meta_save($post_id) {
 	
 	if($post->post_type == "product"){
 	$product_id= $_POST["product_id"];
+	$product_checkbox_yes= $_POST["product_checkbox_yes"];
+	$product_checkbox_no= $_POST["product_checkbox_no"];
 	update_post_meta($post_id,'product_id', $product_id);
+	update_post_meta($post_id,'product_checkbox_yes', $product_checkbox_yes);
+	update_post_meta($post_id,'product_checkbox_no', $product_checkbox_no);
 	}
 	
 }
