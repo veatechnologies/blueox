@@ -334,3 +334,8 @@ ul.products { width: 100%; }
 .woocommerce-loop-product__title { color: #212529; }
 
 .woocommerce-Price-amount.amount { color: #6c757d; }
+
+@media screen and (max-width: 1024px)  {
+  ul.products li.product .woocommerce-loop-product__title {width:100%}
+
+}

@@ -55,7 +55,7 @@
         {
             breakpoint: 991,
             settings: {
-                slidesToShow: 2,
+                slidesToShow: 3,
             }
         },
         {
@@ -66,7 +66,45 @@
         }
         ]
     });
+    setTimeout(function(e){
+        // alert('hii');
+        // alert($('ol').html());
+        // $('ol.flex-control-nav.flex-control-thumbs').slick({
+        //     slide: 'li'
+            
+            
+        //   });
+        $('.flex-control-nav').slick({
+            slides: 'li',
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            focusOnSelect: true
+          });
+    }, 1000);
+    
+
+    // $('.flex-control-nav').slick({
+    //     infinite: true,
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     dots: true,
+    //     arrows: false,
+    //     responsive: [
+    //     {
+    //         breakpoint: 991,
+    //         settings: {
+    //             slidesToShow: 2,
+    //         }
+    //     },
+    //     {
+    //         breakpoint: 480,
+    //         settings: {
+    //             slidesToShow: 1,
+    //         }
+    //     }
+    //     ]
+    // });
 /* CODE ADED BY KELLTON ENDS */
 
-
+	
 })(jQuery);
