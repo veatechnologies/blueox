@@ -481,7 +481,6 @@ padding-top: 60px;
 	bottom: 0;
 	position: absolute;
 
-
 }
 .product-detail-right p {color: #676869;}
 .product-detail-right p strong{font-family: inherit;}
@@ -489,15 +488,6 @@ padding-top: 60px;
 	font-weight: 400;
 	width: 60%;
 }
-
-}
-.product-detail-right p {color: #676869;}
-.product-detail-right p strong{font-family: inherit;}
-.product-detail-right .title-price-wrap .product_title.entry-title {
-	font-weight: 400;
-	width: 60%;
-}
-
 .product-detail-right img {
 	margin: 1rem 1rem 1rem 0;
 }
@@ -1592,7 +1582,7 @@ padding: 0px !important;
 
 	line-height: 16px !important;
 }
-.vi_wcaio_menubar_shopping-cart .widget.woocommerce.widget_shopping_cart .attachment-woocommerce_thumbnail.size-woocommerce_thumbnail {
+.vi_wcaio_menubar_shopping-cart .widget.woocommerce.widget_shopping_cart .attachment-woocommerce_thumbnail.size-woocommerce_thumbnail, .vi_wcaio_menubar_shopping-cart .woocommerce-placeholder.wp-post-image {
 	width: 70px;
 	position: absolute;
 	left: 0;
@@ -2544,8 +2534,6 @@ font-size: 16px;
 	font-size: 17px;
 }
 
-}
-
 /*Start Vehicle Yaer*/
 .Baseplate-Selector{
 	width:80%;
@@ -2646,6 +2634,7 @@ font-size: 16px;
 	.product-list-item .product-list-content a.woocommerce-LoopProduct-link h2{width:100%}
 }
 /*Start Vehicle Yaer*/
+
 
 @media screen and (max-width:767px) {
 	.product-category-wrap{
