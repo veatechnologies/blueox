@@ -481,6 +481,7 @@ padding-top: 60px;
 	bottom: 0;
 	position: absolute;
 
+
 }
 .product-detail-right p {color: #676869;}
 .product-detail-right p strong{font-family: inherit;}
@@ -488,6 +489,15 @@ padding-top: 60px;
 	font-weight: 400;
 	width: 60%;
 }
+
+}
+.product-detail-right p {color: #676869;}
+.product-detail-right p strong{font-family: inherit;}
+.product-detail-right .title-price-wrap .product_title.entry-title {
+	font-weight: 400;
+	width: 60%;
+}
+
 .product-detail-right img {
 	margin: 1rem 1rem 1rem 0;
 }
@@ -1682,6 +1692,12 @@ p.woocommerce-mini-cart__empty-message {
 }
 .woocommerce-checkout h5.nav-footer-title {border-bottom: 1px solid #dee2e6 ;}
 
+.product-type-simple .nav-footer-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
 .woocommerce-checkout .sidebar-1-area .widget ul li {
 	list-style: none;
 }
@@ -2527,6 +2543,109 @@ font-size: 16px;
 .card-title.entry-title, .entry-title {
 	font-size: 17px;
 }
+
+}
+
+/*Start Vehicle Yaer*/
+.Baseplate-Selector{
+	width:80%;
+	margin:0px auto;
+}
+.Baseplate-Selector .modelBtn{
+
+    /* position: absolute;
+    left: 50%;
+    top:50%;
+	transform: translate(-50%, -50%); */
+	margin-bottom:1.5rem;
+}
+
+.Baseplate-Selector .modelBtn select{
+      border: 1px solid #1b3d80;
+    /* padding: 10px; */
+    /* width: 200px; */
+    font-size: 16px;
+    height: 44px;
+    /* color: #1b3d80; */
+    font-weight: 600;
+    -webkit-appearance: button;
+    border-radius: 0;
+}
+
+.Baseplate-Selector .modelBtn:before{
+	content: '\f0d7';
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    top: 1px !important;
+    right: 17px;
+    height: 42px;
+    width: 30px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 16px;
+    background: white;
+    color: #1b3d80;
+    pointer-events: none;
+    font-weight: 600;
+}
+
+.Baseplate-Selector .choseModel::before, .Baseplate-Selector .choseModel::after {
+    content: '';
+    clear: both;
+    display: inline-block;
+}
+
+.Baseplate-Selector .searchBox input[type="text"] {
+    border-radius: 0;
+    height: 40px;
+}
+
+.Baseplate-Selector .search-blueox-part{
+	padding-top:1rem;
+}
+.search-blueox-part h6.p-3 {
+    text-align: right;
+}
+.Baseplate-Selector .search-blueox-part input.nav-search-input {
+    height: 40px;
+	border-radius: 0;
+	width: 70%;
+    float: right;
+}
+.Baseplate-Selector .install-tab{
+	width:100%;
+}
+
+.Baseplate-Selector .card {
+    border: none;
+    text-align: center;
+}
+.install-left-icon {
+    float: right;
+    width: 120px;
+    height: 120px;
+}
+
+.install-right-icon {
+    width: 120px;
+    height: 120px;
+    margin-left: 40px;
+}
+.page-id-16428 h1.entry-title {
+    display: none;
+}
+
+@media screen and (max-width:575px) {
+	.Baseplate-Selector{
+		width: 100%;
+	}
+	.btn-clear--blue{
+		padding: 15px 14px !important;
+	}
+	.product-category-wrap .product-category-list{width:100%}
+	.product-list-item .product-list-content a.woocommerce-LoopProduct-link h2{width:100%}
+}
+/*Start Vehicle Yaer*/
 
 @media screen and (max-width:767px) {
 	.product-category-wrap{
