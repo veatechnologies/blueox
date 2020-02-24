@@ -46,13 +46,13 @@
 			<div class="row">
 
 
-				<div class="col-md-2 pl-2">
+				<div class="col-12 col-md-2 pl-2">
 
 					<?php the_custom_logo(); ?>
 
 				</div>
 
-				<div class="col-10 d-flex flex-row justify-content-start align-middle">
+				<div class="col-12 col-md-10 d-flex flex-row justify-content-start align-middle">
 
 					<div class="w-100 ml-5">
 

@@ -101,23 +101,29 @@ embed, iframe, object { max-width: 100%; }
 
 .gallery { margin-bottom: 1.5em; }
 
-.gallery-item { display: inline-block; text-align: center; vertical-align: top; width: 100%; }
+.gallery-item { display: inline-block; text-align: center; vertical-align: top; width: 100%; max-width: 100%;}
 
-.gallery-columns-2 .gallery-item { max-width: 50%; }
+@media (min-width: 768px) {
 
-.gallery-columns-3 .gallery-item { max-width: 33.33%; }
+    .gallery { display: flex;align-items: center; }
 
-.gallery-columns-4 .gallery-item { max-width: 25%; }
+    .gallery-columns-2 .gallery-item { max-width: 50%; }
 
-.gallery-columns-5 .gallery-item { max-width: 20%; }
+    .gallery-columns-3 .gallery-item { max-width: 33.33%; }
 
-.gallery-columns-6 .gallery-item { max-width: 16.66%; }
+    .gallery-columns-4 .gallery-item { max-width: 25%; }
 
-.gallery-columns-7 .gallery-item { max-width: 14.28%; }
+    .gallery-columns-5 .gallery-item { max-width: 20%; }
 
-.gallery-columns-8 .gallery-item { max-width: 12.5%; }
+    .gallery-columns-6 .gallery-item { max-width: 16.66%; }
 
-.gallery-columns-9 .gallery-item { max-width: 11.11%; }
+    .gallery-columns-7 .gallery-item { max-width: 14.28%; }
+
+    .gallery-columns-8 .gallery-item { max-width: 12.5%; }
+
+    .gallery-columns-9 .gallery-item { max-width: 11.11%; }
+
+}
 
 .gallery-caption { display: block; }
 
@@ -421,14 +427,14 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
 
 
 .woocommerce-order-details {
-   
+
 }
 .woocommerce-table__line-item.order_item {
     border: 1px solid #dee2e6;
     border-left: none;
     border-right: none;
     padding: 18px;
-    
+
     padding-left: 0;
 	    float: left;
     width: 100%;

@@ -337,7 +337,6 @@ function cpt_custom_menu( $items, $menu, $args ) {
 
 /* FUNCTIONS BY KELLTON START */
 
-wp_enqueue_style('fontawesome.min.css',get_template_directory_uri()."/css/fontawesome.min.css");
 wp_enqueue_style( 'ktstyle_font', get_template_directory_uri() . '/assets/css/kt_fontawesome.min.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle_slider', get_template_directory_uri() . '/assets/css/kt_slick.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle', get_template_directory_uri() . '/assets/css/kt_style.css',false,rand(1,5),'all');
@@ -362,10 +361,10 @@ function woo_remove_tabs( $tabs ){
 
 /**
  * Change number of related products output
- */ 
+ */
 function woo_related_products_limit() {
   global $product;
-	
+
 	$args['posts_per_page'] = 8;
 	return $args;
 }
@@ -387,13 +386,13 @@ function product_section(){
 			<tbody class="input_fields_wrap_about_video">
 				<tr>
 					<td><input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
-					
+
 				</tr>
-				
-				
+
+
 			</tbody>
 		</table>
-		
+
 	</div><?php
 }
 
@@ -409,20 +408,20 @@ function product_related_items(){
 					<td><input type='checkbox' name="product_checkbox_yes" id="product_checkbox_yes" value="1" <?php if($product_checkbox_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
 					<input type='checkbox' name="product_checkbox_no" id="product_checkbox_no" value="0" <?php if($product_checkbox_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
 				</tr>
-				
-				
+
+
 			</tbody>
 		</table>
-		
+
 	</div><?php
 }
 
 function blueox_metaboxes() {
     global $post;
-	
+
 	if($post->post_type == "product"){
-	add_meta_box('Product-ids','Products ID','product_section','product');	
-	add_meta_box('Product-products','Related Products','product_related_items','product');	
+	add_meta_box('Product-ids','Products ID','product_section','product');
+	add_meta_box('Product-products','Related Products','product_related_items','product');
 	}
 
 }
@@ -441,9 +440,9 @@ function blueox_meta_save($post_id) {
     if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
         return;
     }
-	
-	
-	
+
+
+
 	if($post->post_type == "product"){
 	$product_id= $_POST["product_id"];
 	$product_checkbox_yes= $_POST["product_checkbox_yes"];
@@ -452,9 +451,9 @@ function blueox_meta_save($post_id) {
 	update_post_meta($post_id,'product_checkbox_yes', $product_checkbox_yes);
 	update_post_meta($post_id,'product_checkbox_no', $product_checkbox_no);
 	}
-	
+
 }
-		
+
 add_action('save_post', 'blueox_meta_save' );
 
 //product category content
@@ -503,5 +502,3 @@ address table {
 }
 ';
 }
-
-

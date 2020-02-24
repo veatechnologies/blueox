@@ -33,7 +33,7 @@ $title = get_sub_field('title');
                                 $desc = get_sub_field('description');
                                 ?>
 
-                                <div class="categories-box m-4 m-md-3">
+                                <div class="categories-box w-md-33 m-4 m-md-3">
 
                                     <?php if( $img ) { ?>
 

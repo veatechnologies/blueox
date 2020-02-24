@@ -14,6 +14,10 @@ get_header();
 
             <?php get_template_part( 'modules/cta' ); ?>
 
+        <?php } elseif( get_row_layout() == 'spit_cta' ) { ?>
+
+            <?php get_template_part( 'modules/split' ); ?>
+
         <?php } elseif( get_row_layout() == 'categories' ) { ?>
 
             <?php get_template_part( 'modules/categories' ); ?>

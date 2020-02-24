@@ -29,7 +29,7 @@ $bg = get_sub_field('background_image');
                                 $msg = get_sub_field('review_content');
                                 ?>
 
-                                <div class="reviews-box mt-3 mb-3 mr-md-3 ml-md-3">
+                                <div class="reviews-box w-100 w-lg-33 mt-3 mb-3 mr-lg-3 ml-lg-3">
 
                                     <?php if( $name ) { ?>
 

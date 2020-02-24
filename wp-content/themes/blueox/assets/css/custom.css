@@ -344,6 +344,10 @@ ul.eventCalendar li div {
         .general-img {
             flex-shrink: .5;
         }
+    .split {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
 
 
 /* Blog */
@@ -454,6 +458,12 @@ ul.eventCalendar li div {
     .w-md-25 {
         width: 25% !important;
     }
+    .w-md-33 {
+        width: 33% !important;
+    }
+    .w-md-50 {
+        width: 50% !important;
+    }
     .w-md-75 {
         width: 75% !important;
     }
@@ -472,7 +482,7 @@ ul.eventCalendar li div {
         margin-right: .5rem;
     }
     .videos-box {
-        width: 49%;
+        width: 49% !important;
     }
     .reviews,
     .cta {
@@ -481,5 +491,22 @@ ul.eventCalendar li div {
     .footer-numbers {
         margin-left: 8% !important;
         margin-right: 8% !important;
+    }
+}
+@media (min-width: 992px) {
+    .w-lg-auto {
+        width: auto !important;
+    }
+    .w-lg-25 {
+        width: 25% !important;
+    }
+    .w-lg-33 {
+        width: 33% !important;
+    }
+    .w-lg-50 {
+        width: 50% !important;
+    }
+    .w-lg-75 {
+        width: 75% !important;
     }
 }
