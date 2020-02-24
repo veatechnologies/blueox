@@ -2632,6 +2632,7 @@ font-size: 16px;
 	}
 	.product-category-wrap .product-category-list{width:100%}
 	.product-list-item .product-list-content a.woocommerce-LoopProduct-link h2{width:100%}
+	.wp-bp-sidebar-width {display: none;}
 }
 /*Start Vehicle Yaer*/
 
@@ -2642,6 +2643,9 @@ font-size: 16px;
 	}
 	.btn-clear--blue{
 		padding: 15px 14px !important;
+	}
+	.shop_table.shop_table_responsive.woocommerce-cart-form__contents .cart-update-remove .product-update {
+		margin: 0 20px;
 	}
 	.product-category-wrap .product-category-list{width:100%}
 	.product-list-item .product-list-content a.woocommerce-LoopProduct-link h2{width:100%}
@@ -2674,6 +2678,33 @@ font-size: 16px;
 @media screen and (max-width:420px) {
 
 	.btn-clear--white{display: block;}
+	.product-list-content .price {width:auto;}
+	.product-list-item .product-list-content .learn-btn {
+		display: block;
+		margin: 0px auto;
+		margin-top: 10px;
+	}
+	.product-list-item .product-list-content .learn-btn a {
+		text-align: left;
+		padding: 8px 6px;
+	}
+	.product-list-item .product-list-content a.button, .product-list-item .product-list-content .learn-btn a {
+		margin: 0px auto;
+		display: block;
+		text-align: left;
+	}
+	.product-list-content .learn-btn .btn-blue:after {
+		float: right;
+		font-size: 13px;
+	}
+	.add_to_cart_button:after, .product_type_simple:after, .shop_table tr td button.button:after {
+		float: right;
+	}
+	.col-sm-4.findADealer {
+		width: 100%;
+		display: inline-grid;
+		text-align: center;
+	}
 }
 
 @media screen and (max-width:380px) {
