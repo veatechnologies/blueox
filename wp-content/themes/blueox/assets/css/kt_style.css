@@ -2613,7 +2613,8 @@ font-size: 16px;
 	color: #002E5A;
 }
 .choseModel .text-blue {
-    color: #002E5A !important;
+	color: #002E5A !important;
+	font-family: inherit;
 }
 .choseModelp{color: #676869 !important}
 .Baseplate-Selector .search-blueox-part input.nav-search-input {
