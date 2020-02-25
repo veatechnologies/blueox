@@ -2623,6 +2623,17 @@ font-size: 16px;
     display: none;
 }
 
+.Baseplate-Selector h2 {
+    font-weight: 400;
+    font-size: 22px;
+    font-family: inherit;
+    margin-bottom: 40px  !important;
+}
+
+.Baseplate-Selector .selectModel {
+    width: 90%;
+}
+
 @media screen and (max-width:575px) {
 	.Baseplate-Selector{
 		width: 100%;
