@@ -2576,20 +2576,21 @@ font-size: 16px;
 }
 
 .Baseplate-Selector .modelBtn:before{
-	content: '\f0d7';
+    content: '\f0d7';
     font-family: "Font Awesome 5 Free";
     position: absolute;
     top: 1px !important;
-    right: 17px;
-    height: 42px;
+    right: 16px;
     width: 30px;
-    text-align: center;
+	text-align: center;
+	height: 42px;
     line-height: 42px;
-    font-size: 16px;
+    font-size: 26px;
     background: white;
     color: #1b3d80;
     pointer-events: none;
     font-weight: 600;
+    
 }
 
 .Baseplate-Selector .choseModel::before, .Baseplate-Selector .choseModel::after {
@@ -2609,6 +2610,10 @@ font-size: 16px;
 .search-blueox-part h6 {
 	text-align: right;
 	font-size: 22px;
+	color: #002E5A;
+}
+.choseModel .text-blue {
+    color: #002E5A !important;
 }
 .Baseplate-Selector .search-blueox-part input.nav-search-input {
     height: 40px;
@@ -2650,6 +2655,9 @@ font-size: 16px;
     width: 90%;
 }
 
+.choseModel h3 {
+    margin-bottom: 1.9rem !important;
+}
 @media screen and (max-width:575px) {
 	.Baseplate-Selector{
 		width: 100%;
