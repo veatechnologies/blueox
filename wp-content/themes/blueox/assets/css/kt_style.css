@@ -1693,6 +1693,14 @@ p.woocommerce-mini-cart__empty-message {
     font-weight: 700;
 }
 
+.container.towing-equipment h5{
+	text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+	margin-top: 30px;
+	
+}
+
 .woocommerce-checkout .sidebar-1-area .widget ul li {
 	list-style: none;
 }
