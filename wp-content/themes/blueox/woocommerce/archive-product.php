@@ -100,7 +100,7 @@ global $post;
                                     <h3 class="font-weight-bold">Need a local dealer?</h3>
                                     <p class="mb-0">There are 100s to choose from:</p>
                                 </div>
-                                <div class="col-sm-4 findADealer">
+                                <div class="_col-sm-4 findADealer">
                                     <a class="btn-clear--blue" href="<?php echo get_site_url() ?>/dealer-locator/">Find A Dealer</a>
                                 </div>
                             </div>

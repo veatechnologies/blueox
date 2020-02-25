@@ -2700,7 +2700,7 @@ font-size: 16px;
 	.add_to_cart_button:after, .product_type_simple:after, .shop_table tr td button.button:after {
 		float: right;
 	}
-	.col-sm-4.findADealer {
+	.findADealer {
 		width: 100%;
 		display: inline-grid;
 		text-align: center;
