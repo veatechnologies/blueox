@@ -39,12 +39,12 @@ $material = $product->get_attribute( 'material' );
 $models = $product->get_attribute( 'models' );
 $weight = $product->get_attribute( 'weight' );
 
-if(!empty($class)){echo $class."<br>";}
-if(!empty($baseplate_year)){echo $baseplate_year."<br>";}
-if(!empty($make)){echo $make."<br>";} 
-if(!empty($material)){echo $material."<br>";} 
-if(!empty($models)){ echo $models."<br>"; }
-if(!empty($weight)){ echo $weight; }
+if(!empty($class)){?> Class: <?php echo $class."<br>";}
+if(!empty($baseplate_year)){?> Year: <?php echo $baseplate_year."<br>";}
+if(!empty($make)){?> Make: <?php echo $make."<br>";} 
+if(!empty($material)){?> Material: <?php echo $material."<br>";} 
+if(!empty($models)){?> Model: <?php echo $models."<br>"; }
+if(!empty($weight)){?> Weight: <?php echo $weight; }
 
 //For Install instruction
 
