@@ -54,10 +54,10 @@ $productID = $product->get_id();
 $install_instruction_pdf= get_field('install_instruction', $productID);
 $warrenty= get_field('warrenty', $productID);
 if(!empty($install_instruction_pdf)){ ?>
-	<a class="install-instruction-link" target="_blank" href="<?php echo $install_instruction_pdf; ?>">installation instruction</a>
+	<a class="install-instruction-link" target="_blank" href="<?php echo $install_instruction_pdf; ?>">Install Instructions</a>
 	<?php }
 if(!empty($warrenty)){ ?>
-	<a class="warrenty-link" target="_blank" href="<?php echo $warrenty; ?>">warrenty</a>
+	<a class="warrenty-link" target="_blank" href="<?php echo $warrenty; ?>">Warranty</a>
 	<?php }
 	?>
 
