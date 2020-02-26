@@ -39,12 +39,14 @@ $material = $product->get_attribute( 'material' );
 $models = $product->get_attribute( 'models' );
 $weight = $product->get_attribute( 'weight' );
 
-if(!empty($class)){?> Class: <?php echo $class."<br>";}
-if(!empty($baseplate_year)){?> Year: <?php echo $baseplate_year."<br>";}
-if(!empty($make)){?> Make: <?php echo $make."<br>";} 
-if(!empty($material)){?> Material: <?php echo $material."<br>";} 
-if(!empty($models)){?> Model: <?php echo $models."<br>"; }
-if(!empty($weight)){?> Weight: <?php echo $weight; }
+if(!empty($class)){?><p class="product-attributes-parent"> <span class="product-attributes"> Class: </span><?php echo $class;?>
+</p><?php }
+if(!empty($baseplate_year)){?><p class="product-attributes-parent"> <span class="product-attributes"> Year: </span> 
+<?php echo $baseplate_year;?></p> <?php }
+if(!empty($make)){?><p class="product-attributes-parent"><span class="product-attributes"> Make: </span><?php echo $make;?> </p><?php } 
+if(!empty($material)){?><p class="product-attributes-parent"><span class="product-attributes"> Material: </span> <?php echo $material ?></p> <?php } 
+if(!empty($models)){?><p class="product-attributes-parent"><span class="product-attributes"> Model: <?php echo $models;?> </p><?php }
+if(!empty($weight)){?><p class="product-attributes-parent"><span class="product-attributes"> Weight: <?php echo $weight;?></p> <?php }
 
 //For Install instruction
 
