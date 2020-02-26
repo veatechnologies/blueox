@@ -43,14 +43,14 @@ $material = $product->get_attribute( 'material' );
 $models = $product->get_attribute( 'models' );
 $weight = $product->get_attribute( 'weight' );
 
-if(!empty($class)){?><p class="product-attributes-parent"> <span class="product-attributes"> Class: </span><?php echo $class;?>
-</p><?php }
-if(!empty($baseplate_year)){?><p class="product-attributes-parent"> <span class="product-attributes"> Year: </span> 
-<?php echo $baseplate_year;?></p> <?php }
-if(!empty($make)){?><p class="product-attributes-parent"><span class="product-attributes"> Make: </span><?php echo $make;?> </p><?php } 
-if(!empty($material)){?><p class="product-attributes-parent"><span class="product-attributes"> Material: </span> <?php echo $material ?></p> <?php } 
-if(!empty($models)){?><p class="product-attributes-parent"><span class="product-attributes"> Model: <?php echo $models;?> </p><?php }
-if(!empty($weight)){?><p class="product-attributes-parent"><span class="product-attributes"> Weight: <?php echo $weight;?></p> <?php }
+if(!empty($class)){?><h6 class="product-attributes-parent"> <span class="product-attributes"> Class: </span><?php echo $class;?>
+</h6><?php }
+if(!empty($baseplate_year)){?><h6 class="product-attributes-parent"> <span class="product-attributes"> Year: </span> 
+<?php echo $baseplate_year;?></h6> <?php }
+if(!empty($make)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Make: </span><?php echo $make;?> </h6><?php } 
+if(!empty($material)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Material: </span> <?php echo $material ?></h6> <?php } 
+if(!empty($models)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Model: <?php echo $models;?> </h6><?php }
+if(!empty($weight)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Weight: <?php echo $weight;?></h6> <?php }
 
 //For Install instruction
 
@@ -59,14 +59,14 @@ $install_instruction_pdf= get_field('install_instruction', $productID);
 $warrenty= get_field('warrenty', $productID);
 $literature= get_field('literature', $productID);
 if(!empty($install_instruction_pdf)){ ?>
-	<a class="install-instruction-link" target="_blank" href="<?php echo $install_instruction_pdf; ?>">Install Instructions</a>
+	<a class="install-instruction-link instruction-btn" target="_blank" href="<?php echo $install_instruction_pdf; ?>">Install Instructions</a>
 	<?php }
 if(!empty($warrenty)){ ?>
-	<a class="warrenty-link" target="_blank" href="<?php echo $warrenty; ?>">Warranty</a>
+	<a class="warrenty-link instruction-btn" target="_blank" href="<?php echo $warrenty; ?>">Warranty</a>
 	<?php }
 	
 if(!empty($literature)){ ?>
-	<a class="literature-link" target="_blank" href="<?php echo $literature; ?>">Warranty</a>
+	<a class="literature-link instruction-btn" target="_blank" href="<?php echo $literature; ?>">Literature</a>
 	<?php }
 	
 
