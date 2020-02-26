@@ -500,6 +500,35 @@ padding-top: 60px;
 /*Single page product page*/
 
 /*media queries*/
+
+span.product-attributes {
+    font-weight: 700;
+}
+
+.product-attributes-parent {
+    margin-top: 1rem;
+}
+.product-attributes-parent:last-of-type{
+    margin-bottom: 1rem;
+}
+
+a.instruction-btn{
+display: inline-block;
+margin: 0 0 20px 0;
+border-radius: 3px;
+padding: 10px;
+text-align: center;
+color:#FFF;
+text-decoration: none;
+font: 400 14px/20px "Open Sans", Arial, Helvetica, Geneva, sans-serif;
+background-color:#1b3d80 ;
+}
+a.instruction-btn:hover{
+	background-color:#007bff;
+	color:#fff;
+}
+
+
 @media (min-width: 576px){
 	.jumbotron {
 		padding: 4rem 0 1.5rem;
@@ -2576,21 +2605,20 @@ font-size: 16px;
 }
 
 .Baseplate-Selector .modelBtn:before{
-    content: '\f0d7';
+	content: '\f0d7';
     font-family: "Font Awesome 5 Free";
     position: absolute;
     top: 1px !important;
-    right: 16px;
+    right: 17px;
+    height: 42px;
     width: 30px;
-	text-align: center;
-	height: 42px;
+    text-align: center;
     line-height: 42px;
-    font-size: 26px;
+    font-size: 16px;
     background: white;
     color: #1b3d80;
     pointer-events: none;
     font-weight: 600;
-    
 }
 
 .Baseplate-Selector .choseModel::before, .Baseplate-Selector .choseModel::after {
@@ -2610,14 +2638,7 @@ font-size: 16px;
 .search-blueox-part h6 {
 	text-align: right;
 	font-size: 22px;
-	color: #002E5A;
 }
-.choseModel .text-blue {
-	color: #002E5A !important;
-	font-size: 28px;
-    font-family: inherit;
-}
-.choseModelp{color: #676869 !important}
 .Baseplate-Selector .search-blueox-part input.nav-search-input {
     height: 40px;
 	border-radius: 0;
@@ -2658,9 +2679,6 @@ font-size: 16px;
     width: 90%;
 }
 
-.choseModel h3 {
-    margin-bottom: 1.9rem !important;
-}
 @media screen and (max-width:575px) {
 	.Baseplate-Selector{
 		width: 100%;
