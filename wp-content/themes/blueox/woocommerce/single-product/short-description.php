@@ -23,13 +23,17 @@ global $post, $product;
 
 $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 
-if ( ! $short_description ) {
+/* if ( ! $short_description ) {
 	return;
-}
-
+} */
+if(!empty($short_description)){
 ?>
 <div class="woocommerce-product-details__short-description">
 <?php echo $short_description; // WPCS: XSS ok.
+?>
+</div>
+<?php	
+}
 
 // For Attributes
 $class = $product->get_attribute( 'class' );
@@ -53,13 +57,19 @@ if(!empty($weight)){?><p class="product-attributes-parent"><span class="product-
 $productID = $product->get_id();
 $install_instruction_pdf= get_field('install_instruction', $productID);
 $warrenty= get_field('warrenty', $productID);
+$literature= get_field('literature', $productID);
 if(!empty($install_instruction_pdf)){ ?>
 	<a class="install-instruction-link" target="_blank" href="<?php echo $install_instruction_pdf; ?>">Install Instructions</a>
 	<?php }
 if(!empty($warrenty)){ ?>
 	<a class="warrenty-link" target="_blank" href="<?php echo $warrenty; ?>">Warranty</a>
 	<?php }
-	?>
+	
+if(!empty($literature)){ ?>
+	<a class="literature-link" target="_blank" href="<?php echo $literature; ?>">Warranty</a>
+	<?php }
+	
 
-</div>
+
+
 
