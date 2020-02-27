@@ -520,7 +520,7 @@ padding: 10px;
 text-align: center;
 color:#FFF;
 text-decoration: none;
-font: 400 14px/20px "Open Sans", Arial, Helvetica, Geneva, sans-serif;
+font: 400 14px/20px;
 background-color:#1b3d80 ;
 }
 a.instruction-btn:hover{
@@ -2609,12 +2609,12 @@ font-size: 16px;
     font-family: "Font Awesome 5 Free";
     position: absolute;
     top: 1px !important;
-    right: 17px;
-    height: 42px;
+    right: 16px;
     width: 30px;
-    text-align: center;
+	text-align: center;
+	height: 42px;
     line-height: 42px;
-    font-size: 16px;
+    font-size: 26px;
     background: white;
     color: #1b3d80;
     pointer-events: none;
@@ -2638,6 +2638,7 @@ font-size: 16px;
 .search-blueox-part h6 {
 	text-align: right;
 	font-size: 22px;
+	color: #002E5A;
 }
 .Baseplate-Selector .search-blueox-part input.nav-search-input {
     height: 40px;
@@ -2677,6 +2678,20 @@ font-size: 16px;
 
 .Baseplate-Selector .selectModel {
     width: 90%;
+}
+
+.choseModel .text-blue {
+	color: #002E5A !important;
+	font-size: 28px;
+    font-family: inherit;
+}
+.choseModel .subText {
+    font-size: 22px !important;
+}
+.choseModelp{color: #676869 !important}
+
+.choseModel h3 {
+    margin-bottom: 1.9rem !important;
 }
 
 @media screen and (max-width:575px) {
