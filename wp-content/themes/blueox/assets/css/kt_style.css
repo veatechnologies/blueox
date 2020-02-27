@@ -185,6 +185,15 @@ a:hover {
 	font-family: Gotham-Book;
 }
 
+.tax-product_cat .onebox-body.pb-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.tax-product_cat .onebox-body.pb-4 .award-section-two{
+    display: inline-block;
+}
+
 /*Sidebar*/
 
 .productDetails h1 span{font-size: 36px;}
