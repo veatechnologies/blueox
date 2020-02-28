@@ -79,13 +79,21 @@ global $post;
 
 	//get category id for products 
 	
-	$terms_post = get_the_terms( $post->cat_ID , 'product_cat' );
-		foreach ($terms_post as $term_cat) { 
+	$cate = get_queried_object();
+	$cateID = $cate->term_id;
+
+	
+	//$terms_post = get_the_terms( $post->cat_ID , 'product_cat' );
+		/* foreach ($terms_post as $term_cat) { 
 		$term_cat_id = $term_cat->term_id; 
 	 }
-		 $term_id= "product_cat_".$term_cat_id;
-		 echo the_field('category_content',  $term_id);
-		 
+		 */ 
+		 $term_id= "product_cat_".$cateID;
+		 if ( is_product_category() ) {
+		 echo the_field('category_content',  'option');
+	
+		 }
+
  ?>
 
 	
