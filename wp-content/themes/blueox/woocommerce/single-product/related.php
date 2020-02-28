@@ -131,7 +131,9 @@ if(!empty($banner_image)){ ?> <img src="<?php echo $banner_image;?>" > <?php }
 
 if(!empty($testimonial_content)){  echo $testimonial_content;  } */
 
-dynamic_sidebar('swaypro_section');
+?> 
+<div class="sway-prod-dealer-section"><?php dynamic_sidebar('swaypro_section'); ?></div>
+<?php
 dynamic_sidebar('industry_towing_equipment_section');
 
 
