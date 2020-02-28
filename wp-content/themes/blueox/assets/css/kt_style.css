@@ -232,6 +232,7 @@ position:relative;
 }
 .swapro-section .rated-section .spring-bar-section{
 whith:35%;
+position:relative;
 }
 
 .swapro-section .rated-section .rated-img-section .rated-img {
@@ -256,11 +257,15 @@ margin: 0 auto;
 }
 .swapro-section .rated-section .rated-img-section .rated-text:before, .swapro-section .rated-section .spring-bar-section .spring-text:before{
 content:'';
-height:30px;
+height:40px;
 width:2px;
 position:absolute;
 top:0;
 background-color:#002E5A;
+top: 62%;
+right: 0;
+left: 0;
+margin: 0 auto;
 }
 .swapro-section .rated-section .rated-img-section .rated-text strong{
 padding: 10px 20px 0;
@@ -309,6 +314,11 @@ color:#535353;
 color:#002E5A !important;
 margin-bottom:110px;
 }
+
+
+
+
+
 
 
 
