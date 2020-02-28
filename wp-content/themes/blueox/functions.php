@@ -151,6 +151,18 @@ function wp_bootstrap_4_widgets_init() {
 		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
+	
+	//BXW series sidebar section
+	register_sidebar( array(
+		'name'          => esc_html__( 'Swaypro section', 'wp-bootstrap-4' ),
+		'id'            => 'swaypro_section',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+	
 	//Industry Leading Towing Equipment section
 	register_sidebar(array(
 		'name'          => esc_html__('Industry Towing Equipment section', 'wp-bootstrap-4' ),
@@ -161,6 +173,8 @@ function wp_bootstrap_4_widgets_init() {
 		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
+	
+	
 }
 add_action( 'widgets_init', 'wp_bootstrap_4_widgets_init' );
 

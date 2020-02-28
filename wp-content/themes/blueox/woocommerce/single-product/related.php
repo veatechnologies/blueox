@@ -117,6 +117,21 @@ if ( $related_products ) : ?>
 <?php endif;
 }
 
+//For get Need a dealer section 
+
+/* 
+$product_id= $product->get_id();
+$need_a_dealer_section= get_field('need_a_local_dealer_section',$product_id);
+$banner_image= get_field('banner_image',$product_id);
+$testimonial_content= get_field('testimonial_content',$product_id);
+
+
+if(!empty($need_a_dealer_section)){ echo $need_a_dealer_section; }
+if(!empty($banner_image)){ ?> <img src="<?php echo $banner_image;?>" > <?php }
+
+if(!empty($testimonial_content)){  echo $testimonial_content;  } */
+
+dynamic_sidebar('swaypro_section');
 dynamic_sidebar('industry_towing_equipment_section');
 
 
