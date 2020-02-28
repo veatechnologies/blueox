@@ -394,15 +394,33 @@ function product_section(){
 	global $post;
 	wp_nonce_field( basename( __FILE__ ), 'prfx_nonce' );
 	$product_id = get_post_meta($post->ID,'product_id', true);
-
+	$product_related_yes = get_post_meta($post->ID,'product_related_yes', true);
+	$product_related_no = get_post_meta($post->ID,'product_related_no', true);
+	$product_text_content = get_post_meta($post->ID,'product_text_content', true);
 	?><div class="wrap">
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
+			
+			<tr>
+			<label><b>Show Additional Text Title</b></label>
+			</tr>
+				<tr>
+				
+					<td> <input type='checkbox' name="product_related_yes" id="product_related_yes" value="1" <?php if($product_related_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
+					<input type='checkbox' name="product_related_no" id="product_related_no" value="0" <?php if($product_related_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
+				</tr>
+				
+				<tr>
+					<td><input type="text" name="product_text_content" id="product_text_content" value="<?php echo trim($product_text_content); ?>" class="regular-text"></td>
+
+				</tr>
 				<tr>
 					<td><input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
 
 				</tr>
 
+				
+				
 
 			</tbody>
 		</table>
@@ -418,6 +436,9 @@ function product_related_items(){
 	?><div class="wrap">
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
+			<tr>
+			<label><b>Show Related Products</b></label>
+			</tr>
 				<tr>
 					<td><input type='checkbox' name="product_checkbox_yes" id="product_checkbox_yes" value="1" <?php if($product_checkbox_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
 					<input type='checkbox' name="product_checkbox_no" id="product_checkbox_no" value="0" <?php if($product_checkbox_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
@@ -456,14 +477,20 @@ function blueox_meta_save($post_id) {
     }
 
 
-
 	if($post->post_type == "product"){
 	$product_id= $_POST["product_id"];
+	$product_related_yes= $_POST["product_related_yes"];
+	$product_related_no= $_POST["product_related_no"];
+	$product_text_content= $_POST["product_text_content"];
 	$product_checkbox_yes= $_POST["product_checkbox_yes"];
 	$product_checkbox_no= $_POST["product_checkbox_no"];
+	
 	update_post_meta($post_id,'product_id', $product_id);
 	update_post_meta($post_id,'product_checkbox_yes', $product_checkbox_yes);
 	update_post_meta($post_id,'product_checkbox_no', $product_checkbox_no);
+	update_post_meta($post_id,'product_related_yes', $product_related_yes);
+	update_post_meta($post_id,'product_related_no', $product_related_no);
+	update_post_meta($post_id,'product_text_content', $product_text_content);
 	}
 
 }

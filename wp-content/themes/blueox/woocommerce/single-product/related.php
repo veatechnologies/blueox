@@ -23,6 +23,11 @@ global $product;
 $product_checkbox_yes= get_post_meta(get_the_ID(),'product_checkbox_yes',true);
 $product_checkbox_no= get_post_meta(get_the_ID(),'product_checkbox_no',true);
 
+
+$product_related_yes= get_post_meta(get_the_ID(),'product_related_yes',true);
+$product_related_no= get_post_meta(get_the_ID(),'product_related_no',true);
+$product_text_content= get_post_meta(get_the_ID(),'product_text_content',true);
+
 if(!empty(the_content())){
 ?>
 
@@ -54,9 +59,15 @@ if(is_numeric($product_values)){ ?>
 	$loop = new WP_Query( $args );
 	//$product = new WC_Product( $post->ID );
 	
-	
+	if($product_related_yes == '1')
+	{
+	?><h3><?php echo $product_text_content; ?></h3>
+		
+<?php } 
+	else {
 	?>
 	<h3>This item requires additional parts for install</h3>
+	<?php } ?>
 	<div class="additional-product-block">
 	<?php
     while ( $loop->have_posts() ) : $loop->the_post();
