@@ -49,8 +49,6 @@ $review_count = $product->get_review_count();
 $average      = $product->get_average_rating();
 
 
-
-
 if(is_numeric($product_values)){ ?>
 <div class="additional-product-wrap">
 <?php 
