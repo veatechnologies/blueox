@@ -209,6 +209,17 @@ a:hover {
     justify-content: space-between;
 }
 
+.swapro-section .rated-section .rated-img-section .rated-img img {
+    width:200px;
+	max-width:100%;
+	height:auto;
+}
+
+.swapro-section .rated-section span, .swapro-section spring-bar-section span{
+color:#002E5A;
+font-size: 20px;
+}
+
 /*Sidebar*/
 
 .productDetails h1 span{font-size: 36px;}
