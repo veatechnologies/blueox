@@ -196,37 +196,35 @@ a:hover {
 
 /* Swaypro section */
 .swapro-section {
-    text-align: center;
+text-align: center;
+color:#002E5A;
+}
+.swapro-section h1, .swapro-section h5{
+margin-bottom:em(438, r);
 }
 
 .swapro-section .rated-section {
-    display: flex;
-    justify-content: space-between;
+display: flex;
+justify-content: space-between;
+}
+.swapro-section .rated-section .rated-img-section{
+width:65%;
+}
+.swapro-section .rated-section .spring-bar-section{
+whith:35%;
 }
 
 .swapro-section .rated-section .rated-img-section .rated-img {
-    display: flex;
-    justify-content: space-between;
+display: flex;
+justify-content: space-between;
 }
-
-.swapro-section .rated-section .rated-img-section .rated-img img {
-    width:200px;
-	max-width:100%;
-	height:auto;
+.swapro-section .rated-section .comp-img {
+height: 246px;
 }
 
 .swapro-section .rated-section span, .swapro-section spring-bar-section span{
 color:#002E5A;
 font-size: 20px;
-}
-
-.swapro-section  h1, .swapro-section  h5{
-margin-bottom:4.75rem;
-}
-
-
-.swapro-section{
-color:#002E5A;
 }
 
 /*Sidebar*/
