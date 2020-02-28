@@ -194,6 +194,21 @@ a:hover {
     display: inline-block;
 }
 
+/* Swaypro section */
+.swapro-section {
+    text-align: center;
+}
+
+.swapro-section .rated-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.swapro-section .rated-section .rated-img-section .rated-img {
+    display: flex;
+    justify-content: space-between;
+}
+
 /*Sidebar*/
 
 .productDetails h1 span{font-size: 36px;}
