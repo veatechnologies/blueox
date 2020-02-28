@@ -279,15 +279,24 @@ width:100%;
 height: 911px;
 padding-top: 102px;
 padding-right:108px;
-background-size: cover;
 }
 .denver-section .denver-text{
 background:#ffffff;
-opacity:0.3;
+opacity:0.7;
 padding:26px 51px 26px 31px;
 max-width: 577px;
 margin-left: auto;
+font-size:14px;
 }
+.denver-section .denver-text .denver-date{
+text-align:right;
+color:#535353;
+}
+.denver-section .denver-text .denver-name{
+color:#002E5A !important;
+margin-bottom:110px;
+}
+
 
 
 
