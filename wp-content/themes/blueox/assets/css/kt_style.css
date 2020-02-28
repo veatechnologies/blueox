@@ -209,6 +209,7 @@ justify-content: space-between;
 }
 .swapro-section .rated-section .rated-img-section{
 width:65%;
+position:relative;
 }
 .swapro-section .rated-section .spring-bar-section{
 whith:35%;
@@ -218,6 +219,25 @@ whith:35%;
 display: flex;
 justify-content: space-between;
 }
+
+.swapro-section .rated-section .rated-img-section .rated-img p:after{
+content: '';
+width: 100%;
+height: 30px;
+display: block;
+border: 2px solid #002E5A;
+position: absolute;
+bottom: 49px;
+z-index: -1;
+border-top: 0;
+}
+.swapro-section .rated-section .rated-img-section .rated-img p span{
+padding: 10px 20px 0;
+display: inline-block;
+background:#fff;
+
+z-index: 9;
+}
 .swapro-section .rated-section .comp-img {
 height: 246px;
 }
@@ -226,6 +246,9 @@ height: 246px;
 color:#002E5A;
 font-size: 20px;
 }
+
+
+
 
 /*Sidebar*/
 
