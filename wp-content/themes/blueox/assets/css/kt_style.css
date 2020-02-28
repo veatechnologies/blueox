@@ -241,7 +241,7 @@ justify-content: space-between;
 
 .swapro-section .rated-section .rated-img-section .rated-text:after{
 content: '';
-width: 100%;
+width: 70%;
 height: 30px;
 display: block;
 border: 2px solid #002E5A;
@@ -249,8 +249,20 @@ position: absolute;
 bottom: 49px;
 z-index: -1;
 border-top: 0;
+left: 0;
+right: 0;
+text-align: center;
+margin: 0 auto;
 }
-.swapro-section .rated-section .rated-img-section .rated-text span{
+.swapro-section .rated-section .rated-img-section .rated-text:before, .swapro-section .rated-section .spring-bar-section .spring-text:before{
+content:'';
+height:30px;
+width:2px;
+position:absolute;
+top:0;
+background-color:#002E5A;
+}
+.swapro-section .rated-section .rated-img-section .rated-text strong{
 padding: 10px 20px 0;
 display: inline-block;
 background:#fff;
@@ -264,7 +276,7 @@ height: 210px;
 width:70%;
 }
 
-.swapro-section .rated-section span, .swapro-section spring-bar-section span{
+.swapro-section .rated-section strong, .swapro-section spring-bar-section strong{
 color:#002E5A;
 font-size: 20px;
 }
@@ -279,6 +291,7 @@ width:100%;
 height: 911px;
 padding-top: 102px;
 padding-right:108px;
+background-size:cover;
 }
 .denver-section .denver-text{
 background:#ffffff;
