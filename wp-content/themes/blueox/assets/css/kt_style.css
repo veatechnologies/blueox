@@ -230,6 +230,9 @@ justify-content: space-between;
 width:65%;
 position:relative;
 }
+.swapro-section .rated-section .rated-img-section.rated-img-section2{
+width:35% !important;
+}
 .swapro-section .rated-section .spring-bar-section{
 whith:35%;
 position:relative;
@@ -255,7 +258,7 @@ right: 0;
 text-align: center;
 margin: 0 auto;
 }
-.swapro-section .rated-section .rated-img-section .rated-text:before, .swapro-section .rated-section .spring-bar-section .spring-text:before{
+.swapro-section .rated-section .rated-img-section .rated-text:before, .swapro-section .rated-section .spring-bar-section .spring-text:before, .swapro-section .rated-section .spring-angle-section .spring-text:before{
 content:'';
 height:40px;
 width:2px;
