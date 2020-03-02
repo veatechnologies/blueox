@@ -61,7 +61,7 @@ if(is_numeric($product_values)){ ?>
 	{ if(!empty($product_text_content))
 		?><h3><?php echo $product_text_content; ?></h3>
 		
-	<?php } } 
+	<?php  } 
 	elseif($product_related_no == '0') {
 	?>
 	<h3>This item requires additional parts for install</h3>
