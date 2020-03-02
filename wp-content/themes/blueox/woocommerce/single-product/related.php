@@ -58,11 +58,11 @@ if(is_numeric($product_values)){ ?>
 	//$product = new WC_Product( $post->ID );
 	
 	if($product_related_yes == '1')
-	{
-	?><h3><?php echo $product_text_content; ?></h3>
+	{ if(!empty($product_text_content))
+		?><h3><?php echo $product_text_content; ?></h3>
 		
-<?php } 
-	else {
+	<?php } } 
+	elseif($product_related_no == '0') {
 	?>
 	<h3>This item requires additional parts for install</h3>
 	<?php } ?>

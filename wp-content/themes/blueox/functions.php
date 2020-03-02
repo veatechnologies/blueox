@@ -412,7 +412,7 @@ function product_section(){
 
 				</tr>
 				<tr>
-					<td><input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
+					<td><label><b>Products Ids</b></label> <input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
 
 				</tr>
 
