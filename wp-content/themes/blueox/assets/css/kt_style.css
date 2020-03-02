@@ -237,6 +237,9 @@ width:35% !important;
 width:35%;
 position:relative;
 }
+.swapro-section .rated-section .spring-angle-section{
+position:relative;
+}
 
 .swapro-section .rated-section .rated-img-section .rated-img {
 display: flex;
