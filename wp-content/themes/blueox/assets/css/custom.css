@@ -187,8 +187,9 @@ b, strong {
 }
 .tax-product_cat .local-contact .col-sm-4 .mb-0 {
     margin-bottom: 0 !important;
-    color: 
-    #868585;
+    color: #868585;
+    font-size: 12px;
+    margin-left: 7px;
 }
 .tax-product_cat .a-inner p {
 	color: #868585;
