@@ -66,9 +66,13 @@
 .tax-product_cat .a-inner {
     margin-top: 30px;
 }
-.local-contact .col-sm-8.col-xs-12.col-lg-8 {
+.tax-product_cat .local-contact .col-sm-8.col-xs-12.col-lg-8 {
     padding-left: 0px;
     margin-top: 20px;
+}
+
+.tax-product_cat .local-contact p.mb-0 {
+    color: #868585;
 }
 /*end category single page*/
 .question-mark{
