@@ -94,10 +94,29 @@ global $post;
 	
 		 }
 
- ?>
-
-	
-	           <div class="local-contact container">
+ if ( is_product_category() ) {?>
+	 
+	 <div class="local-contact container">
+			   <div class="row">
+			   <div class=" col-sm-4 col-xs-6 col-lg-4">
+			   </div>
+			   <div class="col-sm-8 col-xs-12 col-lg-8">
+			   
+                            <div class="_row d-flex align-items-center">
+                                <div class="col-sm-4">
+                                    <h3 class="font-weight-bold">Need a local dealer?</h3>
+                                    <p class="mb-0">There are 100s to choose from:</p>
+                                </div>
+                                <div class="_col-sm-4 findADealer">
+                                    <a class="btn-clear--blue" href="<?php echo get_site_url() ?>/dealer-locator/">Find A Dealer</a>
+                                </div>
+                            </div>
+							</div>
+                        </div>
+	</div>
+	 
+ <?php }
+ else { ?>  <div class="local-contact container">
 			   <div class="row">
 			   <div class=" col-sm-4 col-xs-6 col-lg-4">
 			   </div>
@@ -114,7 +133,12 @@ global $post;
                             </div>
 							</div>
                         </div>
-	</div>				
+	</div>	 <?php } ?>
+
+
+
+	
+	         			
 </header>
 <div class="product-category-wrap">
 	<div class="col-xs-6 col-lg-4 product-category-filter">

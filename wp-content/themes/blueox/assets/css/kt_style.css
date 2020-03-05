@@ -57,6 +57,20 @@
 	margin: 0px;
 	padding: 0px;
 }
+
+/*category single page*/
+.tax-product_cat .a.py-0 img.img-fluid {
+    max-width: 180px;
+}
+
+.tax-product_cat .a-inner {
+    margin-top: 30px;
+}
+.local-contact .col-sm-8.col-xs-12.col-lg-8 {
+    padding-left: 0px;
+    margin-top: 20px;
+}
+/*end category single page*/
 .question-mark{
 	color: blue;
 	display: inline-block;
