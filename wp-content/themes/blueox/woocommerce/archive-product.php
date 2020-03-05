@@ -90,8 +90,8 @@ global $post;
 		 */ 
 		 $term_id= "product_cat_".$cateID;
 		 if ( is_product_category() ) {
-		 echo the_field('category_content',  'option');
-	
+		 $category_content= the_field('category_content',  'option');
+			if(!empty($category_content)){echo $category_content;}
 		 }
 
  ?>
