@@ -401,11 +401,11 @@ function product_section(){
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
 			
-				<tr>
+				<!--<tr>
 				
 					<td><label><b>Show Additional Products Title</b></label><br> <input type='checkbox' name="product_related_yes" id="product_related_yes" value="1" <?php if($product_related_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
 					<input type='checkbox' name="product_related_no" id="product_related_no" value="0" <?php if($product_related_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
-				</tr>
+				</tr>-->
 				
 				<tr>
 					<td><label><b>Additional Products Title</b></label> <input type="text" name="product_text_content" id="product_text_content" value="<?php echo trim($product_text_content); ?>" class="regular-text"></td>
