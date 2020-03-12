@@ -88,6 +88,14 @@
 
 	width: 100%;
 }
+
+/* Added for dash/Arrow for Product featurs edit by Ayushi */
+
+ul.partfeatures li:before {
+    content: "-";
+    padding-right: 6px;
+}
+
 /* .site-content .wp-bp-content-width {
 padding: 0px;
 } */
