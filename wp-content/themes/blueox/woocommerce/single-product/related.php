@@ -63,12 +63,12 @@ if(is_numeric($product_values)){ ?>
 		
 	<?php  } 
 	}
-	elseif($product_related_no == '0') {
+	elseif($product_related_no == '0' && $product_related_no == "" ) {
 	?>
 	<h3>This item requires additional parts for install</h3>
 	<?php } 
 	
-	else{?> <h3>This item requires additional parts for install</h3> <?php }?>
+	?>
 	
 	<div class="additional-product-block">
 	<?php
@@ -95,7 +95,8 @@ if(is_numeric($product_values)){ ?>
 	</div>
 </div>
 
-<?php } ?>
+<?php }
+ ?>
 	
 <?php
 
