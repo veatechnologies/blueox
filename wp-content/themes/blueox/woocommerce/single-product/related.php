@@ -62,7 +62,7 @@ if(is_numeric($product_values)){ ?>
 		?><h3><?php echo $product_text_content; ?></h3>
 		
 	<?php  } 
-	}
+	
 	else {
 	?>
 	<h3>This item requires additional parts for install</h3>
