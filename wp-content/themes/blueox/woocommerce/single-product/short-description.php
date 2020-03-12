@@ -49,8 +49,8 @@ if(!empty($baseplate_year)){?><h6 class="product-attributes-parent"> <span class
 <?php echo $baseplate_year;?></h6> <?php }
 if(!empty($make)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Make: </span><?php echo $make;?> </h6><?php } 
 if(!empty($material)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Material: </span> <?php echo $material ?></h6> <?php } 
-if(!empty($models)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Model: <?php echo $models;?> </h6><?php }
-if(!empty($weight)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Weight: <?php echo $weight;?></h6> <?php }
+if(!empty($models)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Model: </span><?php echo $models;?> </h6><?php }
+if(!empty($weight)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Weight: </span> <?php echo $weight;?></h6> <?php }
 
 //For Install instruction
 
