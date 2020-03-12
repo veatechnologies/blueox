@@ -57,13 +57,13 @@ if(is_numeric($product_values)){ ?>
 	$loop = new WP_Query( $args );
 	//$product = new WC_Product( $post->ID );
 	
-	if($product_related_yes == '1'){
+	//if($product_related_yes == '1'){
 	if(!empty($product_text_content)){
 		?><h3><?php echo $product_text_content; ?></h3>
 		
 	<?php  } 
 	}
-	elseif($product_related_no == '0' || $product_related_no == "" ) {
+	else {
 	?>
 	<h3>This item requires additional parts for install</h3>
 	<?php } 
