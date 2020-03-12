@@ -65,7 +65,10 @@ if(is_numeric($product_values)){ ?>
 	elseif($product_related_no == '0') {
 	?>
 	<h3>This item requires additional parts for install</h3>
-	<?php } ?>
+	<?php } 
+	
+	else{?> <h3>This item requires additional parts for install</h3> <?php }?>
+	
 	<div class="additional-product-block">
 	<?php
     while ( $loop->have_posts() ) : $loop->the_post();
