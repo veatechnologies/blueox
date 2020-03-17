@@ -103,6 +103,77 @@ function wp_bootstrap_4_widgets_init() {
 	) );
 
 	register_sidebar( array(
+		'name'          => esc_html__( 'Baseplate Finder Left', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-baseplate-1',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Baseplate Finder Middle', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-baseplate-2',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Baseplate Finder Right', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-baseplate-3',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'SwayPro Finder Left', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-swaypro-1',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'SwayPro Finder Middle', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-swaypro-1',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'SwayPro Finder Right', 'wp-bootstrap-4' ),
+		'id'            => 'sidebar-swaypro-1',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	//BXW series sidebar section
+	register_sidebar( array(
+		'name'          => esc_html__( 'Swaypro section', 'wp-bootstrap-4' ),
+		'id'            => 'swaypro_section',
+		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
+		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="nav-footer-title">',
+		'after_title'   => '</h5>',
+	) );
+
+	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Column 1', 'wp-bootstrap-4' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
@@ -151,18 +222,6 @@ function wp_bootstrap_4_widgets_init() {
 		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
-	
-	//BXW series sidebar section
-	register_sidebar( array(
-		'name'          => esc_html__( 'Swaypro section', 'wp-bootstrap-4' ),
-		'id'            => 'swaypro_section',
-		'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-4' ),
-		'before_widget' => '<section id="%1$s" class="widget wp-bp-footer-widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h5 class="nav-footer-title">',
-		'after_title'   => '</h5>',
-	) );
-	
 	//Industry Leading Towing Equipment section
 	register_sidebar(array(
 		'name'          => esc_html__('Industry Towing Equipment section', 'wp-bootstrap-4' ),
@@ -173,8 +232,6 @@ function wp_bootstrap_4_widgets_init() {
 		'before_title'  => '<h5 class="nav-footer-title">',
 		'after_title'   => '</h5>',
 	) );
-	
-	
 }
 add_action( 'widgets_init', 'wp_bootstrap_4_widgets_init' );
 
@@ -397,16 +454,17 @@ function product_section(){
 	$product_related_yes = get_post_meta($post->ID,'product_related_yes', true);
 	$product_related_no = get_post_meta($post->ID,'product_related_no', true);
 	$product_text_content = get_post_meta($post->ID,'product_text_content', true);
+
 	?><div class="wrap">
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
-			
+
 				<!--<tr>
-				
+
 					<td><label><b>Show Additional Products Title</b></label><br> <input type='checkbox' name="product_related_yes" id="product_related_yes" value="1" <?php if($product_related_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
 					<input type='checkbox' name="product_related_no" id="product_related_no" value="0" <?php if($product_related_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
 				</tr>-->
-				
+
 				<tr>
 					<td><label><b>Additional Products Title</b></label> <input type="text" name="product_text_content" id="product_text_content" value="<?php echo trim($product_text_content); ?>" class="regular-text"></td>
 
@@ -416,8 +474,6 @@ function product_section(){
 
 				</tr>
 
-				
-				
 
 			</tbody>
 		</table>
@@ -433,9 +489,9 @@ function product_related_items(){
 	?><div class="wrap">
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
-			<tr>
-			<label><b>Show Related Products</b></label>
-			</tr>
+				<tr>
+					<label><b>Show Related Products</b></label>
+				</tr>
 				<tr>
 					<td><input type='checkbox' name="product_checkbox_yes" id="product_checkbox_yes" value="1" <?php if($product_checkbox_yes == '1'){  ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
 					<input type='checkbox' name="product_checkbox_no" id="product_checkbox_no" value="0" <?php if($product_checkbox_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
@@ -481,7 +537,7 @@ function blueox_meta_save($post_id) {
 	$product_text_content= $_POST["product_text_content"];
 	$product_checkbox_yes= $_POST["product_checkbox_yes"];
 	$product_checkbox_no= $_POST["product_checkbox_no"];
-	
+
 	update_post_meta($post_id,'product_id', $product_id);
 	update_post_meta($post_id,'product_checkbox_yes', $product_checkbox_yes);
 	update_post_meta($post_id,'product_checkbox_no', $product_checkbox_no);

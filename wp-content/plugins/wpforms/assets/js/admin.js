@@ -134,6 +134,9 @@
 				});
 			});
 
+			// Lity lightbox.
+			WPFormsAdmin.initLity();
+
 			// Flyout Menu.
 			WPFormsAdmin.initFlyoutMenu();
 
@@ -171,7 +174,7 @@
 				args.noChoicesText = wpforms_admin.choicesjs_no_choices;
 				args.itemSelectText = wpforms_admin.choicesjs_item_select;
 
-				new Choices( $this[0], args );
+				$this.data( 'choicesjs', new Choices( $this[0], args ) );
 			});
 		},
 
@@ -656,8 +659,10 @@
 
 					$( '.jconfirm-content-pane, .jconfirm-box' ).css( 'overflow','visible' );
 
-					choices.passedElement.addEventListener( 'change', function() {
-						choices.hideDropdown();
+					choices.passedElement.element.addEventListener( 'change', function() {
+
+						// Without `true` parameter dropdown will be hidden together with modal window when `Enter` is pressed.
+						choices.hideDropdown( true );
 					}, false );
 				},
 				buttons: {
@@ -693,7 +698,7 @@
 
 				event.preventDefault();
 
-				var video = '<div class="video-container"><iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/yDyvSGV7tP4?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe></div>';
+				var video = '<div class="video-container"><iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/o2nE1P74WxQ?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe></div>';
 
 				$.dialog({
 					title: false,
@@ -1299,7 +1304,7 @@
 				buttonLabel = $btn.text(),
 				$provider   = $btn.closest( '.wpforms-settings-provider' ),
 				data        = {
-					action  : 'wpforms_settings_provider_add',
+					action  : 'wpforms_settings_provider_add_' + $btn.data( 'provider' ),
 					data    : $btn.closest( 'form' ).serialize(),
 					provider: $btn.data( 'provider' ),
 					nonce   : wpforms_admin.nonce
@@ -1350,7 +1355,7 @@
 			var $this = $( el ),
 				$provider = $this.parents('.wpforms-settings-provider'),
 				data = {
-					action  : 'wpforms_settings_provider_disconnect',
+					action  : 'wpforms_settings_provider_disconnect_' + $this.data( 'provider' ),
 					provider: $this.data( 'provider' ),
 					key     : $this.data( 'key'),
 					nonce   : wpforms_admin.nonce
@@ -1492,8 +1497,13 @@
 
 				if ( res.success ){
 					$btn.before( '<div class="wpforms-alert wpforms-alert-success">' + res.data.msg + '</div>' );
-				} else {
+				}
+
+				if ( ! res.success && res.data.msg ) {
 					$btn.before( '<div class="wpforms-alert wpforms-alert-danger">' + res.data.msg + '</div>' );
+				}
+
+				if ( ! res.success && res.data.debug ) {
 					$btn.before( '<div class="wpforms-ssl-error pre-error">' + res.data.debug + '</div>' );
 				}
 
@@ -1765,38 +1775,47 @@
 		initFlyoutMenu: function() {
 
 			// Flyout Menu Elements.
-			var $flyoutMenu    = $( '#wpforms-flyout' ),
-				$head          = $flyoutMenu.find( '.wpforms-flyout-head' ),
-				$sullie        = $head.find( 'img' ),
-				$overlap       = $( '#wpforms-overview, #wpforms-entries-list' ),
-				$wpfooter      = $( '#wpfooter' ),
-				wpfooterTop    = $wpfooter.offset().top,
-				wpfooterBottom = wpfooterTop + $wpfooter.height(),
-				overlapBottom  = $overlap.length > 0 ? $overlap.offset().top + $overlap.height() + 85 : 0;
+			var $flyoutMenu    = $( '#wpforms-flyout' );
+
+			if ( $flyoutMenu.length === 0 ) {
+				return;
+			}
+
+			var	$head   = $flyoutMenu.find( '.wpforms-flyout-head' ),
+				$sullie = $head.find( 'img' ),
+				menu    = {
+					state: 'inactive',
+					srcInactive: $sullie.attr( 'src' ),
+					srcActive: $sullie.data( 'active' ),
+				};
 
 			// Click on the menu head icon.
 			$head.on( 'click', function( e ) {
 
 				e.preventDefault();
 
-				if ( typeof WPFormsAdmin.flyoutMenu === 'undefined' ) {
-					WPFormsAdmin.flyoutMenu = {
-						state: 'inactive',
-						srcInactive: $sullie.attr( 'src' ),
-						srcActive: $sullie.data( 'active' ),
-					};
-				}
-
-				if ( WPFormsAdmin.flyoutMenu.state === 'active' ) {
+				if ( menu.state === 'active' ) {
 					$flyoutMenu.removeClass( 'opened' );
-					$sullie.attr( 'src', WPFormsAdmin.flyoutMenu.srcInactive );
-					WPFormsAdmin.flyoutMenu.state = 'inactive';
+					$sullie.attr( 'src', menu.srcInactive );
+					menu.state = 'inactive';
 				} else {
 					$flyoutMenu.addClass( 'opened' );
-					$sullie.attr( 'src', WPFormsAdmin.flyoutMenu.srcActive );
-					WPFormsAdmin.flyoutMenu.state = 'active';
+					$sullie.attr( 'src', menu.srcActive );
+					menu.state = 'active';
 				}
 			} );
+
+			// Page elements and other values.
+			var $wpfooter = $( '#wpfooter' );
+
+			if ( $wpfooter.length === 0 ) {
+				return;
+			}
+
+			var	$overlap       = $( '#wpforms-overview, #wpforms-entries-list' ),
+				wpfooterTop    = $wpfooter.offset().top,
+				wpfooterBottom = wpfooterTop + $wpfooter.height(),
+				overlapBottom  = $overlap.length > 0 ? $overlap.offset().top + $overlap.height() + 85 : 0;
 
 			// Hide menu if scrolled down to the bottom of the page.
 			$( window ).on( 'resize scroll', _.debounce( function( e ) {
@@ -1812,6 +1831,26 @@
 			}, 50 ) );
 
 			$( window ).trigger( 'scroll' );
+		},
+
+		/**
+		 * Lity improvements.
+		 *
+		 * @since 1.5.8
+		 */
+		initLity: function() {
+
+			// Use `data-lity-srcset` opener's attribute for add srcset to full image in opened lightbox.
+			$( document ).on( 'lity:ready', function( event, instance ) {
+
+				var $el     = instance.element(),
+					$opener = instance.opener(),
+					srcset = typeof $opener !== 'undefined' ? $opener.data( 'lity-srcset' ) : '';
+
+				if ( typeof srcset !== 'undefined' && srcset !== '' ) {
+					$el.find( '.lity-content img' ).attr( 'srcset', srcset );
+				}
+			} );
 		},
 
 		//--------------------------------------------------------------------//

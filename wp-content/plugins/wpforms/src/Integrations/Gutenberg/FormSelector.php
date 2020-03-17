@@ -7,11 +7,7 @@ use WPForms\Integrations\IntegrationInterface;
 /**
  * Form Selector Gutenberg block with live preview.
  *
- * @package    WPForms\Integrations\Gutenberg
- * @author     WPForms
- * @since      1.4.8
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2018, WPForms LLC
+ * @since 1.4.8
  */
 class FormSelector implements IntegrationInterface {
 
@@ -201,15 +197,30 @@ class FormSelector implements IntegrationInterface {
 
 		\do_action( 'wpforms_gutenberg_block_before' );
 
-		\wpforms_display(
-			$id,
-			\apply_filters( 'wpforms_gutenberg_block_form_title', $title, $id ),
-			\apply_filters( 'wpforms_gutenberg_block_form_desc', $desc, $id )
-		);
+		if ( $this->is_gb_editor() ) {
+			wpforms_display(
+				$id,
+				apply_filters( 'wpforms_gutenberg_block_form_title', $title, $id ),
+				apply_filters( 'wpforms_gutenberg_block_form_desc', $desc, $id )
+			);
+		} else {
+			printf(
+				'[wpforms id="%s" title="%d" description="%d"]',
+				absint( $id ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				apply_filters( 'wpforms_gutenberg_block_form_title', $title, $id ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				apply_filters( 'wpforms_gutenberg_block_form_desc', $desc, $id ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+		}
 
 		\do_action( 'wpforms_gutenberg_block_after' );
 
-		return \apply_filters( 'wpforms_gutenberg_block_form_content', \ob_get_clean(), $id );
+		$content = \ob_get_clean();
+
+		if ( empty( $content ) ) {
+			$content = '<div class="components-placeholder"><div class="components-placeholder__label"></div><div class="components-placeholder__fieldset">' . \esc_html__( 'The form cannot be displayed.', 'wpforms-lite' ) . '</div></div>';
+		}
+
+		return \apply_filters( 'wpforms_gutenberg_block_form_content', $content, $id );
 	}
 
 	/**

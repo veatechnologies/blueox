@@ -3,11 +3,7 @@
 /**
  * Generates the table on the entries overview page.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.0.0
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.0.0
  */
 class WPForms_Entries_Table extends WP_List_Table {
 
@@ -207,6 +203,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 			'status'        => array( 'status', false ),
 			'payment_total' => array( 'payment_total', false ),
 		);
+
 		return apply_filters( 'wpforms_entries_table_sortable', $sortable, $this->form_data );
 	}
 
@@ -218,6 +215,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 * @return array
 	 */
 	public static function get_columns_form_disallowed_fields() {
+
 		return (array) apply_filters( 'wpforms_entries_table_fields_disallow', array( 'divider', 'html', 'pagebreak', 'captcha' ) );
 	}
 
@@ -227,8 +225,8 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 * @since 1.0.0
 	 * @since 1.5.7 Added an `Entry Notes` column.
 	 *
-	 * @param array $columns
-	 * @param int $display
+	 * @param array $columns List of columns.
+	 * @param int   $display Number of columns to display.
 	 *
 	 * @return array
 	 */
@@ -238,7 +236,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 			return array();
 		}
 
-		$entry_columns = wpforms()->form->get_meta( $this->form_id, 'entry_columns' );
+		$entry_columns = wpforms()->form->get_meta( $this->form_id, 'entry_columns', array( 'cap' => 'view_entries_form_single' ) );
 
 		/*
 		 * Display those columns that were selected by a user.
@@ -286,7 +284,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param object $entry
+	 * @param object $entry Entry data from DB.
 	 *
 	 * @return string
 	 */
@@ -295,16 +293,81 @@ class WPForms_Entries_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Show `status` value.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param object $entry       Current entry data.
+	 * @param string $column_name Current column name.
+	 *
+	 * @return string
+	 */
+	public function column_status_field( $entry, $column_name ) {
+
+		if ( 'payment' === $entry->type ) {
+			// For payments, display dollar icon to easily indicate this
+			// status is related to a payment.
+			if ( ! empty( $entry->status ) ) {
+				$value = ucwords( sanitize_text_field( $entry->status ) );
+			} else {
+				$value = esc_html__( 'Unknown', 'wpforms' );
+			}
+			$value .= ' <i class="fa fa-money" aria-hidden="true" style="color:green;font-size: 16px;margin-left:4px;" title="' . esc_html__( 'Payment', 'wpforms' ) . '"></i>';
+		} else {
+			if ( ! empty( $entry->status ) ) {
+				$value = ucwords( sanitize_text_field( $entry->status ) );
+			} else {
+				$value = esc_html__( 'Completed', 'wpforms' );
+			}
+		}
+
+		return $value;
+	}
+
+	/**
+	 * Show `payment_total` value.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param object $entry       Current entry data.
+	 * @param string $column_name Current column name.
+	 *
+	 * @return string
+	 */
+	public function column_payment_total_field( $entry, $column_name ) {
+
+		$entry_meta = json_decode( $entry->meta, true );
+
+		if ( 'payment' === $entry->type && isset( $entry_meta['payment_total'] ) ) {
+			$amount = wpforms_sanitize_amount( $entry_meta['payment_total'], $entry_meta['payment_currency'] );
+			$total  = wpforms_format_amount( $amount, true, $entry_meta['payment_currency'] );
+			$value  = $total;
+
+			if ( ! empty( $entry_meta['payment_subscription'] ) ) {
+				$value .= ' <i class="fa fa-refresh" aria-hidden="true" style="color:#ccc;margin-left:4px;" title="' . esc_html__( 'Recurring', 'wpforms' ) . '"></i>';
+			}
+		} else {
+			$value = '-';
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Show specific form fields.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param object $entry
-	 * @param string $column_name
+	 * @param object $entry       Entry data from DB.
+	 * @param string $column_name Column unique name.
 	 *
 	 * @return string
 	 */
 	public function column_form_field( $entry, $column_name ) {
+
+		if ( false === strpos( $column_name, 'wpforms_field_' ) ) {
+			return '';
+		}
 
 		$field_id     = str_replace( 'wpforms_field_', '', $column_name );
 		$entry_fields = wpforms_decode( $entry->fields );
@@ -342,14 +405,15 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 * @since 1.0.0
 	 * @since 1.5.7 Added an `Entry Notes` column.
 	 *
-	 * @param object $entry
-	 * @param string $column_name
+	 * @param object $entry       Current entry data.
+	 * @param string $column_name Current column name.
 	 *
 	 * @return string
 	 */
 	public function column_default( $entry, $column_name ) {
 
-		$entry_meta = json_decode( $entry->meta, true );
+		$field_type = $this->get_field_type( $entry, $column_name );
+
 		switch ( strtolower( $column_name ) ) {
 
 			case 'entry_id':
@@ -366,48 +430,49 @@ class WPForms_Entries_Table extends WP_List_Table {
 				break;
 
 			case 'status':
-				if ( 'payment' === $entry->type ) {
-					// For payments, display dollar icon to easily indicate this
-					// status is related to a payment.
-					if ( ! empty( $entry->status ) ) {
-						$value = ucwords( sanitize_text_field( $entry->status ) );
-					} else {
-						$value = esc_html__( 'Unknown', 'wpforms' );
-					}
-					$value .= ' <i class="fa fa-money" aria-hidden="true" style="color:green;font-size: 16px;margin-left:4px;" title="' . esc_html__( 'Payment', 'wpforms' ) . '"></i>';
-				} else {
-					if ( ! empty( $entry->status ) ) {
-						$value = ucwords( sanitize_text_field( $entry->status ) );
-					} else {
-						$value = esc_html__( 'Completed', 'wpforms' );
-					}
-				}
+				$value = $this->column_status_field( $entry, $column_name );
 				break;
 
 			case 'payment_total':
-				if ( 'payment' === $entry->type && isset( $entry_meta['payment_total'] ) ) {
-					$amount = wpforms_sanitize_amount( $entry_meta['payment_total'], $entry_meta['payment_currency'] );
-					$total  = wpforms_format_amount( $amount, true, $entry_meta['payment_currency'] );
-					$value  = $total;
-
-					if ( ! empty( $entry_meta['payment_subscription'] ) ) {
-						$value .= ' <i class="fa fa-refresh" aria-hidden="true" style="color:#ccc;margin-left:4px;" title="' . esc_html__( 'Recurring', 'wpforms' ) . '"></i>';
-					}
-
-				} else {
-					$value = '-';
-				}
+				$value = $this->column_payment_total_field( $entry, $column_name );
 				break;
 
 			default:
-				if ( false !== strpos( $column_name, 'wpforms_field_' ) ) {
-					$value = $this->column_form_field( $entry, $column_name );
-				} else {
-					$value = '';
-				}
+				$value = $this->column_form_field( $entry, $column_name );
+		}
+
+		// Adds a wrapper with a field type in data attribute.
+		if ( ! empty( $value ) && ! empty( $field_type ) ) {
+			$value = sprintf( '<div data-field-type="%s">%s</div>', $field_type, $value );
 		}
 
 		return apply_filters( 'wpforms_entry_table_column_value', $value, $entry, $column_name );
+	}
+
+	/**
+	 * Retrieve a field type.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param object $entry       Current entry data.
+	 * @param string $column_name Current column name.
+	 *
+	 * @return string
+	 */
+	public function get_field_type( $entry, $column_name ) {
+
+		$field_id     = str_replace( 'wpforms_field_', '', $column_name );
+		$entry_fields = wpforms_decode( $entry->fields );
+		$field_type   = '';
+
+		if (
+			! empty( $entry_fields[ $field_id ] ) &&
+			! wpforms_is_empty_string( $entry_fields[ $field_id ]['type'] )
+		) {
+			$field_type = $entry_fields[ $field_id ]['type'];
+		}
+
+		return $field_type;
 	}
 
 	/**
@@ -415,7 +480,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.1.6
 	 *
-	 * @param object $entry
+	 * @param object $entry Entry data from DB.
 	 *
 	 * @return string
 	 */
@@ -439,7 +504,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param object $entry
+	 * @param object $entry Entry data from DB.
 	 *
 	 * @return string
 	 */
@@ -459,27 +524,31 @@ class WPForms_Entries_Table extends WP_List_Table {
 					admin_url( 'admin.php?page=wpforms-entries' )
 				)
 			),
-			esc_html__( 'View Form Entry', 'wpforms' ),
+			esc_attr__( 'View Form Entry', 'wpforms' ),
 			esc_html__( 'View', 'wpforms' )
 		);
 
-		// Delete.
-		$actions[] = sprintf(
-			'<a href="%s" title="%s" class="delete">%s</a>',
-			wp_nonce_url(
-				add_query_arg(
-					array(
-						'view'     => 'list',
-						'action'   => 'delete',
-						'form_id'  => $this->form_id,
-						'entry_id' => $entry->entry_id,
+		if ( wpforms_current_user_can( 'delete_entries_form_single', $this->form_id ) ) {
+			// Delete.
+			$actions[] = sprintf(
+				'<a href="%s" title="%s" class="delete">%s</a>',
+				esc_url(
+					wp_nonce_url(
+						add_query_arg(
+							array(
+								'view'     => 'list',
+								'action'   => 'delete',
+								'form_id'  => $this->form_id,
+								'entry_id' => $entry->entry_id,
+							)
+						),
+						'bulk-entries'
 					)
 				),
-				'bulk-entries'
-			),
-			esc_html__( 'Delete Form Entry', 'wpforms' ),
-			esc_html__( 'Delete', 'wpforms' )
-		);
+				esc_attr__( 'Delete Form Entry', 'wpforms' ),
+				esc_html__( 'Delete', 'wpforms' )
+			);
+		}
 
 		return implode( ' <span class="sep">|</span> ', apply_filters( 'wpforms_entry_table_actions', $actions, $entry ) );
 	}
@@ -489,7 +558,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.4.4
 	 *
-	 * @param string $which
+	 * @param string $which Either top or bottom of the page.
 	 */
 	protected function extra_tablenav( $which ) {
 
@@ -560,7 +629,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 
-		$actions = array(
+		return array(
 			'read'   => esc_html__( 'Mark Read', 'wpforms' ),
 			'unread' => esc_html__( 'Mark Unread', 'wpforms' ),
 			'star'   => esc_html__( 'Star', 'wpforms' ),
@@ -568,8 +637,6 @@ class WPForms_Entries_Table extends WP_List_Table {
 			'null'   => esc_html__( '----------', 'wpforms' ),
 			'delete' => esc_html__( 'Delete', 'wpforms' ),
 		);
-
-		return $actions;
 	}
 
 	/**
@@ -579,16 +646,13 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 */
 	public function process_bulk_actions() {
 
-		if ( ! wpforms_current_user_can() ) {
+		if ( empty( $_REQUEST['_wpnonce'] ) ) {
 			return;
 		}
 
 		if (
-			empty( $_REQUEST['_wpnonce'] ) ||
-			(
-				! wp_verify_nonce( $_REQUEST['_wpnonce'], 'bulk-entries' ) &&
-				! wp_verify_nonce( $_REQUEST['_wpnonce'], 'bulk-entries-nonce' )
-			)
+			! wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'bulk-entries' ) &&
+			! wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'bulk-entries-nonce' )
 		) {
 			return;
 		}
@@ -606,18 +670,23 @@ class WPForms_Entries_Table extends WP_List_Table {
 
 		$doaction = $this->current_action();
 
-		if ( empty( $doaction ) ) {
+		if ( empty( $doaction ) || $doaction === 'filter_date' ) {
 			return;
 		}
 
 		$ids = isset( $_GET['entry_id'] ) ? wp_unslash( $_GET['entry_id'] ) : false; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-		$ids = array_map( 'absint', (array) $ids );
+
+		if ( ! is_array( $ids ) ) {
+			$ids = array( $ids );
+		}
+
+		$ids = array_map( 'absint', $ids );
 
 		if ( empty( $ids ) ) {
 			return;
 		}
 
-		// Gets entries, that would be affected.
+		// Get entries, that would be affected.
 		$entries_list = wpforms()->entry->get_entries(
 			array(
 				'entry_id'    => $ids,
@@ -859,7 +928,7 @@ class WPForms_Entries_Table extends WP_List_Table {
 			return $sendback;
 		}
 
-		$user_id = get_current_user_id();
+		$user_id   = get_current_user_id();
 		$entries   = wp_list_pluck( $entries_list, 'starred', 'entry_id' );
 		$unstarred = 0;
 
@@ -985,12 +1054,12 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.4.4
 	 *
-	 * @param string $text The 'submit' button label.
+	 * @param string $text     The 'submit' button label.
 	 * @param string $input_id ID attribute value for the search input field.
 	 */
 	public function search_box( $text, $input_id ) {
 
-		$input_id = $input_id . '-search-input';
+		$input_id .= '-search-input';
 
 		do_action( 'wpforms_entries_list_form_filters_before', $this->form_data );
 
@@ -1144,8 +1213,8 @@ class WPForms_Entries_Table extends WP_List_Table {
 	 *
 	 * @since 1.2.6
 	 *
-	 * @param object $a
-	 * @param object $b
+	 * @param object $a First entry to sort.
+	 * @param object $b Second entry to sort.
 	 *
 	 * @return int
 	 */

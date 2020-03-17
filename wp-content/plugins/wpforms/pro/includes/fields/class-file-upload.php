@@ -35,6 +35,15 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 	const STYLE_MODERN = 'modern';
 
 	/**
+	 * Replaceable (either in PHP or JS) template for a maximum file number.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @var string
+	 */
+	const TEMPLATE_MAXFILENUM = '{maxFileNumber}';
+
+	/**
 	 * File extensions that are now allowed.
 	 *
 	 * @since 1.0.0
@@ -71,6 +80,9 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 
 		// Customize value format for HTML emails.
 		add_filter( 'wpforms_html_field_value', array( $this, 'html_email_value' ), 10, 4 );
+
+		// Add builder strings.
+		add_filter( 'wpforms_builder_strings', array( $this, 'add_builder_strings' ), 10, 2 );
 
 		// Maybe format/upload file depending on the conditional visibility state.
 		add_action( 'wpforms_process_format_after', array( $this, 'format_conditional' ), 6, 1 );
@@ -351,6 +363,42 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 	}
 
 	/**
+	 * File Upload field specific strings.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @return array Field specific strings.
+	 */
+	public function get_strings() {
+
+		return array(
+			'preview_title_single' => esc_html__( 'Click or drag a file to this area to upload.', 'wpforms' ),
+			'preview_title_plural' => esc_html__( 'Click or drag files to this area to upload.', 'wpforms' ),
+			'preview_hint'         => sprintf( /* translators: % - max number of files as a template string (not a number), replaced by a number later. */
+				esc_html__( 'You can upload up to %s files.', 'wpforms' ),
+				self::TEMPLATE_MAXFILENUM
+			),
+		);
+	}
+
+	/**
+	 * Add Builder strings that are passed to JS.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param array $strings Form Builder strings.
+	 * @param array $form    Form Data.
+	 *
+	 * @return array Form Builder strings.
+	 */
+	public function add_builder_strings( $strings, $form ) {
+
+		$strings['file_upload'] = $this->get_strings();
+
+		return $strings;
+	}
+
+	/**
 	 * Field options panel inside the builder.
 	 *
 	 * @since 1.0.0
@@ -566,11 +614,15 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 			$modern_classes[] = 'wpforms-hide';
 		}
 
+		$strings         = $this->get_strings();
+		$max_file_number = ! empty( $field['max_file_number'] ) ? max( 1, absint( $field['max_file_number'] ) ) : 1;
+
 		// Primary input.
 		echo wpforms_render(
 			'fields/file-upload-backend',
 			array(
-				'max_file_number' => ! empty( $field['max_file_number'] ) ? max( 1, absint( $field['max_file_number'] ) ) : 1,
+				'max_file_number' => $max_file_number,
+				'preview_hint'    => str_replace( self::TEMPLATE_MAXFILENUM, $max_file_number, $strings['preview_hint'] ),
 				'modern_classes'  => implode( ' ', $modern_classes ),
 				'classic_classes' => implode( ' ', $classic_classes ),
 			),
@@ -599,6 +651,9 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 		// Modern style.
 		if ( ! empty( $field['style'] ) && self::STYLE_MODERN === $field['style'] ) {
 
+			$strings         = $this->get_strings();
+			$max_file_number = ! empty( $field['max_file_number'] ) ? max( 1, absint( $field['max_file_number'] ) ) : 1;
+
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo wpforms_render(
 				'fields/file-upload-frontend',
@@ -610,7 +665,8 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 					'required'        => $primary['required'],
 					'extensions'      => $primary['data']['rule-extension'],
 					'max_size'        => abs( $primary['data']['rule-maxsize'] ),
-					'max_file_number' => max( 1, absint( $field['max_file_number'] ) ),
+					'max_file_number' => $max_file_number,
+					'preview_hint'    => str_replace( self::TEMPLATE_MAXFILENUM, $max_file_number, $strings['preview_hint'] ),
 					'post_max_size'   => wp_max_upload_size(),
 				),
 				true
@@ -1640,7 +1696,7 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 
 	/**
 	 * Get all allowed extensions.
-	 * Checks against user-entered extensions.
+	 * Check against user-entered extensions.
 	 *
 	 * @since 1.5.6
 	 *
@@ -1659,6 +1715,7 @@ class WPForms_Field_File_Upload extends WPForms_Field {
 				}
 			)
 			->array_filter()
+			->array_diff( $this->blacklist )
 			->value();
 	}
 

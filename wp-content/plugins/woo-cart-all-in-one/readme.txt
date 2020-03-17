@@ -4,8 +4,8 @@ Donate link: http://www.villatheme.com/donate
 Tags: Cart All In One For Woocommerce, woocommerce mini cart, wc mini cart, wc cart, wc sticky cart
 Requires at least: 4.4
 Tested up to: 5.3
-WC tested up to: 3.9
-Stable tag: 1.0.8
+WC tested up to: 4.0
+Stable tag: 1.0.8.2
 
 License: GPLv2 or later
 
@@ -139,6 +139,8 @@ License: GPLv2 or later
 
 == Screenshots ==
 == Changelog ==
+/*1.0.8.1 - 2020.02.10*/
+- fixed: Subtotals not visible in cart
 /*1.0.8 - 2020.01.30*/
 - fixed: Add variation to cart with popup
 - added: Hide popup after add variation to cart

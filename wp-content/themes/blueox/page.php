@@ -54,9 +54,19 @@ get_header(); ?>
 
             <?php get_template_part( 'modules/image' ); ?>
 
+        <?php } elseif( get_row_layout() == 'baseplate_finder' ) { ?>
+
+            <?php get_template_part( 'modules/baseplate', 'finder' ); ?>
+
+        <?php } elseif( get_row_layout() == 'swaypro_finder' ) { ?>
+
+            <?php get_template_part( 'modules/swaypro', 'finder' ); ?>
+
         <?php } //endif; ?>
 
     <?php } //endwhile; ?>
+
+    <?php wp_reset_postdata(); ?>
 
 <?php } else {  ?>
 
@@ -74,6 +84,8 @@ get_header(); ?>
 
                     } ?>
 
+                    <?php wp_reset_postdata(); ?>
+
                 </main><!-- #main -->
 
             </div><!-- #primary -->
@@ -81,6 +93,70 @@ get_header(); ?>
         </div><!-- /.row -->
 
     </div><!-- /.container -->
+
+<?php } ?>
+
+<?php if( have_rows('home_content') ) { ?>
+
+    <?php while ( have_rows('home_content') ) { the_row(); ?>
+
+        <?php if( get_row_layout() == 'baseplate_finder' ) { ?>
+
+            <div id="baseplates" class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12 ml-3 mr-3">
+
+                        <h3 class="text-blue font-gotham-black mb-5">Product Results</h3>
+
+                        <p><a id="resultsFinder" href="#baseplatesTop">Back to Baseplates Finder <i class="fas fa-chevron-up"></i></a></p>
+
+                        <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="vehicle-baseplate"]'); ?>
+
+                        <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <?php break; } ?>
+
+    <?php } ?>
+
+<?php } ?>
+
+<?php if( have_rows('home_content') ) { ?>
+
+    <?php while ( have_rows('home_content') ) { the_row(); ?>
+
+        <?php if( get_row_layout() == 'swaypro_finder' ) { ?>
+
+            <div id="swaypro" class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12 ml-3 mr-3">
+
+                        <h3 class="text-blue font-gotham-black mb-5">Product Results</h3>
+
+                        <p><a id="resultsFinder" href="#swayproTop">Back to SwayPro Finder <i class="fas fa-chevron-up"></i></a></p>
+
+                        <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="swaypro"]'); ?>
+
+                        <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <?php break; } ?>
+
+    <?php } ?>
 
 <?php } ?>
 

@@ -3,11 +3,7 @@
 /**
  * Entry DB class.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.0.0
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.0.0
  */
 class WPForms_Entry_Handler extends WPForms_DB {
 
@@ -77,17 +73,76 @@ class WPForms_Entry_Handler extends WPForms_DB {
 	}
 
 	/**
-	 * Deletes an entry from the database, also removes entry meta.
+	 * Retrieves an entry from the database based on a given entry ID.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param int   $id   Entry ID.
+	 * @param array $args Additional arguments.
+	 *
+	 * @return object|null
+	 */
+	public function get( $id, $args = array() ) {
+
+		if ( ! isset( $args['cap'] ) && wpforms()->get( 'access' )->init_allowed() ) {
+			$args['cap'] = 'view_entry_single';
+		}
+
+		if ( ! empty( $args['cap'] ) && ! wpforms_current_user_can( $args['cap'], $id ) ) {
+			return null;
+		}
+
+		return parent::get( $id );
+	}
+
+	/**
+	 * Update an existing entry in the database.
+	 *
+	 * @since 1.5.8
+	 *
+	 * @param string $id    Entry ID.
+	 * @param array  $data  Array of columns and associated data to update.
+	 * @param string $where Column to match against in the WHERE clause. If empty, $primary_key
+	 *                      will be used.
+	 * @param string $type  Data type context.
+	 * @param array  $args  Additional arguments.
+	 *
+	 * @return bool|null
+	 */
+	public function update( $id, $data = array(), $where = '', $type = '', $args = array() ) {
+
+		if ( ! isset( $args['cap'] ) ) {
+			$args['cap'] = ( array_key_exists( 'viewed', $data ) || array_key_exists( 'starred', $data ) ) ? 'view_entry_single' : 'edit_entry_single';
+		}
+
+		if ( ! empty( $args['cap'] ) && ! wpforms_current_user_can( $args['cap'], $id ) ) {
+			return null;
+		}
+
+		return parent::update( $id, $data, $where, $type );
+	}
+
+	/**
+	 * Delete an entry from the database, also removes entry meta.
 	 *
 	 * Please note: successfully deleting a record flushes the cache.
 	 *
 	 * @since 1.1.6
 	 *
-	 * @param int $row_id Entry ID.
+	 * @param int   $row_id Entry ID.
+	 * @param array $args   Additional arguments.
 	 *
 	 * @return bool False if the record could not be deleted, true otherwise.
 	 */
-	public function delete( $row_id = 0 ) {
+	public function delete( $row_id = 0, $args = array() ) {
+
+		if ( ! isset( $args['cap'] ) ) {
+			$args['cap'] = 'delete_entry_single';
+		}
+
+		if ( ! empty( $args['cap'] ) && ! wpforms_current_user_can( $args['cap'], $row_id ) ) {
+			return false;
+		}
 
 		$entry  = parent::delete( $row_id );
 		$meta   = wpforms()->entry_meta->delete_by( 'entry_id', $row_id );
@@ -478,7 +533,7 @@ class WPForms_Entry_Handler extends WPForms_DB {
 
 		$sql_from = $this->table_name;
 
-		// Adds a LEFT OUTER JOIN for retrieve a notes count.
+		// Add a LEFT OUTER JOIN for retrieve a notes count.
 		if ( true === $args['notes_count'] ) {
 			$meta_table = wpforms()->entry_meta->table_name;
 			$sql_from  .= ' LEFT JOIN';

@@ -795,14 +795,14 @@ class VI_WOO_CART_ALL_IN_ONE_Frontend_MiniCart {
 
 				$items .= '
                     <li class="vi_wcaio_menu_cart " style="display: none;" >
-                        <a href="' . esc_url( $navigation_url ) . '" title="' . $navigation_title . '" style="width: 100%;"  class="vi_wcaio_menubar_dropdowns"><span class="vi_wcaio_mini_cart_menu_icon">Cart ';
+                        <a href="' . esc_url( $navigation_url ) . '" title="' . $navigation_title . '" style="width: 100%;"  class="vi_wcaio_menubar_dropdowns"><span class="vi_wcaio_mini_cart_menu_icon"> ';
 				$items .= $this->set_cart_icon_default_style( $menu_data['menu_cart_icon'] ) . '</span>';
 				if ( $menu_data['menu_style'] == 1 ) {
 					$menu_cart_one_text = $this->set_menu_cart_text( $menu_data['menu_cart_style_one_text'],
 						$total,
 						$pro_count );
 
-					//$items .= '<span class="vi_wcaio_menu_cart_text_one">' . $menu_cart_one_text . '</span>';
+					$items .= '<span class="vi_wcaio_menu_cart_text_one">' . $menu_cart_one_text . '</span>';
 				}
 				$items .= '</a> ';
 				ob_start();
@@ -1228,7 +1228,7 @@ class VI_WOO_CART_ALL_IN_ONE_Frontend_MiniCart {
 
                     <div class="vi_wcaio_mini_cart_sidebar_total-subtotal">
 
-                        <div class="vi_wcaio_mini_cart_sidebar_subtotal" style="display: none">
+                        <div class="vi_wcaio_mini_cart_sidebar_subtotal">
                             <div><?php esc_html_e( 'Subtotal:&nbsp; ', 'woo-cart-all-in-one' ); ?></div>
                             <div id="vi_wcaio_mini_cart_sidebar_subtotal_currency"><?php echo WC()->cart->get_cart_subtotal() ?></div>
                         </div>

@@ -28,10 +28,48 @@ body {
 	box-sizing: border-box;
 }
 
+#wpforms-builder input[type=text],
+#wpforms-builder input[type=number],
+#wpforms-builder input[type=email],
+#wpforms-builder input[type=url],
+#wpforms-builder input[type=password],
+#wpforms-builder input[type=search],
+#wpforms-builder input[type=tel],
+#wpforms-builder textarea,
+#wpforms-builder select {
+	border: 1px solid #d6d6d6;
+	padding: 6px 8px;
+	box-shadow: none;
+	line-height: 18px;
+	color: #444;
+	margin: 1px;
+}
+#wpforms-builder input[type=radio],
+#wpforms-builder input[type=checkbox] {
+	border: 1px solid #d6d6d6;
+	margin: 0 1px 1px 1px;
+}
+
+#wpforms-builder select {
+	padding-right: 24px;
+}
+
+#wpforms-builder input:focus,
+#wpforms-builder textarea:focus,
+#wpforms-builder select:focus {
+	border: 1px solid #016AAB !important;
+	box-shadow: 0 0 0 1px #016AAB !important;
+	outline: none !important;
+}
+
 #wpforms-builder a:focus,
 #wpforms-builder button:focus {
 	box-shadow: none;
 	outline: none;
+}
+
+#wpforms-builder .wp-editor-wrap .wp-editor-container textarea {
+	margin: 1px 0 0 0;
 }
 
 #wpforms-builder .wpforms-clear:before {
@@ -266,7 +304,8 @@ body {
 	opacity: 1;
 }
 
-#wpforms-builder-license-alert .close {
+#wpforms-builder-license-alert .close,
+#wpforms-builder-license-alert .dismiss {
 	cursor: pointer;
 	color: #81B5D5;
 	position: absolute;
@@ -281,10 +320,12 @@ body {
 	opacity: 0.5;
 	transition: all .3s;
 }
-#wpforms-builder-license-alert .close:hover {
+#wpforms-builder-license-alert .close:hover,
+#wpforms-builder-license-alert .dismiss:hover {
 	opacity: 1;
 }
-#wpforms-builder-license-alert .close:focus {
+#wpforms-builder-license-alert .close:focus,
+#wpforms-builder-license-alert .dismiss:focus {
 	outline: none;
 }
 
@@ -575,12 +616,8 @@ body {
 #wpforms-builder .wpforms-panel-field input[type=text],
 #wpforms-builder .wpforms-panel-field input[type=number],
 #wpforms-builder .wpforms-panel-field textarea,
-#wpforms-panel-fields .wpforms-field-option-row input[type=text],
-#wpforms-panel-fields .wpforms-field-option-row input[type=number],
-#wpforms-panel-fields .wpforms-field-option-row textarea {
+#wpforms-builder .wpforms-panel-field select {
 	width: 100%;
-	line-height: 18px;
-	padding: 5px;
 }
 
 #wpforms-builder .wpforms-panel-field input[type=number],
@@ -626,14 +663,6 @@ body {
 	display: inline-block;
 	font-weight: normal;
 	margin: 0 0 0 5px;
-}
-
-#wpforms-builder .wpforms-panel-field input[type=text],
-#wpforms-builder .wpforms-panel-field textarea{
-	width: 100%;
-	border: 1px solid #d6d6d6;
-	padding: 6px 8px;
-	box-shadow: none;
 }
 
 #wpforms-builder .wpforms-panel-field p{
@@ -761,6 +790,14 @@ body {
 	margin: 0 auto 20px auto;
 	font-size: 16px;
 	color: #666;
+}
+
+/* Search additional templates */
+#wpforms-builder .wpforms-setup-template-search-wrap .fa {
+	top: 10px;
+}
+#wpforms-builder #wpforms-setup-template-search {
+	padding: 10px 10px 10px 35px !important;
 }
 
 /* Field Map table */

@@ -5,11 +5,7 @@
  * Previously list and single views were contained in a single class,
  * however were separated in v1.3.9.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.3.9
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2017, WPForms LLC
+ * @since 1.3.9
  */
 class WPForms_Entries_Single {
 
@@ -62,6 +58,12 @@ class WPForms_Entries_Single {
 	 * @since 1.3.9
 	 */
 	public function init() {
+
+		$entry_id = isset( $_GET['entry_id'] ) ? absint( wp_unslash( $_GET['entry_id'] ) ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
+
+		if ( ! \wpforms_current_user_can( 'view_entry_single', $entry_id ) ) {
+			return;
+		}
 
 		// Check page and view.
 		$page = ! empty( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '';
@@ -242,6 +244,11 @@ class WPForms_Entries_Single {
 
 		$entry_id = absint( $_GET['entry_id'] );
 
+		// Capability check.
+		if ( ! \wpforms_current_user_can( 'view_entry_single', $entry_id ) ) {
+			return;
+		}
+
 		$is_success = wpforms()->entry->update(
 			$entry_id,
 			array(
@@ -286,12 +293,23 @@ class WPForms_Entries_Single {
 			return;
 		}
 
-		// Check for run switch.
-		if ( empty( $_GET['note_id'] ) || empty( $_GET['action'] ) || 'delete_note' !== $_GET['action'] ) {
+		if ( empty( $_GET['note_id'] ) || empty( $_GET['entry_id'] ) ) {
 			return;
 		}
 
-		$deleted = wpforms()->entry_meta->delete( absint( $_GET['note_id'] ) );
+		if ( empty( $_GET['action'] ) || 'delete_note' !== $_GET['action'] ) {
+			return;
+		}
+
+		$note_id  = absint( $_GET['note_id'] );
+		$entry_id = absint( $_GET['entry_id'] );
+
+		// Capability check.
+		if ( ! \wpforms_current_user_can( 'edit_entry_single', $entry_id ) ) {
+			return;
+		}
+
+		$deleted = wpforms()->entry_meta->delete( $note_id );
 
 		if ( ! $deleted ) {
 			return;
@@ -412,7 +430,7 @@ class WPForms_Entries_Single {
 		}
 
 		// Find the form information.
-		$form = wpforms()->form->get( $entry->form_id );
+		$form = wpforms()->form->get( $entry->form_id, array( 'cap' => 'view_entries_form_single' ) );
 
 		// No form was found, error.
 		if ( ! $form || empty( $form ) ) {
@@ -686,29 +704,32 @@ class WPForms_Entries_Single {
 
 			<div class="inside">
 
-				<div class="wpforms-entry-notes-new">
+				<?php if ( \wpforms_current_user_can( 'edit_entries_form_single', $form_data['id'] ) ) : ?>
 
-					<a href="#" class="button add"><?php esc_html_e( 'Add Note', 'wpforms' ); ?></a>
+					<div class="wpforms-entry-notes-new">
 
-					<form action="<?php echo esc_url( $action_url ); ?>" method="post">
-						<?php
-						$args = array(
-							'media_buttons' => false,
-							'editor_height' => 50,
-							'teeny'         => true,
-						);
-						wp_editor( '', 'entry_note', $args );
-						wp_nonce_field( 'wpforms_entry_details_addnote' );
-						?>
-						<input type="hidden" name="entry_id" value="<?php echo absint( $entry->entry_id ); ?>">
-						<input type="hidden" name="form_id" value="<?php echo absint( $form_data['id'] ); ?>">
-						<div class="btns">
-							<input type="submit" name="wpforms_add_note" class="save button-primary alignright" value="<?php esc_attr_e( 'Add Note', 'wpforms' ); ?>">
-							<a href="#" class="cancel button-secondary alignleft"><?php esc_html_e( 'Cancel', 'wpforms' ); ?></a>
-						</div>
-					</form>
+						<a href="#" class="button add"><?php esc_html_e( 'Add Note', 'wpforms' ); ?></a>
 
-				</div>
+						<form action="<?php echo esc_url( $action_url ); ?>" method="post">
+							<?php
+							$args = array(
+								'media_buttons' => false,
+								'editor_height' => 50,
+								'teeny'         => true,
+							);
+							wp_editor( '', 'entry_note', $args );
+							wp_nonce_field( 'wpforms_entry_details_addnote' );
+							?>
+							<input type="hidden" name="entry_id" value="<?php echo absint( $entry->entry_id ); ?>">
+							<input type="hidden" name="form_id" value="<?php echo absint( $form_data['id'] ); ?>">
+							<div class="btns">
+								<input type="submit" name="wpforms_add_note" class="save button-primary alignright" value="<?php esc_attr_e( 'Add Note', 'wpforms' ); ?>">
+								<a href="#" class="cancel button-secondary alignleft"><?php esc_html_e( 'Cancel', 'wpforms' ); ?></a>
+							</div>
+						</form>
+
+					</div>
+				<?php endif; ?>
 
 				<?php
 				if ( empty( $entry->entry_notes ) ) {
@@ -718,44 +739,50 @@ class WPForms_Entries_Single {
 					$count = 1;
 					foreach ( $entry->entry_notes as $note ) {
 						$user        = get_userdata( $note->user_id );
-						$user_name   = esc_html( ! empty( $user->display_name ) ? $user->display_name : $user->user_login );
-						$user_url    = esc_url(
-							add_query_arg(
-								array(
-									'user_id' => absint( $user->ID ),
-								),
-								admin_url( 'user-edit.php' )
-							)
+						$user_name   = ! empty( $user->display_name ) ? $user->display_name : $user->user_login;
+						$user_url    = add_query_arg(
+							array(
+								'user_id' => absint( $user->ID ),
+							),
+							admin_url( 'user-edit.php' )
 						);
 						$date_format = sprintf( '%s %s', get_option( 'date_format' ), get_option( 'time_format' ) );
 						$date        = date_i18n( $date_format, strtotime( $note->date ) + ( get_option( 'gmt_offset' ) * 3600 ) );
 						$class       = 0 === $count % 2 ? 'even' : 'odd';
-						$delete_url  = wp_nonce_url(
-							add_query_arg(
-								array(
-									'page'     => 'wpforms-entries',
-									'view'     => 'details',
-									'entry_id' => absint( $entry->entry_id ),
-									'note_id'  => absint( $note->id ),
-									'action'   => 'delete_note',
+
+						if ( \wpforms_current_user_can( 'edit_entries_form_single', $form_data['id'] ) ) {
+
+							$delete_url = wp_nonce_url(
+								add_query_arg(
+									array(
+										'page'     => 'wpforms-entries',
+										'view'     => 'details',
+										'entry_id' => absint( $entry->entry_id ),
+										'note_id'  => absint( $note->id ),
+										'action'   => 'delete_note',
+									),
+									admin_url( 'admin.php' )
 								),
-								admin_url( 'admin.php' )
-							),
-							'wpforms_entry_details_deletenote'
-						);
+								'wpforms_entry_details_deletenote'
+							);
+						}
 						?>
 						<div class="wpforms-entry-notes-single <?php echo esc_attr( $class ); ?>">
 							<div class="wpforms-entry-notes-byline">
 								<?php
 								printf(
-									/* translators: %1$s - user link; %2$s - date; %3$s - separator; %4$s - link to delete a note */
-									esc_html__( 'Added by %1$s on %2$s %3$s %4$s', 'wpforms' ),
-									'<a href="' . $user_url . '" class="note-user">' . $user_name . '</a>',
-									$date,
-									'<span class="sep">|</span>',
-									'<a href="' . $delete_url . '" class="note-delete">' . esc_html( _x( 'Delete', 'Entry: note', 'wpforms' ) ) . '</a>'
+									/* translators: %1$s - user link; %2$s - date; */
+									esc_html__( 'Added by %1$s on %2$s', 'wpforms' ),
+									'<a href="' . esc_url( $user_url ) . '" class="note-user">' . esc_html( $user_name ) . '</a>',
+									esc_html( $date )
 								);
 								?>
+								<?php if ( ! empty( $delete_url ) ) : ?>
+									<span class="sep">|</span>
+									<a href="<?php echo esc_url( $delete_url ); ?>" class="note-delete">
+										<?php echo esc_html( _x( 'Delete', 'Entry: note', 'wpforms' ) ); ?>
+									</a>
+								<?php endif; ?>
 							</div>
 							<?php echo wp_kses_post( wp_unslash( $note->data ) ); ?>
 						</div>
@@ -800,20 +827,18 @@ class WPForms_Entries_Single {
 					$count = 1;
 					foreach ( $entry->entry_logs as $log ) {
 						$user        = get_userdata( $log->user_id );
-						$user_name   = esc_html( ! empty( $user->display_name ) ? $user->display_name : $user->user_login );
-						$user_url    = esc_url(
-							add_query_arg(
-								array(
-									'user_id' => absint( $user->ID ),
-								),
-								admin_url( 'user-edit.php' )
-							)
+						$user_name   = ! empty( $user->display_name ) ? $user->display_name : $user->user_login;
+						$user_url    = add_query_arg(
+							array(
+								'user_id' => absint( $user->ID ),
+							),
+							admin_url( 'user-edit.php' )
 						);
 						$date_format = sprintf( '%s %s', get_option( 'date_format' ), get_option( 'time_format' ) );
 						$date        = date_i18n( $date_format, strtotime( $log->date ) + ( get_option( 'gmt_offset' ) * 3600 ) );
 						$class       = 0 === $count % 2 ? 'even' : 'odd';
-
 						?>
+
 						<div class="wpforms-entry-logs-single <?php echo esc_attr( $class ); ?>">
 							<div class="wpforms-entry-logs-byline">
 								<?php
@@ -907,6 +932,26 @@ class WPForms_Entries_Single {
 
 					</p>
 
+					<?php
+					if ( ! empty( $entry->post_id ) && is_object( get_post( $entry->post_id ) ) ) :
+						$entry_post_id  = absint( $entry->post_id );
+						$entry_post_obj = get_post_type_object( get_post_type( $entry_post_id ) );
+
+						if ( $entry_post_obj instanceof WP_Post_Type ) {
+							?>
+							<p class="wpforms-entry-postid">
+								<span class="dashicons dashicons-edit"></span>
+								<?php
+								printf( /* translators: %1$s - post type; %2$s - ID. */
+									esc_html__( '%1$s ID: %2$s', 'wpforms' ),
+									esc_html( $entry_post_obj->labels->singular_name ),
+									'<strong><a href="' . esc_url( get_edit_post_link( $entry_post_id ) ) . '" target="_blank">' . $entry_post_id . '</a></strong>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								);
+								?>
+							</p>
+						<?php } ?>
+					<?php endif; ?>
+
 					<p class="wpforms-entry-date">
 						<span class="dashicons dashicons-calendar"></span>
 						<?php esc_html_e( 'Submitted:', 'wpforms' ); ?>
@@ -963,24 +1008,26 @@ class WPForms_Entries_Single {
 
 				<div id="major-publishing-actions">
 
-					<div id="delete-action">
-						<?php
-						$delete_link = wp_nonce_url(
-							add_query_arg(
-								array(
-									'view'     => 'list',
-									'action'   => 'delete',
-									'form_id'  => $form_data['id'],
-									'entry_id' => $entry->entry_id,
-								)
-							),
-							'bulk-entries'
-						);
-						?>
-						<a class="submitdelete deletion" href="<?php echo esc_url( $delete_link ); ?>">
-							<?php esc_html_e( 'Delete Entry', 'wpforms' ); ?>
-						</a>
-					</div>
+					<?php if ( \wpforms_current_user_can( 'delete_entries_form_single', $form_data['id'] ) ) : ?>
+						<div id="delete-action">
+							<?php
+							$delete_link = wp_nonce_url(
+								add_query_arg(
+									array(
+										'view'     => 'list',
+										'action'   => 'delete',
+										'form_id'  => $form_data['id'],
+										'entry_id' => $entry->entry_id,
+									)
+								),
+								'bulk-entries'
+							);
+							?>
+							<a class="submitdelete deletion" href="<?php echo esc_url( $delete_link ); ?>">
+								<?php esc_html_e( 'Delete Entry', 'wpforms' ); ?>
+							</a>
+						</div>
+					<?php endif; ?>
 
 					<!-- Phase 2 <div id="publishing-action">
 						<input name="" type="submit" class="button button-primary button-large" value="Edit">

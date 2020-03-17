@@ -1431,6 +1431,212 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5e6fd21c3ff19": {
+                    "key": "layout_5e6fd21c3ff19",
+                    "name": "baseplate_finder",
+                    "label": "Baseplate Finder",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e6fd2583ff23",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5e7018b0cc911",
+                            "label": "Text Align",
+                            "name": "text_align",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-left": "Left",
+                                "text-center": "Center",
+                                "text-right": "Right"
+                            },
+                            "default_value": [
+                                "text-left"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "array",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5e6fd2653ff24",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5e6fd21c3ff1d",
+                            "label": "Baseplate Finder",
+                            "name": "show_baseplate",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "show": "Show",
+                                "hide": "Hide"
+                            },
+                            "default_value": [
+                                "show"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "array",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e71192f4e907": {
+                    "key": "layout_5e71192f4e907",
+                    "name": "swaypro_finder",
+                    "label": "Swaypro Finder",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e71192f4e908",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5e71192f4e909",
+                            "label": "Text Align",
+                            "name": "text_align",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-left": "Left",
+                                "text-center": "Center",
+                                "text-right": "Right"
+                            },
+                            "default_value": [
+                                "text-left"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "array",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5e71192f4e90a",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5e7119304e90b",
+                            "label": "SwayPro Finder",
+                            "name": "show_swaypro",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "show": "Show",
+                                "hide": "Hide"
+                            },
+                            "default_value": [
+                                "show"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "array",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content",
@@ -1483,5 +1689,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1582511500
+    "modified": 1584470655
 }

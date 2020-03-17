@@ -14,10 +14,7 @@
 
 		<?php if ( (int) $max_file_number > 1 ) : ?>
 			<span class="modern-hint">
-				<?php
-				/* translators: %d - max number of files. */
-				printf( esc_html__( 'You can upload up to %d files.', 'wpforms' ), (int) $max_file_number );
-				?>
+				<?php echo esc_html( $preview_hint ); ?>
 			</span>
 		<?php endif; ?>
 	</div>

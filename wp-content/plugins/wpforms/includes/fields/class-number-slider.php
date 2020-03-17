@@ -67,12 +67,17 @@ class WPForms_Field_Number_Slider extends WPForms_Field {
 		$min   = isset( $field['value_raw']['min'] ) ? (float) $field['value_raw']['min'] : self::SLIDER_MIN;
 		$max   = isset( $field['value_raw']['max'] ) ? (float) $field['value_raw']['max'] : self::SLIDER_MAX;
 
-		return str_replace(
-			'{value}',
-			/* translators: %1$s - Number slider selected value, %2$s - its minimum value, %3$s - its maximum value. */
-			sprintf( esc_html__( '%1$s (%2$s min / %3$s max)', 'wpforms-lite' ), $value, $min, $max ),
-			$field['value_raw']['value_display']
-		);
+		$html_value = $value;
+		if ( strpos( $field['value_raw']['value_display'], '{value}' ) !== false ) {
+			$html_value = str_replace(
+				'{value}',
+				/* translators: %1$s - Number slider selected value, %2$s - its minimum value, %3$s - its maximum value. */
+				sprintf( esc_html__( '%1$s (%2$s min / %3$s max)', 'wpforms-lite' ), $value, $min, $max ),
+				$field['value_raw']['value_display']
+			);
+		}
+
+		return $html_value;
 	}
 
 	/**
@@ -94,21 +99,21 @@ class WPForms_Field_Number_Slider extends WPForms_Field {
 		$this->field_option( 'basic-options', $field, $args );
 
 		// Label.
-		$this->field_option(
-			'label',
-			array_merge(
-				$field,
-				array(
-					'label' => $this->name,
-				)
-			)
-		);
+		$this->field_option( 'label', $field );
 
 		// Description.
 		$this->field_option( 'description', $field );
 
-		// Required toggle.
-		$this->field_option( 'required', $field );
+		// Required toggle disabled.
+		$this->field_element(
+			'text',
+			$field,
+			array(
+				'slug'  => 'required',
+				'value' => '',
+				'type'  => 'hidden',
+			)
+		);
 
 		// Value: min/max.
 		$lbl = $this->field_element(
@@ -242,7 +247,7 @@ class WPForms_Field_Number_Slider extends WPForms_Field {
 			array(
 				'slug'  => 'value_display',
 				'class' => 'wpforms-number-slider-value-display',
-				'value' => ! empty( $field['value_display'] ) ? $field['value_display'] : esc_html__( 'Selected Value: {value}', 'wpforms-lite' ),
+				'value' => isset( $field['value_display'] ) ? $field['value_display'] : esc_html__( 'Selected Value: {value}', 'wpforms-lite' ),
 			),
 			false
 		);
@@ -313,15 +318,7 @@ class WPForms_Field_Number_Slider extends WPForms_Field {
 	public function field_preview( $field ) {
 
 		// Label.
-		$this->field_preview_option(
-			'label',
-			array_merge(
-				$field,
-				array(
-					'label' => $this->name,
-				)
-			)
-		);
+		$this->field_preview_option( 'label', $field );
 
 		$value_display = isset( $field['value_display'] ) ? esc_attr( $field['value_display'] ) : esc_html__( 'Selected Value: {value}', 'wpforms-lite' );
 		$default_value = ! empty( $field['default_value'] ) ? (float) $field['default_value'] : 0;
@@ -334,7 +331,7 @@ class WPForms_Field_Number_Slider extends WPForms_Field {
 				'step'          => isset( $field['step'] ) && is_numeric( $field['step'] ) ? (float) $field['step'] : self::SLIDER_STEP,
 				'value_display' => $value_display,
 				'default_value' => $default_value,
-				'value_hint'    => str_replace( '{value}', '<b>' . $default_value . '</b>', $value_display ),
+				'value_hint'    => str_replace( '{value}', '<b>' . $default_value . '</b>', wp_kses( $value_display, wpforms_builder_preview_get_allowed_tags() ) ),
 				'field_id'      => $field['id'],
 			),
 			true

@@ -2,11 +2,7 @@
 /**
  * PRO Ajax actions used in by admin.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.2.1
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.2.1
  */
 
 /**
@@ -24,14 +20,15 @@ function wpforms_entry_list_star() {
 		wp_send_json_error();
 	}
 
+	$form_id = absint( $_POST['formId'] );
+
 	// Check for permissions.
-	if ( ! wpforms_current_user_can() ) {
+	if ( ! wpforms_current_user_can( 'view_entries_form_single', $form_id ) ) {
 		wp_send_json_error();
 	}
 
 	$task       = sanitize_key( $_POST['task'] );
 	$entry_id   = absint( $_POST['entryId'] );
-	$form_id    = absint( $_POST['formId'] );
 	$user_id    = get_current_user_id();
 	$is_success = false;
 
@@ -58,7 +55,7 @@ function wpforms_entry_list_star() {
 
 	if ( $is_success ) {
 
-		// Adds an entry note about Star/Unstar action.
+		// Add an entry note about Star/Unstar action.
 		wpforms()->entry_meta->add(
 			array(
 				'entry_id' => $entry_id,
@@ -92,16 +89,18 @@ function wpforms_entry_list_read() {
 		wp_send_json_error();
 	}
 
+	$form_id = absint( $_POST['formId'] );
+
 	// Check for permissions.
-	if ( ! wpforms_current_user_can() ) {
+	if ( ! wpforms_current_user_can( 'view_entries_form_single', $form_id ) ) {
 		wp_send_json_error();
 	}
 
-	$task       = sanitize_key( $_POST['task'] );
+	$task       = sanitize_key( wp_unslash( $_POST['task'] ) );
 	$entry_id   = absint( $_POST['entryId'] );
-	$form_id    = absint( $_POST['formId'] );
 	$user_id    = get_current_user_id();
 	$is_success = false;
+	$note_data  = '';
 
 	if ( 'read' === $task ) {
 		$is_success = wpforms()->entry->update(
@@ -124,9 +123,9 @@ function wpforms_entry_list_read() {
 		$note_data = esc_html__( 'Entry unread.', 'wpforms' );
 	}
 
-	if ( $is_success ) {
+	if ( $is_success && ! empty( $note_data ) ) {
 
-		// Adds an entry note about Star/Unstar action.
+		// Add an entry note about Star/Unstar action.
 		wpforms()->entry_meta->add(
 			array(
 				'entry_id' => $entry_id,
@@ -245,11 +244,16 @@ function wpforms_builder_settings_block_state_save() {
 	// Run a security check.
 	check_ajax_referer( 'wpforms-builder', 'nonce' );
 
-	if ( empty( $_POST ) || ! wpforms_current_user_can() ) {
+	if ( empty( $_POST ) ) {
 		wp_send_json_error();
 	}
 
-	$form_id    = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
+	$form_id = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
+
+	if ( ! wpforms_current_user_can( 'edit_form_single', $form_id ) ) {
+		wp_send_json_error();
+	}
+
 	$block_id   = ! empty( $_POST['block_id'] ) ? absint( $_POST['block_id'] ) : 0;
 	$block_type = ! empty( $_POST['block_type'] ) ? sanitize_key( $_POST['block_type'] ) : '';
 	$state      = ! empty( $_POST['state'] ) ? sanitize_key( $_POST['state'] ) : '';
@@ -304,11 +308,16 @@ function wpforms_builder_settings_block_state_remove() {
 	// Run a security check.
 	check_ajax_referer( 'wpforms-builder', 'nonce' );
 
-	if ( empty( $_POST ) || ! wpforms_current_user_can() ) {
+	if ( empty( $_POST ) ) {
 		wp_send_json_error();
 	}
 
-	$form_id    = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
+	$form_id = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
+
+	if ( ! wpforms_current_user_can( 'edit_form_single', $form_id ) ) {
+		wp_send_json_error();
+	}
+
 	$block_id   = ! empty( $_POST['block_id'] ) ? absint( $_POST['block_id'] ) : 0;
 	$block_type = ! empty( $_POST['block_type'] ) ? sanitize_key( $_POST['block_type'] ) : '';
 

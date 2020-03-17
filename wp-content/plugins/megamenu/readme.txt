@@ -2,8 +2,8 @@
 Contributors: megamenu
 Tags: menu, megamenu, mega menu, navigation, widget, dropdown menu, drag and drop, mobile, responsive, retina, theme editor, widget, shortcode, sidebar, icons, dashicons
 Requires at least: 4.9
-Tested up to: 5.3
-Stable tag: 2.7.2
+Tested up to: 5.4
+Stable tag: 2.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ Max Mega Menu will automatically convert your existing menu or menus into a mega
 https://www.youtube.com/watch?v=44dJwP1AXT8
 
 Documentation & Demo: [https://www.megamenu.com](https://www.megamenu.com)
+
+[](http://coderisk.com/wp/plugin/megamenu/RIPS-1tlo19jJE_)
 
 ###Mobile
 
@@ -130,6 +132,15 @@ See https://www.megamenu.com for more screenshots
 5. Back end: Use the theme editor to change the appearance of your menus
 
 == Changelog ==
+
+= 2.7.4 =
+
+* Fix: Allow double quotes in custom font names
+* Fix: Border radius on Flyout Menus
+* Fix: PHP 7.4 warning in theme editor
+* Fix: Unable to select/paste text within HTML replacement editor using Safari
+* Fix: Intermittent issue with Image Widget settings not loading correctly in back end
+* Improvement: Add support for MEGAMENU_SCRIPTS_IN_FOOTER constant in wp-config.php
 
 = 2.7.3 =
 

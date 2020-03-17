@@ -390,7 +390,7 @@ class Education {
 		if ( ! \wpforms_current_user_can() ) {
 			\wp_send_json_error(
 				array(
-					'error' => \esc_html__( 'You do not have permission to perform this action.', 'wpforms-lite' ),
+					'error' => \esc_html__( 'You do not have permission to perform this action.', 'wpforms' ),
 				)
 			);
 		}

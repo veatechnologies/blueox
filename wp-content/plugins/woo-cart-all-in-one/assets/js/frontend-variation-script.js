@@ -2,7 +2,7 @@ jQuery(document).ready(function ($) {
 
     $('.add_to_cart_button').click(function (e) {
         e.preventDefault();
-        var key = $(this).attr('data-product_id');
+        var key = $(this).attr('data-product_id'), $button = jQuery(this);
         var data = {
             product_id: key
         };
@@ -11,7 +11,8 @@ jQuery(document).ready(function ($) {
             url: wcaio_variation.wc_ajax_url.toString().replace('%%endpoint%%', 'vi_wcaio_show_variation'),
             data: data,
             beforeSend: function () {
-                // console.log(key);
+                console.log(key);
+                $button.addClass('loading');
             },
             success: function (response) {
                 // console.log(response);
@@ -50,6 +51,9 @@ jQuery(document).ready(function ($) {
                 }else if (response.status==='error' && response.url){
                     window.location.href = response.url;
                 }
+            },
+            complete:function () {
+                $button.removeClass('loading');
             }
         });
     });

@@ -3,11 +3,7 @@
 /**
  * License key fun.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.0.0
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.0.0
  */
 class WPForms_License {
 
@@ -176,7 +172,7 @@ class WPForms_License {
 	}
 
 	/**
-	 * Validates a license key entered by the user.
+	 * Validate a license key entered by the user.
 	 *
 	 * @since 1.0.0
 	 *
@@ -321,7 +317,7 @@ class WPForms_License {
 	}
 
 	/**
-	 * Returns possible license key error flag.
+	 * Return possible license key error flag.
 	 *
 	 * @since 1.0.0
 	 * @return bool True if there are license key errors, false otherwise.
@@ -470,7 +466,7 @@ class WPForms_License {
 	}
 
 	/**
-	 * Pings the remote server for addons data.
+	 * Ping the remote server for addons data.
 	 *
 	 * @since 1.0.0
 	 *
@@ -557,7 +553,7 @@ class WPForms_License {
 	}
 
 	/**
-	 * Checks to see if the site is using an active license.
+	 * Check to see if the site is using an active license.
 	 *
 	 * @since 1.5.0
 	 *

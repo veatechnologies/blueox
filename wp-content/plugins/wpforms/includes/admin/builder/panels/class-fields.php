@@ -3,11 +3,7 @@
 /**
  * Fields management panel.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.0.0
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.0.0
  */
 class WPForms_Builder_Panel_Fields extends WPForms_Builder_Panel {
 
@@ -124,7 +120,7 @@ class WPForms_Builder_Panel_Fields extends WPForms_Builder_Panel {
 
 				<div class="wpforms-title-desc">
 					<h2 class="wpforms-form-name"><?php echo esc_html( $this->form->post_title ); ?></h2>
-					<span class="wpforms-form-desc"><?php echo $this->form->post_excerpt; ?></span>
+					<span class="wpforms-form-desc"><?php echo wp_kses( $this->form->post_excerpt, wpforms_builder_preview_get_allowed_tags() ); ?></span>
 				</div>
 
 				<div class="wpforms-field-wrap">
@@ -355,7 +351,7 @@ class WPForms_Builder_Panel_Fields extends WPForms_Builder_Panel {
 			<ul class="primary-input">
 				<# _.each( data.order, function( choiceID, key ) {  #>
 				<li>
-					<input type="{{ data.type }}" disabled<# if ( 1 === data.settings.choices[choiceID].default ) { print( ' checked' ); } #>>{{{ data.settings.choices[choiceID].label }}}
+					<input type="{{ data.type }}" disabled<# if ( 1 === data.settings.choices[choiceID].default ) { print( ' checked' ); } #>>{{{ wpf.sanitizeHTML( data.settings.choices[choiceID].label ) }}}
 				</li>
 				<# }) #>
 			</ul>

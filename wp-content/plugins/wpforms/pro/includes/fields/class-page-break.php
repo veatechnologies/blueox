@@ -3,11 +3,7 @@
 /**
  * Pagebreak field.
  *
- * @package    WPForms
- * @author     WPForms
- * @since      1.0.0
- * @license    GPL-2.0+
- * @copyright  Copyright (c) 2016, WPForms LLC
+ * @since 1.0.0
  */
 class WPForms_Field_Page_Break extends WPForms_Field {
 
@@ -37,7 +33,7 @@ class WPForms_Field_Page_Break extends WPForms_Field {
 	}
 
 	/**
-	 * Adds class to the builder field preview.
+	 * Add class to the builder field preview.
 	 *
 	 * @since 1.2.0
 	 *
@@ -671,7 +667,7 @@ class WPForms_Field_Page_Break extends WPForms_Field {
 	}
 
 	/**
-	 * Formats field.
+	 * Format field.
 	 *
 	 * @since 1.0.0
 	 *
