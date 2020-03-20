@@ -63,13 +63,18 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Gothic-Medium', sans-serif;font-weight: 6
             @media (max-width:991px) and (min-width:768px) {
                 #shipping_address_2_field .screen-reader-text{
                         visibility: hidden;
-                        height: 38px;
+                        
                 }
                
             }
             @media only screen and (max-width: 768px) {
                 #shipping_address_2_field .screen-reader-text {
                     display: none;
+                }
+            }
+            @media only screen and (max-width: 1124px) {
+                .screen-reader-text {
+                    height: 38px;
                 }
             }
             
