@@ -56,10 +56,17 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Gothic-Medium', sans-serif;font-weight: 6
 
               /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
               @media only screen and (max-width: 991px) {
-                .screen-reader-text {
+                #billing_address_2_field .screen-reader-text {
                     display: none;
                 }
             }
+            @media (max-width:991px) and (min-width:768px) {
+                #shipping_address_2_field .screen-reader-text{
+                        visibility: hidden;
+                }
+               
+            }
+            
 
 .screen-reader-text:focus { background-color: #f1f1f1; border-radius: 3px; -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); clip: auto !important; -webkit-clip-path: none; clip-path: none; color: #21759b; display: block; font-size: 14px; font-size: 0.875rem; font-weight: bold; height: auto; left: 5px; line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000; /* Above WP toolbar. */ }
 
