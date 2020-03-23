@@ -503,6 +503,10 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
   @media (min-width: 768px){
     .search.search-results .card-body .post-thumbnail{
         width: 50%;
+        text-align: center;
+    }
+    .search.search-results .card-body .post-thumbnail img{
+        width: 500px;
     }
     .search.search-results .card-body .entry-summary{
       width: 50%;
