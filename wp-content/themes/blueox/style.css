@@ -496,3 +496,17 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
 --------------------------------------------------------------*/
 @media (min-width: 768px) { .hentry.card .card-body { padding: 2.5rem; }
   .wb-hide-mobile-sidebar .wp-bp-sidebar-width { display: block; } }
+
+
+
+
+  @media (min-width: 768px){
+    .search.search-results .card-body .post-thumbnail{
+        width: 50%;
+    }
+    .search.search-results .card-body .entry-summary{
+      width: 50%;
+      display: inline-block;
+      float: right;
+    }
+  }
