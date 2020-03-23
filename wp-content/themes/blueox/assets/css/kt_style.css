@@ -206,7 +206,8 @@ a:hover {
 }
 
 .sway-prod-dealer-section {
-    margin-bottom: 60px;
+	margin-bottom: 60px;
+	margin-top: 30px;
 }
 
 #secondary .nav-footer-title{
@@ -2966,4 +2967,9 @@ font-size: 16px;
 		margin-top: 22px;
 	}
 
+}
+
+
+.product-template-default.single-product .product >h3{
+margin-bottom: 1.5rem;
 }
