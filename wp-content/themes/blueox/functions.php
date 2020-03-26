@@ -405,14 +405,18 @@ function cpt_custom_menu( $items, $menu, $args ) {
 
 
 
+function blueox_scrpits(){
 
 /* FUNCTIONS BY KELLTON START */
 
-wp_enqueue_style( 'ktstyle_font', get_template_directory_uri() . '/assets/css/kt_fontawesome.min.css',false,rand(1,5),'all');
+//wp_enqueue_style( 'ktstyle_font', get_template_directory_uri() . '/assets/css/kt_fontawesome.min.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle_slider', get_template_directory_uri() . '/assets/css/kt_slick.css',false,rand(1,5),'all');
 wp_enqueue_style( 'ktstyle', get_template_directory_uri() . '/assets/css/kt_style.css',false,rand(1,5),'all');
 wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js',false,rand(1,5),'all');
 
+}
+
+add_action( 'wp_enqueue_scripts', 'blueox_scrpits' );
 
 // Remove breadcrumbs from shop & categories
 add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
