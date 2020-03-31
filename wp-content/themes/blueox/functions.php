@@ -473,12 +473,12 @@ function product_section(){
 					<td><label><b>Additional Products Title</b></label> <input type="text" name="product_text_content" id="product_text_content" value="<?php echo trim($product_text_content); ?>" class="regular-text"></td>
 
 				</tr>
-				<tr>
+				
+
+<tr>
 					<td><label><b>Products Ids</b></label> <input type="text" name="product_id" id="product_id" value="<?php echo trim($product_id); ?>" class="regular-text"></td>
 
 				</tr>
-
-
 			</tbody>
 		</table>
 
@@ -490,6 +490,7 @@ function product_related_items(){
 	wp_nonce_field( basename( __FILE__ ), 'prfx_nonce' );
 	$product_checkbox_yes = get_post_meta($post->ID,'product_checkbox_yes', true);
 	$product_checkbox_no = get_post_meta($post->ID,'product_checkbox_no', true);
+	
 	?><div class="wrap">
 		<table class="form-table">
 			<tbody class="input_fields_wrap_about_video">
@@ -502,6 +503,27 @@ function product_related_items(){
 				</tr>
 
 
+
+			</tbody>
+		</table>
+
+	</div><?php
+}
+
+
+function stock_products(){
+	global $post;
+	wp_nonce_field( basename( __FILE__ ), 'prfx_nonce' );
+	
+	$stock_id = get_post_meta($post->ID,'stock_id', true);
+	?><div class="wrap">
+		<table class="form-table">
+			<tbody class="input_fields_wrap_about_video">
+				
+				<tr>
+					 <input type="hidden" name="stock_id" id="stock_id" value="<?php echo trim($stock_id); ?>" class="regular-text"></td>
+
+				</tr>
 			</tbody>
 		</table>
 
@@ -514,6 +536,7 @@ function blueox_metaboxes() {
 	if($post->post_type == "product"){
 	add_meta_box('Product-ids','Products ID','product_section','product');
 	add_meta_box('Product-products','Related Products','product_related_items','product');
+	add_meta_box('Product-stock','','stock_products','product');
 	}
 
 }
@@ -600,3 +623,242 @@ address table {
 }
 ';
 }
+
+// For Create Menu Download list
+add_action('admin_menu', 'bor_plugin_menu');
+function bor_plugin_menu() {
+    if (is_admin()){
+        add_menu_page('Import UserPrice','Download List', 'manage_options','prices', 'packageDataConfig','dashicons-arrow-down-alt',85); 
+
+    }
+}
+
+function packageDataConfig(){
+     package_manage_pressure();
+}
+
+function package_manage_pressure()
+  {
+	  ?>
+	  <div class="content">
+	
+<div id="users_list" style="border: 1px solid; height: auto; padding-left: 50px; padding-right: 50px; display: 
+<?php if(isset($_GET['upload_vpn_store'])){echo 'none';} else{echo 'block';}?>" >
+       <h3>Download /Upload  Product List</h3>
+	      <div class="box">  
+  <table id="customers">
+    <tr>
+          
+          <th>Download File</th>
+           <th>Upload File</th>   
+    </tr>
+      
+    <tr>
+          
+          <td><a href="<?php $url = admin_url(); ?>?page=prices&user_list=<?php echo $value->term_id; ?>&username=<?php echo $value->name; ?>&slug=<?php echo $value->slug; ?>" class="button-primary">Download</a></td>  
+           <td><a href="<?php $url = admin_url(); ?>?page=prices&upload_vpn_store=<?php //echo $value->term_id; ?>" class="button-primary">Upload File</a></td>   
+    </tr>
+    <?php 
+        
+      ?>
+  </table>
+    </div>
+	
+	</div>
+	     <?php if(isset($_GET['upload_vpn_store'])){?>
+     <div id="texx" style="border: 1px solid; height: 201px; padding-left: 82px; margin-top: 50px;">
+          <h3>Upload Product List</h3>
+         <div class="box">  
+         <form role="form" method="post" action="" method="post" enctype="multipart/form-data">
+               <div class="box-body ml-6">
+        <div class="form-group col-xs-6">
+                   <input type="file" name="csv" value=""  id="file-7" class="inputfile inputfile-6 upload-file" />
+                   <button type="submit" class="btn btn-primary newbtn" name="add_vpn_csv">Upload file</button>
+                   
+                   </div>
+               </div>
+            </form>
+       
+    </div>
+  </div>
+<?php } ?>
+
+	   
+      
+ 
+<script type="text/javascript">
+function download_reseller(page)
+  {
+    document.getElementById('users_list').style.display = 'block';
+    document.getElementById('users_download_list').style.display = 'none';
+    document.getElementById('vpn_list').style.display = 'none';
+    document.getElementById('texx').style.display = 'none';
+
+    
+  }
+ 
+
+</script>
+<style>
+#customers 
+ {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+ }
+#customers td, #customers th 
+ {
+  border: 1px solid #ddd;
+  padding: 8px;
+ }
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+#customers th 
+ {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+
+    
+  background-color: #23282d96;
+  color: white;
+  }
+
+  .content {
+    margin-top: 40px;
+}
+
+</style>
+<?php
+if(isset($_POST['add_vpn_csv']))
+    {
+      		if(isset($_FILES['csv']) && !empty($_FILES['csv']))
+        	{
+      			$csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
+            	if(!empty($_FILES['csv']['name']) && in_array($_FILES['csv']['type'],$csvMimes))
+            	{
+            		if(is_uploaded_file($_FILES['csv']['tmp_name']))
+                	{
+                    	//open uploaded csv file with read only mode
+	                    $csvFile = fopen($_FILES['csv']['tmp_name'], 'r');
+	                    //skip first line
+	                    $ss =fgetcsv($csvFile);
+	                    $row =1;
+	                    while(($line = fgetcsv($csvFile, 10000, ",")) !== FALSE)
+                    	{
+                    		if(!empty($line[0])){
+
+                    			//$skuValue = wc_get_product($line[0]);
+                    			$productid= $line[1];
+                    			//$regularprice= $line[1];
+                    			//$saleprice= $line[2];
+                    			$stock= $line[2];
+                    			
+								/*if(!empty($productid)){
+			
+        							update_post_meta($productid, '_regular_price',$regularprice);
+								}
+
+								if(!empty($productid)){
+			
+        							update_post_meta($productid, '_price',$saleprice);
+								}
+*/
+								if(!empty($productid)){
+			
+        							update_post_meta($productid, '_stock' ,$stock);
+        							update_post_meta($productid, '_manage_stock' ,'yes');
+								}
+                    		}
+                    		$row++; 
+                    	}
+                    	//close opened csv file
+                    	fclose($csvFile);
+                    	$error ="Successfully Imported";
+						echo '<p style="color: white; background-color: green;width: 19%;">'.$error.'</p>';
+	                }else{
+	                	$error="Something went wrong";
+         				echo '<p style="color: white; background-color: red;width: 19%;">'.$error.'</p>';
+	                }
+
+            	} else{
+                	$error="Invalid File.";
+         			echo '<p style="color: white; background-color: red;width: 19%;">'.$error.'</p>';
+            	}
+            }
+
+       }
+  ?>
+  </div>
+ <style type="text/css">
+      button.newbtn {
+      border: none;
+            background-color: #d3394c;
+            color: white;
+            width: 135px;
+           height: 55px;
+           margin-top: 20px;}
+      .upload-file {
+        background: #fff7f7;
+          padding: 15px !important;
+          margin-top: 10px;
+          color: #424242;
+          border: 1px solid #d3394c;
+      }
+      
+        </style>
+  <?php
+  }
+ add_action("admin_init", "download_csv");
+function download_csv() { 
+
+ if (isset($_GET['user_list'])) {
+	 global $wpdb;
+  $user=$_GET['username'];
+        $csv_output .= "Product Name,Product Id,Stock";
+        $csv_output .= "\n";
+		
+		$args = array(
+    'posts_per_page'   => -1,
+    'orderby'          => 'name',
+    'order'            => 'ASC',
+    'post_type'        => 'product'
+);
+		
+		
+        $products1 = get_posts($args);
+		
+		 /* print_r($products1);
+	
+		exit;  */
+        foreach ($products1 as $key => $value)
+      {
+		  
+		  //print_r($value);
+		$title= $value->post_title;
+		$id= $value->ID;
+		 //exit; 
+			 
+	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",$title))).", "; 
+	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",$id))).", ";
+	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_regular_price', true )))).", ";
+	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_price', true )))).", "; 
+	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_stock', true )))).", "; 
+	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",$user))).", ";
+	$csv_output .= "\n";
+		     
+		
+    }
+	
+	
+$filename = 'blueox_'.$_GET['slug']."_Pricelist_".date("dmY_H-i",time());
+header("Content-type: application/vnd.ms-excel");
+header("Content-disposition: csv" . date("Y-m-d") . ".csv");
+header("Content-disposition: filename=".$filename.".csv");
+print $csv_output;  
+exit;   
+  }
+
+
+   }
