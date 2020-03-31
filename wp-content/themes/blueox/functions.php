@@ -643,7 +643,7 @@ function package_manage_pressure()
 	  <div class="content">
 	
 <div id="users_list" style="border: 1px solid; height: auto; padding-left: 50px; padding-right: 50px; display: 
-<?php if(isset($_GET['upload_vpn_store'])){echo 'none';} else{echo 'block';}?>" >
+<?php if(isset($_GET['upload_product_list'])){echo 'none';} else{echo 'block';}?>" >
        <h3>Download /Upload  Product List</h3>
 	      <div class="box">  
   <table id="customers">
@@ -656,7 +656,7 @@ function package_manage_pressure()
     <tr>
           
           <td><a href="<?php $url = admin_url(); ?>?page=prices&user_list=<?php echo $value->term_id; ?>&username=<?php echo $value->name; ?>&slug=<?php echo $value->slug; ?>" class="button-primary">Download</a></td>  
-           <td><a href="<?php $url = admin_url(); ?>?page=prices&upload_vpn_store=<?php //echo $value->term_id; ?>" class="button-primary">Upload File</a></td>   
+           <td><a href="<?php $url = admin_url(); ?>?page=prices&upload_product_list=<?php //echo $value->term_id; ?>" class="button-primary">Upload File</a></td>   
     </tr>
     <?php 
         
@@ -665,7 +665,7 @@ function package_manage_pressure()
     </div>
 	
 	</div>
-	     <?php if(isset($_GET['upload_vpn_store'])){?>
+	     <?php if(isset($_GET['upload_product_list'])){?>
      <div id="texx" style="border: 1px solid; height: 201px; padding-left: 82px; margin-top: 50px;">
           <h3>Upload Product List</h3>
          <div class="box">  
