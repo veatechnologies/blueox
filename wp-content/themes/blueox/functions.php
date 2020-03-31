@@ -844,7 +844,7 @@ function download_csv() {
 	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",$id))).", ";
 	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_regular_price', true )))).", ";
 	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_price', true )))).", "; 
-	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_stock', true )))).", "; 
+	$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",get_post_meta($value->ID, '_stock', true )))); 
 	//$csv_output .= trim(preg_replace('/\s\s+/', ' ',str_replace(",","",$user))).", ";
 	$csv_output .= "\n";
 		     
