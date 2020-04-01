@@ -628,7 +628,7 @@ address table {
 add_action('admin_menu', 'bor_plugin_menu');
 function bor_plugin_menu() {
     if (is_admin()){
-        add_menu_page('Import UserPrice','Download List', 'manage_options','prices', 'packageDataConfig','dashicons-arrow-down-alt',85); 
+        add_menu_page('Import UserPrice','Import Inventory', 'manage_options','prices', 'packageDataConfig','dashicons-arrow-down-alt',85); 
 
     }
 }
