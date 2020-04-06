@@ -23,10 +23,16 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php wp_bootstrap_4_post_thumbnail(); ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+		    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+		        <?php wp_bootstrap_4_post_thumbnail(); ?>
+		    </a>
+		<?php endif; ?>
+
+		<?php //wp_bootstrap_4_post_thumbnail(); ?>
 
 		<!--<div class="entry-summary">
-			<?php the_excerpt(); ?>
+			<?php //the_excerpt(); ?>
 		</div> --><!-- .entry-summary -->
 	</div>
 	<!-- /.card-body -->
