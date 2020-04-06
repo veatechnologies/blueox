@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>test" <?php post_class( 'mt-3r' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'mt-3r' ); ?>>
 	<div class="card-body">
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
