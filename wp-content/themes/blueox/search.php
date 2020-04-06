@@ -55,10 +55,7 @@ get_header(); ?>
 							'prev_text'         => esc_html__( 'Older Posts', 'wp-bootstrap-4' ),
 						) );
 ?> </div>
-<?php } ?>
-
-
-<?php
+<?php } 
 					else {
 
 						get_template_part( 'template-parts/content', 'none' );
