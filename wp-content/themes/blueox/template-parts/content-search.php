@@ -23,19 +23,13 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php if ( has_post_thumbnail() ) : ?>
-		    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		        <?php wp_bootstrap_4_post_thumbnail(); ?>
-		    </a>
-		<?php endif; 
-		else {
+<?php if(wp_bootstrap_4_post_thumbnail){
+	wp_bootstrap_4_post_thumbnail();
+}
 
-
-		}
-
-		?>
-
-		<?php //wp_bootstrap_4_post_thumbnail(); ?>
+	else{
+		echo "!--"; echo "test123"; echo "-->";
+	} ?>
 
 		<!--<div class="entry-summary">
 			<?php //the_excerpt(); ?>
