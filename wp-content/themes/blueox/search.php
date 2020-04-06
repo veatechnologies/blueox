@@ -28,7 +28,7 @@ get_header(); ?>
 					<?php
 					if ( have_posts() ) : ?>
 
-						<header class="page-header mt-3r">
+						<header class="page-header mt-3r test">
 							<h1 class="page-title"><?php
 								/* translators: %s: search query. */
 								printf( esc_html__( 'Search Results for: %s', 'wp-bootstrap-4' ), '<span>' . get_search_query() . '</span>' );
