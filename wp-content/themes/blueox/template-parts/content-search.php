@@ -13,7 +13,7 @@
 	<div class="col-md-4" <?php post_class( 'card mt-3r' ); ?> id="post-<?php the_ID(); ?>">
 <!--<article> -->
 	<div class="card-body">
-		<header class="entry-header">
+		<header class="entry-header test">
 			<?php the_title( sprintf( '<h2 class="entry-title card-title"><a href="%s" rel="bookmark" class="text-dark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 			<?php if ( 'post' === get_post_type() ) : ?>
