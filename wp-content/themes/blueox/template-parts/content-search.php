@@ -9,6 +9,8 @@
 
 ?>
 
+<div class="container">
+	<div class="col-md-4">
 <article id="post-<?php the_ID(); ?>test" <?php post_class( 'card mt-3r' ); ?>>
 	<div class="card-body">
 		<header class="entry-header">
@@ -35,3 +37,5 @@
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>
+</div>
