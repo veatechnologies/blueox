@@ -36,6 +36,7 @@ get_header(); ?>
 						</header><!-- .page-header -->
 
 						<div class="container">
+
 						<?php
 						/* Start the Loop */
 						while ( have_posts() ) : the_post();
@@ -53,16 +54,16 @@ get_header(); ?>
 							'next_text'         => esc_html__( 'Newer Posts', 'wp-bootstrap-4' ),
 							'prev_text'         => esc_html__( 'Older Posts', 'wp-bootstrap-4' ),
 						) );
+?> </div>
+<?php } ?>
 
-} ?>
 
-</div>
 <?php
-					else :
+					else {
 
 						get_template_part( 'template-parts/content', 'none' );
 
-					endif; ?>
+					 } ?>
 
 					</main><!-- #main -->
 				</section><!-- #primary -->
