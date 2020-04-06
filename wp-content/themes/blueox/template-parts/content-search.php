@@ -25,9 +25,9 @@
 
 		<?php wp_bootstrap_4_post_thumbnail(); ?>
 
-		<div class="entry-summary">
+		<!--<div class="entry-summary">
 			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
+		</div> --><!-- .entry-summary -->
 	</div>
 	<!-- /.card-body -->
 
