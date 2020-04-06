@@ -33,16 +33,16 @@
 
 	elseif(! has_post_thumbnail()){
 
-		function wc_custom_thumbnail() { 
+		//function wc_custom_thumbnail() { 
 	function wc_custom_placeholder_img( $src ) { 
-		$src = get_stylesheet_directory_uri().'/assets/images/product.jpg'; 
+		$src = get_stylesheet_directory_uri().'/assets/images/Logo_800x600-1'; 
 		return $src; 
 	}
 	add_filter('woocommerce_placeholder_img_src', 'wc_custom_placeholder_img'); 
-} 
-add_action( 'init', 'wc_custom_thumbnail' );
+//} 
+//add_action( 'init', 'wc_custom_thumbnail' );
 
-echo "test123";
+echo $src."test123";
 	}
 
 
