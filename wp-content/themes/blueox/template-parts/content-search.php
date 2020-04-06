@@ -27,7 +27,40 @@
 		    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 		        <?php wp_bootstrap_4_post_thumbnail(); ?>
 		    </a>
-		<?php endif; ?>
+		<?php endif; 
+		else {
+
+
+add_action('init', 'custom_fix_thumbnail');
+
+function custom_fix_thumbnail() {
+    add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+
+    function custom_woocommerce_placeholder_img_src($src) {
+       
+            global $post;
+            $array = get_the_terms($post->ID, 'product_cat');
+            reset($array);
+            $first_key = key($array);
+            $thumbnail_id = get_woocommerce_term_meta($first_key, 'thumbnail_id', true);
+
+            // get the image URL for parent category
+            $image = wp_get_attachment_url($thumbnail_id);
+
+            // print the IMG HTML for parent category
+            if ($image)
+                $src = $image;
+     
+        return $src;
+    }
+
+}
+
+
+
+		}
+
+		?>
 
 		<?php //wp_bootstrap_4_post_thumbnail(); ?>
 
