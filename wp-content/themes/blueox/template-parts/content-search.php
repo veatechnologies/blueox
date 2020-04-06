@@ -35,7 +35,7 @@
 
 		//function wc_custom_thumbnail() { 
 	
-		$src = get_site_url()."/wp-content/themes/blueox/assets/images/Logo_800x600-1"; 
+		$src = get_site_url()."/wp-content/themes/blueox/assets/images/Logo_800x600-1.jpg"; 
 		
 	//}
 	//add_filter('woocommerce_placeholder_img_src', 'wc_custom_placeholder_img'); 
