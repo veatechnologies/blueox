@@ -26,15 +26,16 @@ get_header(); ?>
 					<main id="main" class="site-main">
 
 					<?php
-					if ( have_posts() ) : ?>
+					if ( have_posts() ) { ?>
 
-						<header class="page-header mt-3r test">
+						<header class="page-header mt-3r">
 							<h1 class="page-title"><?php
 								/* translators: %s: search query. */
 								printf( esc_html__( 'Search Results for: %s', 'wp-bootstrap-4' ), '<span>' . get_search_query() . '</span>' );
 							?></h1>
 						</header><!-- .page-header -->
 
+						<div class="container">
 						<?php
 						/* Start the Loop */
 						while ( have_posts() ) : the_post();
@@ -53,6 +54,10 @@ get_header(); ?>
 							'prev_text'         => esc_html__( 'Older Posts', 'wp-bootstrap-4' ),
 						) );
 
+} ?>
+
+</div>
+<?php
 					else :
 
 						get_template_part( 'template-parts/content', 'none' );
