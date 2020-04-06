@@ -28,7 +28,7 @@
 	wp_bootstrap_4_post_thumbnail();
 }
 
-	elseif  ( ! function_exists( 'wp_bootstrap_4_post_thumbnail' ) ) {
+	elseif {
 		echo "test123";
 	} ?>
 
