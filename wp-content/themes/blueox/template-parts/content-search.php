@@ -23,9 +23,9 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-<?php if(wp_bootstrap_4_post_thumbnail){
+<?php /* if(wp_bootstrap_4_post_thumbnail){
 	wp_bootstrap_4_post_thumbnail();
-}
+}*/
 
 	else{
 		echo "!--"; echo "test123"; echo "-->";
