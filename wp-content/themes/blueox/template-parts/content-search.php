@@ -25,12 +25,18 @@
 
 <?php if(function_exists('wp_bootstrap_4_post_thumbnail')){
 
-	wp_bootstrap_4_post_thumbnail();
-}
+
+	if(wp_bootstrap_4_post_thumbnail()){
+
+		wp_bootstrap_4_post_thumbnail();
+	}
 
 	else{
 		echo "test123";
-	} ?>
+	}
+}
+
+	 ?>
 
 		<!--<div class="entry-summary">
 			<?php //the_excerpt(); ?>
