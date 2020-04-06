@@ -32,8 +32,18 @@
 	}
 
 	else{
-		echo "test123";
+
+		function wc_custom_thumbnail() { 
+	function wc_custom_placeholder_img( $src ) { 
+		$src = get_stylesheet_directory_uri().'/assets/images/product.jpg'; 
+		return $src; 
 	}
+	add_filter('woocommerce_placeholder_img_src', 'wc_custom_placeholder_img'); 
+} 
+add_action( 'init', 'wc_custom_thumbnail' ); 
+	}
+
+
 }
 
 	 ?>
