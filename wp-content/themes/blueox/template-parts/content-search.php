@@ -10,7 +10,7 @@
 ?>
 
 <!--<div class="container">-->
-	<div class="col-md-4" <?php post_class( 'card mt-3r' ); ?> id="post-<?php the_ID(); ?>test">
+	<div class="col-md-4" <?php post_class( 'card mt-3r' ); ?> id="post-<?php the_ID(); ?>">
 <!--<article> -->
 	<div class="card-body">
 		<header class="entry-header">
