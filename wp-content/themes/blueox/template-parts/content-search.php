@@ -35,14 +35,12 @@
 
 		//function wc_custom_thumbnail() { 
 	
-		$src = get_site_url()."/wp-content/themes/blueox/assets/images/Logo_800x600-1.jpg"; 
+		$src = get_site_url()."/wp-content/themes/blueox/assets/images/Logo_800x600-1.jpg"; ?>
 		
-	//}
-	//add_filter('woocommerce_placeholder_img_src', 'wc_custom_placeholder_img'); 
-//} 
-//add_action( 'init', 'wc_custom_thumbnail' );
+	<a class="post-thumbnail" href="<?php echo $src; ?>" aria-hidden="true">
+		<img width="1550" height="472" src="<?php echo $src; ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="default_post-thumbnail" sizes="(max-width: 1550px) 100vw, 1550px">	</a>
 
-echo $src."test123";
+<?php
 	}
 
 
