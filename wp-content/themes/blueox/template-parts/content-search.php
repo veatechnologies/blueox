@@ -23,12 +23,12 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-<?php if(!empty(wp_bootstrap_4_post_thumbnail){
+<?php if(function_exists(wp_bootstrap_4_post_thumbnail)){
 
 	wp_bootstrap_4_post_thumbnail();
 }
 
-	else{
+	elseif  ( ! function_exists( 'wp_bootstrap_4_post_thumbnail' ) ) {
 		echo "test123";
 	} ?>
 
