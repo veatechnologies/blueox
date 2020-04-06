@@ -37,7 +37,7 @@
 	
 		$src = get_site_url()."/wp-content/themes/blueox/assets/images/Logo_800x600-1.jpg"; ?>
 		
-	<a class="post-thumbnail" href="<?php echo $src; ?>" aria-hidden="true">
+	<a class="post-thumbnail default-post-thumbnail" href="<?php echo $src; ?>" aria-hidden="true">
 		<img width="1550" height="472" src="<?php echo $src; ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="default_post-thumbnail" sizes="(max-width: 1550px) 100vw, 1550px">	</a>
 
 <?php
