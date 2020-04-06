@@ -35,7 +35,7 @@ get_header(); ?>
 							?></h1>
 						</header><!-- .page-header -->
 
-						<div class="container">
+						<div class="row">
 
 						<?php
 						/* Start the Loop */
