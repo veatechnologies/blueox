@@ -26,21 +26,23 @@
 <?php if(function_exists('wp_bootstrap_4_post_thumbnail')){
 
 
-	if(wp_bootstrap_4_post_thumbnail()){
+	if( has_post_thumbnail()){
 
 		wp_bootstrap_4_post_thumbnail();
 	}
 
-	else{
+	elseif(! has_post_thumbnail()){
 
-		function wc_custom_thumbnail() { 
+	/*	function wc_custom_thumbnail() { 
 	function wc_custom_placeholder_img( $src ) { 
 		$src = get_stylesheet_directory_uri().'/assets/images/product.jpg'; 
 		return $src; 
 	}
 	add_filter('woocommerce_placeholder_img_src', 'wc_custom_placeholder_img'); 
 } 
-add_action( 'init', 'wc_custom_thumbnail' ); 
+add_action( 'init', 'wc_custom_thumbnail' ); */
+
+echo "test123";
 	}
 
 
