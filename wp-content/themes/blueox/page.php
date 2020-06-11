@@ -100,38 +100,6 @@ get_header(); ?>
 
     <?php while ( have_rows('home_content') ) { the_row(); ?>
 
-        <?php if( get_row_layout() == 'baseplate_finder' ) { ?>
-
-            <div id="baseplates" class="container">
-
-                <div class="row">
-
-                    <div class="col-md-12 ml-3 mr-3">
-
-                        <h3 class="text-blue font-gotham-black mb-5">Product Results</h3>
-
-                        <p><a id="resultsFinder" href="#baseplatesTop">Back to Baseplates Finder <i class="fas fa-chevron-up"></i></a></p>
-
-                        <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="vehicle-baseplate"]'); ?>
-
-                        <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        <?php break; } ?>
-
-    <?php } ?>
-
-<?php } ?>
-
-<?php if( have_rows('home_content') ) { ?>
-
-    <?php while ( have_rows('home_content') ) { the_row(); ?>
-
         <?php if( get_row_layout() == 'swaypro_finder' ) { ?>
 
             <div id="swaypro" class="container">

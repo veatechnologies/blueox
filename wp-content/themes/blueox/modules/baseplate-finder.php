@@ -83,13 +83,37 @@ $finder = get_sub_field('show_baseplate');
 
                     <h5 class="text-blue font-gotham-black">Or Search by Blue Ox&reg; Part Number</h5>
 
-                    <p><a id="scrollResults" href="#baseplates">Scroll to Results <i class="fas fa-chevron-down"></i></a></p>
-
                 </div>
 
                 <div class="col-md-5">
 
                     <?php echo do_shortcode('[woocommerce_product_search]'); ?>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="baseplates" class="container mt-5">
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <p><a id="scrollResults" href="#baseplates">Hide Products <i class="fas fa-chevron-up"></i></a></p>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="vehicle-baseplate"]'); ?>
+
+                    <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
 
                 </div>
 

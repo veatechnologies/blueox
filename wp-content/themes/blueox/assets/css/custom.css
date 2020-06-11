@@ -392,19 +392,28 @@ ul.eventCalendar li div {
     .baseplates .full input {
         display: none !important;
     }
-    #baseplates .product img {
-        margin-bottom: 25px;
-    }
     #baseplates .price {
         margin-top: -22px !important;
     }
     #baseplates .learn-btn {
-        margin-top: 25px !important;
+        margin-bottom: 25px !important;
+    }
+    #baseplates .learn-btn a {
+        display: inline-block;
+    }
+    #baseplates ul.products li.product .price {
+        margin-top: 10px !important;
+        margin-bottom: 10px;
     }
     #baseplates .product {
         min-height: 430px;
         border-bottom: 1px solid #ccc;
-        margin-bottom: 25px;
+        margin-bottom: 3.8%;
+    }
+    #baseplatesTop .search-results .button {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
     }
 
 
@@ -422,8 +431,19 @@ ul.eventCalendar li div {
 
 /* Sidebar */
 
+/* Woocommerce */
+.shop_table.shop_table_responsive.woocommerce-cart-form__contents button[type="submit"],
+.form-row.place-order button[type="submit"],
+.single-product .summary.entry-summary button[type="submit"] {
+    border-radius: 0 !important;
+}
+
 
 /* Forms */
+#calc_shipping_state_field > span {
+    display: inline-block;
+    width: 100%;
+}
 
 /* Slider */
 .slick-dotted.slick-slider {
@@ -596,24 +616,4 @@ ul.eventCalendar li div {
     .w-lg-75 {
         width: 75% !important;
     }
-}
-
-/* Search css */
-body.search-results #main .page-title{
-    font-size: 40px;
-    margin-bottom: 45px;
-}
-body.search-results #main .card-body{
-    margin-bottom: 40px;
-}
-body.search-results #main .card-body .card-title a{
-    font-weight: 400;
-}
-body.search-results #main .card-body .post-thumbnail{
-    margin-top: .2rem; 
-    width: 100%;
-}
-body.search-results #main .card-body .post-thumbnail img{
-    max-height: 132px; 
-    object-fit: cover;
 }
