@@ -33,8 +33,8 @@
 
                                         <div class="hero-box mt-2 mb-2">
 
-                                            <?php if( $title ) { ?><h1 class="hero-title <?php echo esc_attr($text_color['value']); ?> font-gotham-black"><?php echo $title; ?></h1><?php } ?>
-                                            <?php if( $link ) { ?><h3 class="mt-3"><a class="<?php echo esc_attr($btn_color['value']); ?>" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></h3><?php } ?>
+                                            <?php if( $title ) { ?><p class="hero-title <?php echo esc_attr($text_color['value']); ?> font-gotham-black"><?php echo $title; ?></p><?php } ?>
+                                            <?php if( $link ) { ?><p class="hero-subtitle mt-3"><a class="<?php echo esc_attr($btn_color['value']); ?>" href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a></p><?php } ?>
 
                                         </div>
 

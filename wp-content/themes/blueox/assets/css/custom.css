@@ -75,6 +75,14 @@ h6 {
 b, strong {
     font-family: 'Gotham-Black', sans-serif;
 }
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
 
 /* Misc */
 .btn-blue,
@@ -250,7 +258,7 @@ ul.eventCalendar li div {
     .hero-slider-wrapper {
         padding-top: 5%;
         padding-bottom: 15%;
-        height: 85vh;
+        height: 40vw;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -451,9 +459,9 @@ ul.eventCalendar li div {
 }
 .slick-dots {
     padding: 15px;
-    bottom: 0;
+    bottom: 0 !important;
     height: auto;
-    background-color: rgba(100,100,100,.7);
+    background-color: transparent;
 }
 .slick-dots li button {
     background-color: #fff;
@@ -464,9 +472,10 @@ ul.eventCalendar li div {
     color: rgb(100,100,100);
 }
 .slick-dots li button::before {
-    font-size: 20px;
+    content: '•' !important;
+    font-size: 20px !important;
     top: 1px;
-    color: #fff;
+    color: #fff !important;
     opacity: 1;
 }
 
@@ -574,9 +583,6 @@ ul.eventCalendar li div {
     .w-md-75 {
         width: 75% !important;
     }
-    .hero-title {
-        font-size: 5rem;
-    }
     .hero-slider-wrapper {
         padding-left: 10%;
         padding-right: 10%;
@@ -615,5 +621,11 @@ ul.eventCalendar li div {
     }
     .w-lg-75 {
         width: 75% !important;
+    }
+    .hero-title {
+        font-size: 5rem !important;
+    }
+    .hero-subtitle {
+        font-size: 2rem !important;
     }
 }

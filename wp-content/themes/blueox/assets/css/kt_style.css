@@ -379,7 +379,6 @@ margin-bottom:110px;
 .topDetails{border-bottom: 1px solid #bfbfbf; margin-bottom: 2.6rem}
 li { list-style: none; }
 ul{padding: 0;}
-p{font-size: 14px;}
 img{max-width: 100%;}
 .categories{margin-bottom: 40px;}
 .categories h6{padding-bottom: 15px; border-bottom: 1px solid #000000;margin-bottom: 25px;color: #002d62;}
@@ -1920,7 +1919,7 @@ p.woocommerce-mini-cart__empty-message {
     margin-bottom: 2rem;
     font-weight: 700;
 	margin-top: 30px;
-	
+
 }
 
 .woocommerce-checkout .sidebar-1-area .widget ul li {
