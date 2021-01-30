@@ -140,7 +140,7 @@ global $post;
 		 if( $alt_title || $alt_desc ) {
 
 			 echo '<div class="container"><div class="row"><div class="col-md-12">';
-			 echo '<h1 class="text-blue text-bold">' . $alt_title . '</h1>';
+			 echo '<h1 class="text-blue font-gotham-black">' . $alt_title . '</h1>';
 			 echo '<p class="mt-3">' . $alt_desc . '</p>';
 			 echo '</div></div></div>';
 

@@ -42,31 +42,31 @@ $finder = get_sub_field('show_baseplate');
 
             <div class="row">
 
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-1' ) ) { ?>
+                <?php if ( is_active_sidebar( 'sidebar-baseplate-1' ) ) { ?>
 
                     <div class="col-sm-4">
 
-                        <?php dynamic_sidebar( 'sidebar-swaypro-1' ); ?>
+                        <?php dynamic_sidebar( 'sidebar-baseplate-1' ); ?>
 
                     </div>
 
                 <?php } ?>
 
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-2' ) ) { ?>
+                <?php if ( is_active_sidebar( 'sidebar-baseplate-2' ) ) { ?>
 
                     <div class="col-sm-4">
 
-                        <?php dynamic_sidebar( 'sidebar-swaypro-2' ); ?>
+                        <?php dynamic_sidebar( 'sidebar-baseplate-2' ); ?>
 
                     </div>
 
                 <?php } ?>
 
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-3' ) ) { ?>
+                <?php if ( is_active_sidebar( 'sidebar-baseplate-3' ) ) { ?>
 
                     <div class="col-sm-4">
 
-                        <?php dynamic_sidebar( 'sidebar-swaypro-3' ); ?>
+                        <?php dynamic_sidebar( 'sidebar-baseplate-3' ); ?>
 
                     </div>
 
@@ -112,7 +112,7 @@ $finder = get_sub_field('show_baseplate');
 
                 <div class="col-md-12">
 
-                    <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="swaypro"]'); ?>
+                    <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="vehicle-baseplate"]'); ?>
 
                     <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
 
