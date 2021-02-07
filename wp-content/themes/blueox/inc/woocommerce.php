@@ -341,6 +341,7 @@ if ( ! function_exists( 'wp_bootstrap_4_after_product_summary' ) ) {
 		?>
 			</div><!-- /.col-md-7 -->
 		</div><!-- /.row -->
+		<?php get_template_part( 'template-parts/product-specifications', 'page' ); ?>
 		<?php
 	}
 }
