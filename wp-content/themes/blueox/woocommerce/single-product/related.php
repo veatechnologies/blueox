@@ -28,17 +28,13 @@ $product_related_yes= get_post_meta(get_the_ID(),'product_related_yes',true);
 $product_related_no= get_post_meta(get_the_ID(),'product_related_no',true);
 $product_text_content= get_post_meta(get_the_ID(),'product_text_content',true);
 
-if(!empty(the_content())){
 ?>
 
-<div class="paragraph">
-	<?php
-	the_content();
-		
-	?> 
-	</div>
+<div class="product-body-content">
+	<?php the_content(); ?> 
+</div>
 
-<?php }
+<?php
 
 $product_id= get_post_meta(get_the_ID(),'product_id',true);
 $product_ids = str_replace(',', '', $product_id);
