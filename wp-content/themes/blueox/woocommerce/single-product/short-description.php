@@ -54,6 +54,8 @@ if(!empty($weight)){?><h6 class="product-attributes-parent"><span class="product
 
 //For Install instruction
 
+/*
+
 $productID = $product->get_id();
 $install_instruction_pdf= get_field('install_instruction', $productID);
 $warrenty= get_field('warrenty', $productID);
@@ -69,7 +71,7 @@ if(!empty($literature)){ ?>
 	<a class="literature-link instruction-btn" target="_blank" href="<?php echo $literature; ?>">Literature</a>
 	<?php }
 	
-
+*/
 
 
 
