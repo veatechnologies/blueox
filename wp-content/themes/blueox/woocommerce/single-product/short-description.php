@@ -36,6 +36,9 @@ if(!empty($short_description)){
 }
 
 // For Attributes
+
+/*
+
 $class = $product->get_attribute( 'class' );
 $baseplate_year = $product->get_attribute( 'baseplate_year' );
 $make = $product->get_attribute( 'make' );
@@ -51,6 +54,8 @@ if(!empty($make)){?><h6 class="product-attributes-parent"><span class="product-a
 if(!empty($material)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Material: </span> <?php echo $material ?></h6> <?php } 
 if(!empty($models)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Model: </span><?php echo $models;?> </h6><?php }
 if(!empty($weight)){?><h6 class="product-attributes-parent"><span class="product-attributes"> Weight: </span> <?php echo $weight;?></h6> <?php }
+
+*/
 
 //For Install instruction
 
