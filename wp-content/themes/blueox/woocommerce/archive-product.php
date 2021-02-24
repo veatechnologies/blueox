@@ -40,9 +40,13 @@ if ( is_product_category() ) {
 
 if ( is_product_category() ) {
 
-	$mycat = get_term_by('slug', $prod_cat->name ,'product_cat');
+	$thisCat = get_queried_object();
+	$thisTax = $thisCat->taxonomy;
+	$term_id = $queried_object->term_id;
 
-	$bg = get_field('cat_featured_image', $mycat); ?>
+	// $mycat = get_term_by('slug', $prod_cat->name ,'product_cat');
+
+	$bg = get_field('cat_featured_image', $thisTax . '_' . $term_id); ?>
 
 	<?php if( $bg ) { ?>
 
@@ -131,10 +135,14 @@ global $post;
 
 	 if ( is_product_category() ) {
 
-		$mycat = get_term_by('slug', $prod_cat->name ,'product_cat');
+		$thisCat = get_queried_object();
+	 	$thisTax = $thisCat->taxonomy;
+	 	$term_id = $queried_object->term_id;
 
-		$alt_title = get_field('alternate_title', $mycat);
-	 	$alt_desc = get_field('alternate_description', $mycat);
+		// $mycat = get_term_by('slug', $prod_cat->name ,'product_cat');
+
+		$alt_title = get_field('alternate_title', $thisTax . '_' . $term_id);
+	 	$alt_desc = get_field('alternate_description', $thisTax . '_' . $term_id);
 		$category_content = get_field('category_content',  'option');
 
 		 if( $alt_title || $alt_desc ) {
