@@ -261,6 +261,10 @@ function wp_bootstrap_4_scripts() {
 
 	$jtime = filemtime( get_template_directory() . '/assets/js/scripts.js' );
 	wp_enqueue_script( 'blueox-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), $jtime, true );
+        //10-04-2021 Start
+	wp_enqueue_script( 'blueox-partsvia-scripts', get_template_directory_uri() . '/assets/js/partsvia-cart.js', array('jquery'), time(), true );
+	wp_enqueue_script( 'blueox-cart-scripts', get_template_directory_uri() . '/assets/js/custom-cart.js', array('jquery'), time(), true );
+        //10-04-2021 End
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -277,6 +281,9 @@ function wp_bootstrap_4_add_editor_styles() {
 }
 add_action( 'admin_init', 'wp_bootstrap_4_add_editor_styles' );
 
+
+// Implement the Custom Woocommerce feature.
+require get_template_directory() . '/inc/custom-woo-function.php';
 
 // Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
