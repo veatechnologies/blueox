@@ -14,7 +14,7 @@ $img = get_sub_field('image');
 
             <div class="col-md-12">
 
-                <img class="w-100 b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+                <img class="w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
 
             </div>
 

@@ -40,7 +40,7 @@
 
                                 <div class="general-img text-center pb-5 <?php if( $layout['value'] == 'whole' ) { echo 'w-100'; } elseif( $layout['value'] == 'half' ) { echo 'w-100 w-md-50'; } else { echo 'w-100 w-md-25'; } ?>">
 
-                                    <img class="b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" width="">
+                                    <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" width="">
 
                                     <?php if( $link && $link_pos['value'] == 'left' ) { ?>
 

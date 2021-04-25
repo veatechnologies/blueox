@@ -29,7 +29,7 @@ $title = get_sub_field('title');
                                 ?>
 
                                 <div class="videos-box position-relative ml-3 mr-3">
-                                    <img class="videos-img w-100 b-lazy" src="<?php bloginfo('template_directory'); ?>/assets/images/placeholder.png" data-src="<?php if( $img ) { echo $img['url']; } else { echo get_bloginfo('template_directory') . '/assets/images/videos-thumb.png'; } ?>" alt="video thumnail">
+                                    <img class="videos-img w-100" src="<?php if( $img ) { echo $img['url']; } else { echo get_bloginfo('template_directory') . '/assets/images/videos-thumb.png'; } ?>" alt="video thumnail">
                                     <div class="videos-play position-absolute text-white">
                                         <a class="videos-play-button popup-youtube text-white" href="<?php echo $vid; ?>" ><i class="fas fa-play-circle fa-4x"></i></a>
                                     </div>
