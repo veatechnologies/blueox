@@ -235,7 +235,7 @@ add_action('widgets_init', 'wp_bootstrap_4_widgets_init');
 function wp_bootstrap_4_scripts() {
     wp_enqueue_style('open-iconic-bootstrap', get_template_directory_uri() . '/assets/css/open-iconic-bootstrap.css', array(), 'v4.0.0', 'all');
     wp_enqueue_style('bootstrap-4', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), 'v4.0.0', 'all');
-    wp_enqueue_style('font-awesome-5', esc_url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'), array(), false);
+//    wp_enqueue_style('font-awesome-5', esc_url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'), array(), false);
     wp_enqueue_style('magnific-style', esc_url('https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'), array(), false);
     wp_enqueue_style('slick-style', esc_url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'), array(), false);
     wp_enqueue_style('slick-theme-style', esc_url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'), array(), false);
@@ -445,11 +445,11 @@ function product_section() {
         <table class="form-table">
             <tbody class="input_fields_wrap_about_video">
 
-                                                                    <!--<tr>
+                                                                        <!--<tr>
 
-                                                                            <td><label><b>Show Additional Products Title</b></label><br> <input type='checkbox' name="product_related_yes" id="product_related_yes" value="1" <?php if ($product_related_yes == '1') { ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
-                                                                            <input type='checkbox' name="product_related_no" id="product_related_no" value="0" <?php if ($product_related_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
-                                                                    </tr>-->
+                                                                                <td><label><b>Show Additional Products Title</b></label><br> <input type='checkbox' name="product_related_yes" id="product_related_yes" value="1" <?php if ($product_related_yes == '1') { ?> checked="checked"<?php } ?> class="regular-text"><label>Yes</label>
+                                                                                <input type='checkbox' name="product_related_no" id="product_related_no" value="0" <?php if ($product_related_no == '0') { ?> checked="checked" <?php } ?> class="regular-text"><label>No</label></td>
+                                                                        </tr>-->
 
                 <tr>
                     <td><label><b>Additional Products Title</b></label> <input type="text" name="product_text_content" id="product_text_content" value="<?php echo trim($product_text_content); ?>" class="regular-text"></td>
@@ -627,7 +627,7 @@ function package_manage_pressure() {
                     <tr>
 
                         <td><a href="<?php $url = admin_url(); ?>?page=prices&user_list=<?php echo $value->term_id; ?>&username=<?php echo $value->name; ?>&slug=<?php echo $value->slug; ?>" class="button-primary">Download</a></td>
-                        <td><a href="<?php $url = admin_url(); ?>?page=prices&upload_product_list=<?php //echo $value->term_id;        ?>" class="button-primary">Upload File</a></td>
+                        <td><a href="<?php $url = admin_url(); ?>?page=prices&upload_product_list=<?php //echo $value->term_id;         ?>" class="button-primary">Upload File</a></td>
                     </tr>
                     <?php ?>
                 </table>
@@ -868,3 +868,7 @@ function remove_blueoxdev_public_scripts() {
 //        wp_dequeue_script('jqueryui');
     }
 }
+function wpse_287488_product_thumbnail_size($size) {
+    return 'full';
+}
+add_filter('single_product_archive_thumbnail_size', 'wpse_287488_product_thumbnail_size');

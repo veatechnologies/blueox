@@ -80,6 +80,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_608b863a9f5c2",
+            "label": "Order Status",
+            "name": "order-status",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_55e4aba942dcc",
             "label": "Fax",
             "name": "fax-1",
@@ -543,5 +562,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571947911
+    "modified": 1619756615
 }
