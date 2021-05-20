@@ -1647,9 +1647,9 @@
     "location": [
         [
             {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
+                "param": "post_type",
+                "operator": "!=",
+                "value": "product"
             }
         ],
         [
@@ -1679,6 +1679,13 @@
                 "operator": "!=",
                 "value": "page-careers.php"
             }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "default"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1689,5 +1696,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1611952012
+    "modified": 1621012609
 }

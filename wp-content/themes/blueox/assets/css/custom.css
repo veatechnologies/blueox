@@ -66,14 +66,14 @@ h5 {
     font-size: 1.5rem;
 }
 h6 {
-    font-size: 1.25rem'
+    font-size: 1.25rem;
 }
 .lead {
     font-size: 125%;
     font-weight: inherit;
 }
 b, strong {
-    font-family: 'Gotham-Black', sans-serif;
+    font-family:'Gotham-Black', sans-serif;
 }
 .hero-title {
     font-size: 2rem;
@@ -89,7 +89,7 @@ b, strong {
 .nav-previous a,
 .nav-next a {
     color: #fff !important;
-    font-family: 'Gotham-Medium', sans-serif;
+    font-family:'Gotham-Medium', sans-serif;
     font-weight: 600;
     padding: 15px 25px;
     border: 2px solid #173e5e;
@@ -109,7 +109,7 @@ b, strong {
 }
 .btn-white {
     color: #173e5e;
-    font-family: 'Gotham-Medium', sans-serif;
+    font-family:'Gotham-Medium', sans-serif;
     font-weight: 600;
     padding: 15px 25px;
     border: 2px solid #fff;
@@ -547,7 +547,7 @@ ul.eventCalendar li div {
     margin-left: 7px;
 }
 .tax-product_cat .a-inner p {
-	color: #868585;
+    color: #868585;
 }
 .tax-product_cat .a.py-0 h3, .local-contact h3 {
     font-size: 22px !important;
@@ -648,4 +648,94 @@ ul.products li.product .woocommerce-loop-product__title {
     .hero-subtitle {
         font-size: 2rem !important;
     }
+}
+
+/*Recreational tow bar*/
+.contentBlock-wrapper { padding: 0 100px; }
+.contentBlock-wrapper h2, .contentBlock-wrapper h3, .contentBlock-wrapper h4, .contentBlock-wrapper button { font-family:'Gotham-Black', sans-serif; }
+.titleBar { padding: 40px 20px; }
+.titleBar h1 { font-size: 78px; font-weight: 800; letter-spacing: -2px; }
+.titleBar h3 { font-size: 39px; font-weight: 700; }
+.threeCta { display: flex; justify-content: center; margin: 0 0 40px; }
+.ctaBlock { width: calc(100% / 3); padding: 0 40px 0 20px; text-align: center; }
+.ctaBlock .title { font-size: 45px; font-weight: 800; letter-spacing: -2px; text-align: left; }
+.ctaBlock .photo {border: 1px #707070 solid; margin: 0 0 30px;}
+.ctaBlock .title sup { font-size: 20px; position: relative; top: -44px; left: -17px; letter-spacing: 0; }
+.ctaBlock .subtitle { color: #676869; font-size: 23px; font-weight: 800; display: block; line-height: normal; margin: 20px 0 30px; text-align: left; }
+.ctaBlock ul.minHeight { min-height: 484px; }
+.ctaBlock ul { margin: 0 0 40px; }
+.ctaBlock p { text-align: left; color: #676869; font-size: 20px; padding: 10px 0 25px; margin: 0; }
+.ctaBlock ul li { color: #676869; font-size: 16px; margin: 0 0 25px; padding-left: 30px; position: relative; text-align: left; }
+.ctaBlock ul li:before { content: ""; width: 8px; height: 8px; border-radius: 50%; background-color: #676869; position: absolute; top: 6px; left: 5px; }
+.defaultBtn { background-color: #002e5a; display: inline-block; padding: 7px 20px; color: #fff; font-weight: 900; font-size: 30px; font-family:'Gotham-Black', sans-serif; min-width: 160px; text-align: center; }
+.contentBlock { text-align: center; padding: 40px 0 70px; }
+.contentBlock h2 { font-size: 50px; font-weight: 800; letter-spacing: -2px; margin: 20px 0 30px; }
+.contentBlock p { text-align: left; color: #676869; font-size: 18px; padding: 10px 0 25px; margin: 0; }
+.vehicleWeight { background: #002e5a; padding: 40px 40px 70px; border-radius: 20px; text-align: center;}
+.vehicleWeight h2 { font-size: 42px; font-weight: 800; letter-spacing: -2px; margin: 0 0 30px; color: #fff; }
+.vehicleWeight .form { max-width: 766px; width: 100%; margin: 0 auto; display: flex; }
+
+.vehicleWeight .textField { height: 77px; border-radius: 0; border: none; padding: 0 20px; width: 100%; font-size: 30px; font-weight: 700; }
+.vehicleWeight .goBtn { min-width: 216px; border: none; background: #fff; color: #002e5a; font-weight: 800; font-size: 50px; margin-left: 115px; cursor: pointer;}
+.vehicleWeightText { color: #060607; font-size: 29px; padding: 60px 0 0; max-width: 910px; margin: 0 auto; }
+.localDealar { display: flex; align-items: center; margin: 0 0 60px;}
+.dealarImage { width: 55%; border: 1px #707070 solid;}
+.localDealarContent { width: 44%; text-align: center; padding: 30px;}
+.localDealarContent h2 { font-size: 45px; font-weight: 800; letter-spacing: -2px; margin: 0 0 20px; }
+.localDealarContent p { color: #676869; font-size: 18px; line-height: normal; }
+.localDealarContent .outlineBtn { border: 2px solid #133056; font-size: 30px; color: #133056; padding: 10px 50px; display: inline-block; font-weight: 600; }
+.localDealarContent .outlineBtn:hover { background-color: #133056; color: #fff; }
+.btn-center-align {display: inline-block; width: 100%; text-align: center;}
+.page-template-recreational-tow-bars .threeCta .ctaBlock p {padding-bottom: 0px;}
+.page-template-recreational-tow-bars .threeCta .ctaBlock .subtitle {margin-top: 0px;}
+/*Recreational tow bar End*/
+
+@media(max-width: 1365px) {
+    .contentBlock-wrapper { padding: 0 40px; }
+    .titleBar h1 { font-size: 48px; }
+    .titleBar h3 { font-size: 29px; }
+    .ctaBlock .title { font-size: 58px; margin: 30px 0 0; }
+    .ctaBlock .title sup { font-size: 20px; top: -29px; left: -7px; }
+    .ctaBlock .subtitle {font-size: 30px;}
+    .ctaBlock ul li { font-size: 18px;  margin: 0 0 15px;}
+    .contentBlock h2 { font-size: 40px; margin: 20px 0 20px; }
+    .contentBlock p { padding: 10px 0 15px; font-size: 18px;}
+    .ctaBlock p { font-size: 18px;}
+    .vehicleWeight h2 {font-size: 36px;}
+    .vehicleWeight {padding: 40px 40px 50px;}
+    .vehicleWeight .goBtn {margin-left: 25px;}
+    .vehicleWeightText { font-size: 26px; padding: 50px 0;}
+    .localDealarContent h2 {font-size: 40px;}
+    .localDealarContent p { font-size: 18px; margin: 0 0 30px; }
+    .ctaBlock ul.minHeight { min-height: auto; }
+}
+@media(max-width: 1023px) {
+    .threeCta { flex-flow: wrap; }
+    .ctaBlock { width: 100%; padding: 0 0 30px; }
+    .localDealar {flex-flow: wrap;}
+    .dealarImage { width: 100%; margin: 0 0 20px; }
+    .localDealarContent { width: 100%; padding: 0; }
+}
+@media(max-width: 767px) {
+    .contentBlock-wrapper { padding: 0 20px; }
+    .titleBar h1 { font-size: 38px; letter-spacing: -1px; }
+    .titleBar h3 { font-size: 20px; }
+    .ctaBlock .title { font-size: 38px; }
+    .ctaBlock .subtitle { font-size: 26px; }
+    .ctaBlock ul li { font-size: 16px; margin: 0 0 10px; padding-left: 20px; }
+    .ctaBlock ul li:before { top: 6px; }
+    .contentBlock h2 { font-size: 26px; letter-spacing: -0.5px; }
+    .contentBlock p {font-size: 16px;}
+    .contentBlock {padding: 40px 0;}
+    .ctaBlock p { font-size: 16px; }
+    .vehicleWeight h2 { font-size: 26px; letter-spacing: -0.5px; }
+    .vehicleWeight .form {flex-flow: wrap;}
+    .vehicleWeight .textField { height: 50px; margin: 0 0 10px; }
+    .vehicleWeight .goBtn { margin-left: 0; height: 50px; font-size: 23px; width: 130px; padding: 10px 10px; margin: 0 auto; min-width: inherit; }
+    .vehicleWeightText {font-size: 16px; padding: 30px 0 0; }
+    .contentBlock {padding: 30px 0;}
+    .localDealarContent h2 { font-size: 26px; letter-spacing: -0.5px; margin: 0 0 10px; }
+    .localDealarContent p { font-size: 16px; margin: 0 0 20px; }
+    .localDealarContent .outlineBtn {font-size: 14px; padding: 10px 40px;}
+    .reduce-top { padding-top: 0; }
 }
