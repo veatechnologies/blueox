@@ -585,7 +585,7 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
 }
 @media(min-width: 1400px) {
 .home .hero {
-    height: calc(100vh - 112px);
+    /* height: calc(100vh - 112px); */
   }
 }
 

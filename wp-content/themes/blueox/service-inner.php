@@ -48,8 +48,8 @@ get_header();
 	<div class="vehicleWeightText text-center">
 		<?php the_field('vehicle_weight_block_text'); ?>
 	</div>
-	<section id="swayproTop" class="baseplates mt-5 mb-5 pt-5 pb-5">
-        <div id="baseplates" class="container mt-5">
+	<section id="swayproTop" class="baseplates mb-5 pb-5">
+        <div id="baseplates" class="container">
             <div class="row">
                 <div class="col-md-12">
                     <p><a id="scrollResults" href="#baseplates">Hide Products <i class="fas fa-chevron-up"></i></a></p>

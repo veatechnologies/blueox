@@ -671,13 +671,13 @@ ul.products li.product .woocommerce-loop-product__title {
 .contentBlock { text-align: center; padding: 40px 0 70px; }
 .contentBlock h2 { font-size: 50px; font-weight: 800; letter-spacing: -2px; margin: 20px 0 30px; }
 .contentBlock p { text-align: left; color: #676869; font-size: 18px; padding: 10px 0 25px; margin: 0; }
-.vehicleWeight { background: #002e5a; padding: 40px 40px 70px; border-radius: 20px; text-align: center;}
+.vehicleWeight { background: #002e5a; padding: 40px 40px 25px; border-radius: 20px; text-align: center;}
 .vehicleWeight h2 { font-size: 42px; font-weight: 800; letter-spacing: -2px; margin: 0 0 30px; color: #fff; }
 .vehicleWeight .form { max-width: 766px; width: 100%; margin: 0 auto; display: flex; }
 
 .vehicleWeight .textField { height: 77px; border-radius: 0; border: none; padding: 0 20px; width: 100%; font-size: 30px; font-weight: 700; }
 .vehicleWeight .goBtn { min-width: 216px; border: none; background: #fff; color: #002e5a; font-weight: 800; font-size: 50px; margin-left: 115px; cursor: pointer;}
-.vehicleWeightText { color: #060607; font-size: 29px; padding: 60px 0 0; max-width: 910px; margin: 0 auto; }
+.vehicleWeightText { color: #060607; font-size: 29px; padding: 25px 0 0; max-width: 910px; margin: 0 auto; }
 .localDealar { display: flex; align-items: center; margin: 0 0 60px;}
 .dealarImage { width: 55%; border: 1px #707070 solid;}
 .localDealarContent { width: 44%; text-align: center; padding: 30px;}

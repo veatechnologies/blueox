@@ -10,7 +10,7 @@ $content = get_sub_field('content_swaypro');
 $finder = get_sub_field('show_swaypro');
 ?>
 
-<section id="swayproTop" class="baseplates mt-5 mb-5 pt-5 pb-5">
+<section id="swayproTop" class="baseplates mb-5 pb-5">
 
     <div class="container">
 
