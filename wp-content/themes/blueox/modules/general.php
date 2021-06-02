@@ -38,7 +38,7 @@
 
                             <?php if( $img ) { ?>
 
-                                <div class="general-img text-center pb-5 <?php if( $layout['value'] == 'whole' ) { echo 'w-100'; } elseif( $layout['value'] == 'half' ) { echo 'w-100 w-md-50'; } else { echo 'w-100 w-md-25'; } ?>">
+                                <div class="general-img text-center pb-5 <?php if( $layout['value'] == 'whole' ) { echo 'w-100'; } elseif( $layout['value'] == 'half' ) { echo 'w-100 w-md-50'; } elseif( $layout['value'] == 'reverse' ) { echo 'w-100 w-md-66'; } else { echo 'w-100 w-md-25'; } ?>">
 
                                     <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>" width="">
 
@@ -58,7 +58,7 @@
 
                             <?php if( $title || $desc || $link ) { ?>
 
-                                <div class="<?php if( $layout['value'] == 'whole' ) { echo 'w-100'; } elseif( $layout['value'] == 'half' ) { echo 'ml-md-5 w-100 w-md-50'; } else { echo 'ml-md-5 w-100 w-md-75'; } ?>">
+                                <div class="<?php if( $layout['value'] == 'whole' ) { echo 'w-100'; } elseif( $layout['value'] == 'half' ) { echo 'ml-md-5 w-100 w-md-50'; } elseif( $layout['value'] == 'reverse' ) { echo 'ml-md-5 w-100 w-md-33'; } else { echo 'ml-md-5 w-100 w-md-75'; } ?>">
 
                                     <?php if( $title ) { ?>
 

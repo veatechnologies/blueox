@@ -16,13 +16,23 @@ $finder = get_sub_field('show_swaypro');
 
         <div class="row">
 
-            <div class="col-md-12 <?php if( $align ) { echo $align['value']; } ?>">
+            <div class="col-md-10 offset-md-1 bg-blue rounded-top rounded-bottom p-5 <?php if( $align ) { echo $align['value']; } ?>">
 
-                <?php if( $title ) { ?><h4 class="text-blue font-gotham-black mb-3"><?php echo $title; ?></h4><?php } ?>
+                <?php if( $title ) { ?><h4 class="text-white font-gotham-black mb-3"><?php echo $title; ?></h4><?php } ?>
+
+                <?php if( $finder['value'] == 'show' ) { ?>
+
+                    <?php if ( is_active_sidebar( 'sidebar-swaypro-new' ) ) { ?>
+
+                        <?php dynamic_sidebar( 'sidebar-swaypro-new' ); ?>
+
+                    <?php } ?>
+
+                <?php } ?>
 
                 <?php if( $content ) { ?>
 
-                    <div class="baseplates-inner">
+                    <div class="text-white">
 
                         <?php echo $content; ?>
 
@@ -37,64 +47,6 @@ $finder = get_sub_field('show_swaypro');
     </div>
 
     <?php if( $finder['value'] == 'show' ) { ?>
-
-        <div class="container">
-
-            <div class="row">
-
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-1' ) ) { ?>
-
-                    <div class="col-sm-4">
-
-                        <?php dynamic_sidebar( 'sidebar-swaypro-1' ); ?>
-
-                    </div>
-
-                <?php } ?>
-
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-2' ) ) { ?>
-
-                    <div class="col-sm-4">
-
-                        <?php dynamic_sidebar( 'sidebar-swaypro-2' ); ?>
-
-                    </div>
-
-                <?php } ?>
-
-                <?php if ( is_active_sidebar( 'sidebar-swaypro-3' ) ) { ?>
-
-                    <div class="col-sm-4">
-
-                        <?php dynamic_sidebar( 'sidebar-swaypro-3' ); ?>
-
-                    </div>
-
-                <?php } ?>
-
-            </div>
-
-        </div>
-
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-5 offset-md-1">
-
-                    <h5 class="text-blue font-gotham-black">Or Search by Blue Ox&reg; Part Number</h5>
-
-                </div>
-
-                <div class="col-md-5">
-
-                    <?php echo do_shortcode('[woocommerce_product_search]'); ?>
-
-                </div>
-
-            </div>
-
-        </div>
 
         <div id="baseplates" class="container mt-5">
 
@@ -112,7 +64,7 @@ $finder = get_sub_field('show_swaypro');
 
                 <div class="col-md-12">
 
-                    <?php //echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="swaypro"]'); ?>
+                    <?php echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="swaypro"]'); ?>
 
                     <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
 

@@ -9,23 +9,23 @@ jQuery.event.special.touchmove = {
     }
 };
 
-(function(jQuery) {
+(function($) {
 
 	// Unknown
-	jQuery('#Product-products input').change(function(){
-        jQuery('#Product-products input').prop('checked', false);
-        jQuery(this).prop('checked', true);
+	$('#Product-products input').change(function(){
+        $('#Product-products input').prop('checked', false);
+        $(this).prop('checked', true);
     });
 
     // Unknown
-	jQuery('#Product-ids input').change(function(){
-        jQuery('#Product-ids input').prop('checked', false);
-        jQuery(this).prop('checked', true);
+	$('#Product-ids input').change(function(){
+        $('#Product-ids input').prop('checked', false);
+        $(this).prop('checked', true);
     });
 
 	// Unknown
-	jQuery('#Product-ids .hndle').append("<span class='question-mark' title='Enter  Coma(,) separated Product Ids.'>?</span>");
-	jQuery('#Product-products .hndle').append("<span class='question-mark-products' title='Please check if want to show Related Products'>?</span>");
+	$('#Product-ids .hndle').append("<span class='question-mark' title='Enter  Coma(,) separated Product Ids.'>?</span>");
+	$('#Product-products .hndle').append("<span class='question-mark-products' title='Please check if want to show Related Products'>?</span>");
 
 	/* Smooth Scrolling to Baseplate and SwayPro finder results
 	jQuery('#scrollResults, #resultsFinder').on('click', function(e) {
@@ -41,19 +41,21 @@ jQuery.event.special.touchmove = {
 	***/
 
 	// Hide product results to start
-	jQuery(window).load(function() {
-		jQuery('#baseplates').slideUp();
+	$(window).load(function() {
+        setTimeout(function() {
+            $('#baseplates').slideToggle();
+        }, 800);
 	});
 
 	// On click, hide results
-	jQuery('#scrollResults').on('click', function(e) {
+	$('#scrollResults').on('click', function(e) {
 		e.preventDefault();
-		jQuery('#baseplates').slideUp();
+		$('#baseplates').slideUp();
 	});
 
 	// On filter, show results
-	jQuery(document).on('apply-selectize', function() {
-		jQuery('#baseplates').one().stop().slideDown(300);
+	$(document).on('apply-selectize', function() {
+		$('#baseplates').one().stop().slideDown(300);
 	});
 
 })(jQuery);

@@ -126,8 +126,9 @@ function wp_bootstrap_4_widgets_init() {
         'before_title'  => '<h5 class="nav-footer-title">',
         'after_title'   => '</h5>',
     ));
+    
     register_sidebar(array(
-        'name'          => esc_html__('SwayPro Finder new', 'wp-bootstrap-4'),
+        'name'          => esc_html__('SwayPro Finder', 'wp-bootstrap-4'),
         'id'            => 'sidebar-swaypro-new',
         'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
         'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
@@ -135,35 +136,33 @@ function wp_bootstrap_4_widgets_init() {
         'before_title'  => '<h5 class="nav-footer-title">',
         'after_title'   => '</h5>',
     ));
-    register_sidebar(array(
-        'name'          => esc_html__('SwayPro Finder Left', 'wp-bootstrap-4'),
-        'id'            => 'sidebar-swaypro-1',
-        'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
-        'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h5 class="nav-footer-title">',
-        'after_title'   => '</h5>',
-    ));
-
-    register_sidebar(array(
-        'name'          => esc_html__('SwayPro Finder Middle', 'wp-bootstrap-4'),
-        'id'            => 'sidebar-swaypro-2',
-        'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
-        'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h5 class="nav-footer-title">',
-        'after_title'   => '</h5>',
-    ));
-
-    register_sidebar(array(
-        'name'          => esc_html__('SwayPro Finder Right', 'wp-bootstrap-4'),
-        'id'            => 'sidebar-swaypro-3',
-        'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
-        'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h5 class="nav-footer-title">',
-        'after_title'   => '</h5>',
-    ));
+    //register_sidebar(array(
+    //    'name'          => esc_html__('SwayPro Finder Left', 'wp-bootstrap-4'),
+    //    'id'            => 'sidebar-swaypro-1',
+    //    'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
+    //    'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+    //    'after_widget'  => '</section>',
+    //    'before_title'  => '<h5 class="nav-footer-title">',
+    //    'after_title'   => '</h5>',
+    //));
+    //register_sidebar(array(
+    //    'name'          => esc_html__('SwayPro Finder Middle', 'wp-bootstrap-4'),
+    //    'id'            => 'sidebar-swaypro-2',
+    //    'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
+    //    'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+    //    'after_widget'  => '</section>',
+    //    'before_title'  => '<h5 class="nav-footer-title">',
+    //    'after_title'   => '</h5>',
+    //));
+    //register_sidebar(array(
+    //    'name'          => esc_html__('SwayPro Finder Right', 'wp-bootstrap-4'),
+    //    'id'            => 'sidebar-swaypro-3',
+    //    'description'   => esc_html__('Add widgets here.', 'wp-bootstrap-4'),
+    //    'before_widget' => '<section id="%1$s" class="widget border-bottom %2$s">',
+    //    'after_widget'  => '</section>',
+    //    'before_title'  => '<h5 class="nav-footer-title">',
+    //    'after_title'   => '</h5>',
+    //));
 
 //BXW series sidebar section
     register_sidebar(array(
@@ -252,7 +251,7 @@ function wp_bootstrap_4_scripts() {
     wp_enqueue_style('blueox-style', get_stylesheet_uri(), array(), $ctime, false);
 
     $ctime_new = filemtime(get_template_directory() . '/assets/js/scripts.js');
-    wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/css/custom.css'); 
+    wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/css/custom.css');
 
     wp_enqueue_script('bootstrap-4-js', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'), 'v4.0.0', true);
     wp_enqueue_script('blazy', esc_url('https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js'), array('jquery'), '1.8.2', true);
