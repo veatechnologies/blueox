@@ -346,6 +346,7 @@
                                     },
                                     "choices": {
                                         "regular": "Regular (25% | 75%)",
+                                        "reverse": "Regular Reverse (75% | 25%)",
                                         "half": "Half (50% | 50%)",
                                         "whole": "Whole (100%, no image)"
                                     },
@@ -379,6 +380,13 @@
                                                 "field": "field_5e5311d506888",
                                                 "operator": "==",
                                                 "value": "half"
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                "field": "field_5e5311d506888",
+                                                "operator": "==",
+                                                "value": "reverse"
                                             }
                                         ]
                                     ],
@@ -1696,5 +1704,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1621012609
+    "modified": 1622650817
 }
