@@ -646,7 +646,7 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     height: 327px;
   }
   .home .general .general-img img {
-      width: 345px;
+      /* width: 345px; */
       height: 327px;
   }
   .copy-rgt-footer, .social-icons-bot {
