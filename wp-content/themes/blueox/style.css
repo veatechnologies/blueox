@@ -602,7 +602,7 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     height: 355px;
   }
   .home .general .general-img img {
-      width: 345px;
+      /* width: 345px; */
       height: 306px;
   }
 }
