@@ -1,6 +1,16 @@
 (function ($) {
     $(window).load(function () {
         /*
+         * Clear Button
+         */
+//        jQuery(document).on('click', '.product-search-filter-terms  div', function () {
+//            console.log("Click trigger");
+//            setTimeout(function () {
+//                console.log("Click trigger");
+//                jQuery(document).fnid('#baseplates').slideUp();
+//            }, 2000);
+//        });
+        /*
          * Hero Slider
          */
         jQuery(document).find('.hero').show();

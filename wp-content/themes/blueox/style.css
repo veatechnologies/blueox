@@ -597,12 +597,12 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
 
 @media(min-width: 1025px) {
   
-  .home .general .general-img {
+  .general .general-img {
     width: 322px !important;
     height: 355px;
   }
-  .home .general .general-img img {
-      /* width: 345px; */
+  .general .general-img img {
+      width: auto;
       height: 306px;
   }
 }
@@ -627,7 +627,7 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
   line-height: 29px;
 }
 
-.home .general {padding-top: 30px; padding-bottom: 30px;}
+.general {padding-top: 30px; padding-bottom: 30px;}
 
 /*Mobile responsive*/
 @media(max-width: 767px) {
@@ -641,12 +641,12 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     width: 297px !important;
     height: 207px;
   }
-  .home .general .general-img {
+  .general .general-img {
     width: 345px;
     height: 327px;
   }
-  .home .general .general-img img {
-      /* width: 345px; */
+  .general .general-img img {
+      width: auto;
       height: 327px;
   }
   .copy-rgt-footer, .social-icons-bot {
