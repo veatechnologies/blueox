@@ -3,6 +3,7 @@
  * Template Name: Services
  */
 get_header();
+$cat_products_title = get_field('product_listing_from_category_title');
 ?>
 <div class="contentBlock-wrapper">
     <div class="text-center titleBar">
@@ -26,7 +27,7 @@ get_header();
         }
         ?>
     </div>
-    <div class="contentBlock">
+    <div class="contentBlock pb-0">
         <?php the_field('middle_content'); ?>
     </div>
     <?php if (get_field('three_column_bottom_cta')): ?>
@@ -48,6 +49,7 @@ get_header();
             ?>
         </div>
     <?php endif; ?>
+    <?php /*
     <div class="vehicleWeight">
         <h2><?php the_field('vehicle_weight_block_title'); ?></h2>
         <div class="form">
@@ -59,11 +61,13 @@ get_header();
             <!--<button class="goBtn">Go.</button>-->
         </div>
     </div>
+    
     <div class="vehicleWeightText text-center">
         <?php the_field('vehicle_weight_block_text'); ?>
     </div>
+    
     <section id="swayproTop" class="baseplates mb-5 pb-5">
-        <?php /* ?>
+        
         <div class="container">
             <div class="row">
                 <?php if (is_active_sidebar('sidebar-swaypro-new')) { ?>
@@ -85,6 +89,7 @@ get_header();
           </div>
           </div>
           <?php */ ?>
+          <?php /*
         <div id="baseplates" class="container mt-1">
             <div class="row">
                 <div class="col-md-12">
@@ -97,9 +102,26 @@ get_header();
                     <?php echo do_shortcode('[woocommerce_product_filter_products columns="3" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]'); ?>
                 </div>
             </div>
-        </div>
+        </d iv>
+         
     </section>
-
+    */?>
+    <?php if ( !empty ( $cat_products_title ) ) { ?>
+            <div class="contentBlock reduce-top">
+                <h2><?php echo $cat_products_title; ?></h2>
+            </div>
+    <?php } ?>
+    <section id="swayproTop" class="baseplates mb-5 pb-5">
+        <div id="baseplates" class="container mt-1">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php //echo do_shortcode('[woocommerce_product_filter_context taxonomy="product_cat" term="swaypro"]'); ?>
+                    <?php echo do_shortcode('[woocommerce_product_filter_products taxonomy="product_cat" columns="3" show_pagination="false" orderby="name" show_catalog_ordering="no" show_result_count="false"]'); ?>
+                </div>
+            </div>
+        </div>
+         
+    </section>
     <div class="contentBlock reduce-top">
         <?php the_field('bottom_content'); ?>
     </div>

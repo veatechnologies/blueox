@@ -57,5 +57,31 @@ jQuery.event.special.touchmove = {
     $(document).on('apply-selectize', function () {
         $('#baseplates').one().stop().slideDown(300);
     });
+    
+    jQuery(document).on('change','.hole_selection',function(){
+        var selected_val = jQuery(this).val();
+        var page_cat = jQuery(document).find('.page_cat').val();
+        jQuery.ajax({
+            url: BLUEOXJS.ajax_url,
+            method : 'post',
+            data : {
+                action      : 'refresh_product_content',
+                selected_val   : selected_val,
+                page_cat : page_cat
+            },
+            beforeSend: function() {
+                jQuery(document).find('body').css('opacity','0.1');
+            },
+            success: function (data) {
+                jQuery(document).find('body').css('opacity','1');
+                if ( data ) {
+                    jQuery(document).find('.custom_product_list').html(data);
+                }
+            },
+            error: function(xhr) { // if error occured
+                jQuery(document).find('body').css('opacity','1');
+            }
+        });
+    });
 
 })(jQuery);

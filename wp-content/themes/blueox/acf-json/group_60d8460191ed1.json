@@ -1,11 +1,11 @@
 {
-    "key": "group_6020523521495",
-    "title": "Product Specifications",
+    "key": "group_60d8460191ed1",
+    "title": "Product Page",
     "fields": [
         {
-            "key": "field_60d86753f3358",
-            "label": "Product Tagline",
-            "name": "product_tagline",
+            "key": "field_60d846019b7e8",
+            "label": "Page Title",
+            "name": "page_title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,9 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_60205243eda0f",
-            "label": "Part Number",
-            "name": "part_number",
+            "key": "field_60d846019b827",
+            "label": "SubTitle",
+            "name": "subtitle",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -41,15 +41,75 @@
             "maxlength": ""
         },
         {
-            "key": "field_6020539ce955a",
-            "label": "Fit Years",
-            "name": "fit_years",
-            "type": "text",
+            "key": "field_60d8466f91a52",
+            "label": "Main Product",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60d85db8fe571",
+            "label": "Select Main Product",
+            "name": "blueoxdev_select_main_product",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "product"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": 1,
+            "return_format": "id"
+        },
+        {
+            "key": "field_60d848392d6c8",
+            "label": "Related Product",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60d848512d6c9",
+            "label": "Related Product Title",
+            "name": "related_product_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -60,188 +120,97 @@
             "maxlength": ""
         },
         {
-            "key": "field_602053a7e955b",
-            "label": "Tab Type",
-            "name": "tab_type",
-            "type": "text",
+            "key": "field_60d85df9fe572",
+            "label": "Other Products",
+            "name": "blueoxdev_other_products",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "post_type": [
+                "product"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "id"
         },
         {
-            "key": "field_602053bbe955c",
-            "label": "Notes",
-            "name": "notes",
-            "type": "link",
+            "key": "field_60d8498003476",
+            "label": "Local Dealer Block",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_602053c5e955d",
-            "label": "IR",
-            "name": "ir",
-            "type": "text",
+            "key": "field_60d84601b90de",
+            "label": "Local Dealer Block Image",
+            "name": "local_dealer_block_image",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602053cfe955e",
-            "label": "Wiring Kit Options",
-            "name": "wiring_kit_options",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_602053d9e955f",
-            "label": "Fuse Bypass Switch",
-            "name": "fuse_bypass_switch",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_602053e7e9560",
-            "label": "Weight",
-            "name": "weight",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602053f1e9561",
-            "label": "Tab Height",
-            "name": "tab_height",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_602053fae9562",
-            "label": "Tab Width",
-            "name": "tab_width",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_60205408e9563",
-            "label": "Instructions",
-            "name": "instructions",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
+            "return_format": "url",
+            "preview_size": "medium",
             "library": "all",
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
+            "max_width": "",
+            "max_height": "",
             "max_size": "",
             "mime_types": ""
         },
         {
-            "key": "field_602058977b957",
-            "label": "Link to Warranty",
-            "name": "link_to_warranty",
-            "type": "file",
+            "key": "field_60d84601baba3",
+            "label": "Local Dealer Block Image Alt",
+            "name": "local_dealer_block_image_alt",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_602058a87b958",
-            "label": "Literature",
-            "name": "literature",
-            "type": "file",
+            "key": "field_60d84601bc58e",
+            "label": "Local Dealer Block Title",
+            "name": "local_dealer_block_title",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -250,29 +219,86 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60d84601be1d6",
+            "label": "Local Dealer Block description",
+            "name": "local_dealer_block_description",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60d84601c001c",
+            "label": "Local Dealer Block Button Text",
+            "name": "local_dealer_block_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60d84601c1e90",
+            "label": "Local Dealer Block Button Link",
+            "name": "local_dealer_block_button_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page",
                 "operator": "==",
-                "value": "product"
+                "value": "18318"
             }
         ]
     ],
-    "menu_order": 100,
+    "menu_order": 0,
     "position": "normal",
     "style": "default",
-    "label_placement": "left",
+    "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1626018392
+    "modified": 1624795244
 }

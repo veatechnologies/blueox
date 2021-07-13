@@ -226,6 +226,25 @@
             ]
         },
         {
+            "key": "field_60eae88added8",
+            "label": "Product Listing From Category Title",
+            "name": "product_listing_from_category_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_60a01b31465f5",
             "label": "Vehicle Weight Block Title",
             "name": "vehicle_weight_block_title",
@@ -442,5 +461,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1621127112
+    "modified": 1626008400
 }

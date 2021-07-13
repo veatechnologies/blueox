@@ -330,7 +330,7 @@ function my_acf_json_save_point($path) {
     return $path;
 }
 // Jobs CUSTOM POST TYPE
-add_action('init', 'register_jobs');
+add_action('init', 'register_jobs',100);
 function register_jobs() {
     $args = array(
         'label'              => __('Jobs'),
@@ -356,6 +356,36 @@ function register_jobs() {
     );
 
     register_post_type('jobs', $args);
+    
+    // Add new taxonomy for Hole Shank, make it hierarchical (like categories)
+    $labels = array(
+                    'name'              => _x( 'Hole Shank', 'taxonomy general name', 'blueoxdev'),
+                    'singular_name'     => _x( 'Hole Shank', 'taxonomy singular name','blueoxdev' ),
+                    'search_items'      => __( 'Search Hole Shank','blueoxdev' ),
+                    'all_items'         => __( 'All Hole Shanks','blueoxdev' ),
+                    'parent_item'       => __( 'Parent Hole Shank','blueoxdev' ),
+                    'parent_item_colon' => __( 'Parent Hole Shank:','blueoxdev' ),
+                    'edit_item'         => __( 'Edit Hole Shank' ,'blueoxdev'), 
+                    'update_item'       => __( 'Update Hole Shank' ,'blueoxdev'),
+                    'add_new_item'      => __( 'Add New Hole Shank' ,'blueoxdev'),
+                    'new_item_name'     => __( 'New Hole Shank Name' ,'blueoxdev'),
+                    'menu_name'         => __( 'Hole Shanks' ,'blueoxdev')
+                );
+
+    $args1 = array(
+                    'labels'            => $labels,
+                    'hierarchical'               => true,
+                    'public'                     => true,
+                    'show_ui'                    => true,
+                    'show_admin_column'          => true,
+                    'show_in_nav_menus'          => true,
+                    'show_tagcloud'              => true,
+                    'query_var'                 =>  true,
+                    'rewrite'           => array( 'slug'=> 'hole_shanks' )
+                );
+	
+    register_taxonomy( 'hole_shanks', 'product', $args1 );
+    register_taxonomy_for_object_type( 'hole_shanks', 'product' );
 }
 // Automagically add Jobs to Jobs menu
 add_filter('wp_get_nav_menu_items', 'cpt_custom_menu', 10, 3);
@@ -408,6 +438,9 @@ function blueox_scrpits() {
     wp_enqueue_style('ktstyle_slider', get_template_directory_uri() . '/assets/css/kt_slick.css', false, rand(1, 5), 'all');
     wp_enqueue_style('ktstyle', get_template_directory_uri() . '/assets/css/kt_style.css', false, rand(1, 5), 'all');
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', false, time(), 'all');
+    wp_localize_script( 'custom-js', 'BLUEOXJS', array(
+        'ajax_url' => admin_url('admin-ajax.php', ( is_ssl() ? 'https' : 'http')),
+    ));
 }
 add_action('wp_enqueue_scripts', 'blueox_scrpits');
 
@@ -921,3 +954,73 @@ add_shortcode('job_opening_list', function($atts, $shortcode_content, $tag) {
     <?php
     return ob_get_clean();
 });
+
+/*Add Menu name in acf select*/
+// function acf_menu_field_choices1 ($field) {
+//    $field[ 'choices' ] = array ();
+//    $choices          = get_terms( array( 'taxonomy' => 'product', 'parent' => 0, 'hide_empty' => 0, 'include' => array(420,421,422) ) );
+//    if ( is_array ( $choices ) ) {
+//
+//        foreach ( $choices as $choice ) {
+//            $field[ 'choices' ][ $choice->term_id ] = $choice->name;
+//        }
+//    }
+//    return $field;
+//}
+
+//add_filter ( 'acf/load_field/name=hole_shanks', 'acf_menu_field_choices' );
+//add_filter ( 'acf/fields/taxonomy/query/key=field_60eb0538952f6', 'acf_menu_field_choices1',100, 3 );
+
+function refresh_product_content(){
+    $main_cat = $_POST['page_cat'];
+    $hole_cat = $_POST['selected_val'];
+    $args   = array (
+        "post_type"      => 'product',
+        "posts_per_page" => -1,
+        "post_status"    => 'publish',
+        'tax_query'      => array (
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'term_id',
+                'terms' => $main_cat
+            ),
+            array(
+                'taxonomy' => 'hole_shanks',
+                'field' => 'term_id',
+                'terms' => $hole_cat
+            ),
+        ),
+    );
+    $products = new WP_Query ( $args );
+    if ( $products->have_posts() ) {
+        ?>
+        <div class="woocommerce columns-3">
+            <div class="woocommerce-product-search-filter-products-prefix">
+                <p class="woocommerce-result-count">Showing all <?php echo $products->post_count; ?> results</p>
+            </div>
+            <ul class="products columns-3">
+                <?php
+                while( $products->have_posts() ) {
+                    $products->the_post();
+                    wc_get_template_part( 'content', 'product' );
+                }
+                wp_reset_postdata();
+                wp_reset_query();
+                ?>
+            </ul>
+        </div>
+        <?php
+    } else {
+        echo "No post found!!";
+    }
+    
+    if ( empty( $hole_cat ) ) {
+        echo do_shortcode('[woocommerce_product_filter_products columns="3" taxonomy="product_cat" term="swaypro" per_page="9" show_pagination="true" orderby="name" show_catalog_ordering="no" show_result_count="yes"]');
+    }
+    if ( wp_doing_ajax() ) {
+        exit();
+    }
+}
+add_action('wp_ajax_refresh_product_content', 'refresh_product_content');
+add_action('wp_ajax_nopriv_refresh_product_content', 'refresh_product_content');

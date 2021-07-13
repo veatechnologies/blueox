@@ -47,7 +47,7 @@
 			<div class="row">
 
 
-				<div class="col-12 col-md-2 pl-2">
+				<div class="col-12 col-md-2 pl-2 center-logo-header">
 
 					<?php the_custom_logo(); ?>
 
@@ -55,7 +55,7 @@
 
 				<div class="col-12 col-md-10 d-flex flex-row justify-content-start align-middle">
 
-					<div class="w-100 ml-5">
+					<div class="w-100 ml-5 navigation-header">
 
 						<?php if ( has_nav_menu( 'menu-top' ) ) { ?>
 							<div class="container">
